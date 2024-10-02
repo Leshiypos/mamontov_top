@@ -1,0 +1,539 @@
+@media screen and (max-width: 1450px) {
+    .menu ul {
+        gap: 16px;
+    }
+    .menu ul a {
+        font-size: 14px;
+    }
+    .phone {
+        font-size: 20px;
+        margin: 0 16px;
+    }
+    .callback {
+        padding: 18px 16px;
+    }
+    .header {
+        padding: 100px 55px 0;
+    }
+    h1 {
+        font-size: 80px;
+        line-height: 96px;
+    }
+    h3 {
+        font-size: 40px;
+    }
+    .pad40 {
+        padding: 36px;
+    }
+    .chars {
+        max-width: 180px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 31px;
+    }
+    .aboutCase .wrap img {
+        width: 47%;
+    }
+    .footer .col:last-child {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .statisticsSlider_title {
+        margin-bottom: auto;
+    }
+    .menu {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        overflow: hidden;
+    }
+    .burger {
+        margin-right: auto;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+    .burger span {
+        background: var(--color-1);
+        height: 2px;
+        transition: ease .3s all;
+    }
+    .burger span:first-child {
+        width: 36px;
+    }
+    .burger span:last-child {
+        width: 25px;
+    }
+    .footer .mail {
+        font-size: 23px;
+    }
+    .footer .col:last-child {
+        width: 39%;
+    }
+    .topPanel {
+        position: relative;
+    }
+    .menu ul a {
+        font-size: 18px;
+    }
+    .burger.active span {
+        width: 36px!important;
+    }
+    .burger.active span:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .burger.active span:last-child {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .menu ul.dropdown a {
+        font-size: 14px;
+    }
+    .menu.active {
+        opacity: 1;
+        visibility: unset;
+        width: auto;
+        top: 125%;
+        position: absolute;
+        background: #fff;
+        box-shadow: var(--shadow-1);
+        border-radius: var(--radius-1);
+        padding: 16px;
+        z-index: 3;
+    }
+    .menu ul {
+        flex-direction: column;
+        min-width: 290px;
+    }
+    .dropdownWrap {
+        position: unset;
+        padding: 0;
+    }
+    .menu ul.dropdown {
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 20px 0;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .footer {
+        position: relative;
+        padding: 60px 55px 20px
+    }
+    .footer .mail {
+        font-size: 23px;
+        margin-left: auto;
+    }
+    .topButton {
+        position: absolute;
+        bottom: 20px;
+        left: 55px;
+    }
+    .policy {
+        margin-top: 120px;
+    }
+}
+@media screen and (max-width: 993px) {
+    .pad60 {
+        padding: 24px;
+    }
+    .swiperButtons {
+        display: flex;
+    }
+    .topPanel {
+        padding: 16px;
+    }
+    .logo {
+        margin-right: 25px;
+        width: 114px;
+        display: block;
+    }
+    .btnForm,
+    .city a {
+        font-size: 16px;
+    }
+    .logo img {
+        width: 100%;
+    }
+    .phone {
+        font-size: 16px;
+    }
+    .topPanelWrap,
+    .pageCase,
+    .sectionForm,
+    .footer,
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .header {
+        padding-top: 60px;
+    }
+    h1 {
+        font-size: 60px;
+        line-height: 71px;
+    }
+    
+    .statisticsSlider .swiper-slide {
+        flex-shrink: 0;
+    }
+    .flagPage {
+        font-size: 16px;
+    }
+    .linkPage {
+        font-size: 18px;
+    }
+    .descriptionPage {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 40px;
+        line-height: 49px;
+    }
+    .statisticsSlider {
+        margin: 0;
+    }
+    .pageCase {
+        margin: 30px auto 0;
+    }
+    .statisticsSlider .swiper-wrapper {
+        gap: 0;
+    }
+    .statisticsTotal {
+        flex-wrap: wrap;
+        row-gap: 30px;
+    }
+    .statisticsTotal_card {
+        width: 50%;
+    }
+    section {
+        margin: 60px 0;
+    }
+    h3 {
+        font-size: 36px;
+    }
+    .sectionFormWrap {
+        display: flex;
+        flex-direction: column;
+    }
+    .sectionForm .form {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 18px;
+    }
+    .footer .mail {
+        font-size: 20px;
+        margin-left: auto;
+    }
+    li {
+        font-size: 22px;
+    }
+    .sectionForm input,
+    .sectionForm input::placeholder {
+        font-size: 16px;
+    }
+    .form label p {
+        width: 90%;
+        font-size: 14px;
+    }
+    .btnForm {
+        width: 100%;
+        justify-content: center;
+    }
+    .footer .col:last-child {
+        width: auto;
+    }
+    .footer .title {
+        font-size: 14px;
+    }
+    .footer .contacts a {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .footerWrap {
+        gap: 27px;
+    }
+    .topButton {
+        left: 15px;
+    }
+    .pad40 {
+        padding: 24px;
+    }
+    .statisticsSlider .swiper-slide {
+        gap: 20px;
+    }
+    .statisticsSlider_title {
+        margin-bottom: 30px;
+    }
+    .chars {
+        max-width: 245px;
+    }
+    .aboutCaseHeader .title {
+        margin-bottom: 21px;
+    }
+    .aboutCase .title {
+        margin-bottom: 31px;
+    }
+    .aboutCase ul {
+        margin-bottom: 25px;
+    }
+    .aboutCase p {
+        font-size: 16px;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+    .aboutCase img {
+        margin: 25px 0;
+    }
+    .aboutCase ol li {
+        margin-left: 23px;
+        font-size: 16px;
+    }
+    .aboutCaseTotal .title {
+        margin-bottom: 27px;
+    }
+    .sectionForm {
+        padding-top: 35px;
+        padding-bottom: 30px;
+    }
+    .sectionForm .title {
+        max-width: 340px;
+        margin-bottom: 0;
+    }
+    .sectionForm input {
+        font-size: 14px;
+        padding: 2px 0 11px 0;
+    }
+    .footer {
+        padding-top: 30px;
+        padding-bottom: 75px;
+    }
+    .footer .logo {
+        width: 134px;
+        margin-bottom: 19px;
+    }
+    .footerWrap .col:first-child {
+        width: 100%;
+    }
+    .footer .contacts {
+        gap: 8px;
+    }
+    .policy {
+        font-size: 14px;
+        position: absolute;
+        bottom: 35px;
+        right: 15px;
+    }
+    .topButton {
+        bottom: 35px;
+    }
+    .aboutCase .wrap {
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footerWrap {
+        flex-wrap: wrap;
+    }
+    .footerWrap .col:first-child {
+        width: auto;
+    }
+    .city,
+    .phone,
+    .callback {
+        display: none;
+    }
+    .burger {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .menu.active {
+        right: 0;
+    }
+    
+    .menu .city,
+    .menu .phone,
+    .menu .callback {
+        display: flex;
+    }
+    .menu .phone {
+        margin: 18px 0;
+    }
+    .menu .city {
+        margin-top: 42px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .menu.active {
+        width: 100%;
+    }
+    .logo {
+        width: 89px;
+    }
+    h1 {
+        font-size: 32px;
+        line-height: 41px;
+    }
+    .statisticsTotal_card .name {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .descriptionPage, 
+    .statistics_chartsData,   
+    .linkPage,
+    .statistics_data span,
+    .authorDate .position,
+    li {
+        font-size: 16px;
+    }
+    .statisticsTotal_card .about,
+    .statistics_data {
+        font-size: 18px;
+    }
+    .authorDate .name {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 28px;
+    }
+    .sectionForm .title {
+        font-size: 32px;
+    }
+    .pad60 {
+        padding: 16px;
+    }
+    .swiperButtons {
+        display: none;
+    }
+    .statisticsSlider .swiper-wrapper {
+        gap: 24px;
+        flex-direction: column;
+    }
+    .btnForm {
+        padding: 20px;
+    }
+    .chars {
+        max-width: 162px;
+        gap: 20px;
+    }
+    .statisticsSlider_title {
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+    .statisticsSlider .swiper-slide {
+        gap: 14px;
+    }
+    .statistics_data {
+        gap: 12px;
+    }
+    .statisticsTotal_card {
+        width: 100%;
+    }
+    .footerWrap {
+        flex-direction: column;
+    }
+    .policy {
+        position: unset;
+        margin: 0 0 17px 0;
+        order: -1;
+        right: 0;
+        text-align: left;
+    }
+    .footer .mail {
+        font-size: 24px;
+        margin-left: 0;
+    }
+    .descriptionPage  {
+        margin: 19px 0;
+    }
+    .pageCase {
+        margin: 60px auto 0;
+    }
+    .pad40 {
+        padding: 16px;
+    }
+    .statisticsTotal {
+        row-gap: 19px;
+    }
+    h3 {
+        margin-bottom: 20px;
+    }
+    .pageCase ul {
+        gap: 20px;
+    }
+    .author .icon {
+        width: 49px;
+        height: 49px;
+    }
+    .authorDate {
+        width: 74%;
+    }
+    .aboutCase .title {
+        margin-bottom: 18px;
+    }
+    .aboutCase p {
+        font-size: 14px;
+    }
+    .aboutCase ul {
+        margin-bottom: 20px;
+    }
+    .aboutCase ol li {
+        font-size: 14px;
+    }
+    .sectionForm .form {
+        padding-top: 0;
+    }
+    .form label p {
+        font-size: 12px;
+    }
+    .footer .title {
+        font-size: 18px;
+    }
+    .footerWrap {
+        gap: 18px;
+    }
+    .footer .contacts a {
+        font-size: 16px;
+    }
+    .footer .contacts {
+        gap: 7px;
+    }
+    .slider .slick-arrow img {
+        height: auto;
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+    .slider .slick-arrow::before {
+        display: none;
+    }
+    .slider .slick-arrow {
+        width: 45px;
+        height: 45px;
+        border: 1px solid var(--color-1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        z-index: 1;
+        bottom: 0;
+        top: auto;
+    }
+    .slider .slick-prev.slick-arrow {
+        left: 0;
+    }
+    .slider .slick-next.slick-arrow {
+        right: auto;
+        left: 60px;
+    }
+    .slider {
+        padding-bottom: 50px;
+    }
+}

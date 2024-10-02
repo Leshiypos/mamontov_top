@@ -1,0 +1,12 @@
+{
+    "apiVersion": 2,
+    "name": "mamontov/my-container-block",
+    "title": "My Container Block",
+    "category": "layout",
+    "icon": "smiley",
+    "description": "A custom container block that can hold other blocks.",
+    "supports": {
+        "html": false
+    },
+    "editorScript": "file:./index.js"
+}
