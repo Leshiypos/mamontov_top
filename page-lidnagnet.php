@@ -667,5 +667,6 @@ Template Post Type: page
 		?>
 
 		</main>
-
+		<!-- Всплывающая форма ПОДАРОК -->
+		<?php get_template_part('templates/pop-up-present'); ?>
 		<?php get_footer(); ?>
