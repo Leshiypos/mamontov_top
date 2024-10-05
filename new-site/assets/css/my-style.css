@@ -1165,7 +1165,7 @@ h2 span.empty_link{
 .pop_up_present{
 	position: fixed;
 	z-index: 4900;
-	bottom: 0;
+	bottom: 80px;
 	right: 0;
 	max-width: 1087px;
 	background-color: rgba(61, 61, 61, 1);
@@ -1213,15 +1213,30 @@ h2 span.empty_link{
 	}
 	.pop_up_present .form_block .wrap{
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 27px;
 	}
 	.pop_up_present form{
 		display: flex;
+		flex-wrap: wrap;
 		align-items: end;
 		gap: 27px;
 		flex: 2;
 	}
+		.pop_up_present form .btnForm{
+			background-color: rgba(215, 59, 75, 1);
+			margin: 0;
+
+		}
+		.pop_up_present form [name="tel-number"]{
+			opacity: .5;
+			color: rgba(255, 255, 255, 1);
+			font-size: 20px;
+		}
+			.pop_up_present form [name="tel-number"]::placeholder{
+				color: rgba(255, 255, 255, 1);
+			}
 		.pop_up_present form>div, .pop_up_present form>input{
 			flex:1;
 		}
@@ -1230,11 +1245,30 @@ h2 span.empty_link{
 		font-size: 10px;
 		font-weight: 200;
 		line-height: 1.5;
+		opacity: .5;
 	}
 		.pop_up_present .policy_conf p{
 			margin: 0;
-			padding-top: 10px;
+			max-width: 280px;
 		}
+		.pop_up_present .policy_conf a{
+			color: rgba(255, 255, 255, 1);
+			text-decoration: underline;
+		}
+.pop_up_present .social_link{
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	margin-left: auto;
+	gap: 20px;
+	opacity: .5;
+	margin-top: 11px;
+}
+	.pop_up_present .social_link p{
+		margin: 0;
+		font-weight: 200;
+		font-size: 16px;
+	}
 
 
 
