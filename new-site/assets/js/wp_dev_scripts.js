@@ -4,12 +4,15 @@ $(document).ready(function(){
 	$('[name=title_page]').val(document.querySelector('h1').innerHTML);
 
 // Всплывающее окно на странице
-let hieght_doc = document.documentElement.offsetHeight/2; //Определяем высоту документа (величина на которую нужно прокруть до появления элемента)
-window.addEventListener('scroll', function() {
-			if (-(document.documentElement.getBoundingClientRect().top)>hieght_doc){
-				if(!($('#vision').hasClass('true'))){
-					$('#vision').addClass('true');
-				}
-			}
-	});
+// let hieght_doc = document.documentElement.offsetHeight/2; //Определяем высоту документа (величина на которую нужно прокруть до появления элемента)
+// window.addEventListener('scroll', function() {
+// 			if (-(document.documentElement.getBoundingClientRect().top)>hieght_doc){
+// 				if(!($('#vision').hasClass('true'))){
+// 					$('#vision').addClass('true');
+// 				}
+// 			}
+// 	});
+
+
+
 });
