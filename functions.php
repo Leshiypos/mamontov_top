@@ -618,6 +618,103 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 	}
  }
 
+	 // Вместо "Подарок" необходимо указать название вашей контактной формы
+	 if ('Подарок' == $title ) {
+		$submission = WPCF7_Submission::get_instance();
+		$posted_data = $submission->get_posted_data();
+		// Далее перехватываем введенные данные в полях Contact Form 7:
+		// 3. Перехватываем поле [your-message]
+		$phone = $posted_data['tel-number']; 
+		// 4. Перехватываем поле [your-message]
+		$utm = $posted_data['utm_campaign']; 
+		$clientId = $posted_data['metka_clientId']; 
+		$clientGaId = $posted_data['ga_clientId'];
+	
+		$url_page = $posted_data['url_page']; //Отправляет URL страницы, с которой отправлена форма 
+		$title_page = $posted_data['title_page']; //Отправляет Заголовок страницы, с которой отправлена форма  
+	
+		
+		$utm_source = $posted_data['utm_source'];
+		$utm_medium = $posted_data['utm_medium'];
+		$utm_compaign = $posted_data['utm_compaign'];
+		$utm_content = $posted_data['utm_content'];
+		$utm_term = $posted_data['utm_term'];
+	
+		// $utm_source = 'test';
+		// $utm_medium = 'test';
+		// $utm_compaign = 'test';
+		// $utm_content = 'test';
+		// $utm_term = 'test';
+	
+	
+		$comments = '
+		адрес страницы отправления: '.$url_page.';
+		название страницы: '.$title_page.';
+		utm_source: '.$utm_source.';
+		utm_medium: '.$utm_medium.';
+		utm_compaign: '.$utm_compaign.';
+		utm_content: '.$utm_content.';
+		utm_term: '.$utm_term.';
+	
+		_ga
+		'.$clientGaId.'
+	
+		metrika_client_id
+		'.$clientId.'
+	
+	   ';
+		// Формируем параметры для создания лида в переменной $postData = array
+		$postData = array(
+		   // Устанавливаем название для заголовка лида
+		   'TITLE' => 'Лид с сайта mamontov.top - отправка из формы "Подарок"',
+		   'CURRENCY_ID' => "RUB",
+		   'UTM_SOURCE' => $utm_source,
+		   'UTM_MEDIUM' => $utm_medium,
+		   'UTM_CAMPAIGN' => $utm_compaign,
+		   'UTM_CONTENT' => $utm_content,
+		   'UTM_TERM' => $utm_term,
+		   'UF_CRM_1720192398885' => $utm,
+		   'UF_CRM_1720711539228' => $clientGaId,
+		   'UTM' => $utm,
+		   'UF_CRM_1690190628' => $clientId,
+		   'SOURCE_ID' => 'WEB',
+		   'PHONE_WORK' => $phone,
+		   'COMMENTS' => $comments,
+		);
+		// Передаем данные из Contact Form 7 в Bitrix24
+		if (defined('CRM_AUTH')) {
+		   $postData['AUTH'] = CRM_AUTH;
+		} else {
+		   $postData['LOGIN'] = CRM_LOGIN;
+		   $postData['PASSWORD'] = CRM_PASSWORD;
+		}
+		$fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+		if ($fp) {
+		   $strPostData = '';
+		   foreach ($postData as $key => $value)
+			  $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+		   $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+		   $str .= "Host: ".CRM_HOST."\r\n";
+		   $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+		   $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+		   $str .= "Connection: close\r\n\r\n";
+		   $str .= $strPostData;
+		   fwrite($fp, $str);
+		   $result = '';
+		   while (!feof($fp))
+		   {
+			  $result .= fgets($fp, 128);
+		   }
+		   fclose($fp);
+		   $response = explode("\r\n\r\n", $result);
+		   $output = '<pre>'.print_r($response[1], 1).'</pre>';
+	
+	
+		} else {
+		   echo 'Connection Failed! '.$errstr.' ('.$errno.')';
+		}
+	 }
+
 }
 
 

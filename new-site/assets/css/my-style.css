@@ -1164,8 +1164,8 @@ h2 span.empty_link{
 /* Всплывающее окно ПОДАРОК -- /hello-elementor/templates/pop-up-present.php*/
 .pop_up_present{
 	position: fixed;
-	z-index: 4900;
-	bottom: 80px;
+	z-index: 5001;
+	bottom: 0;
 	right: 0;
 	max-width: 1087px;
 	background-color: rgba(61, 61, 61, 1);
@@ -1228,13 +1228,27 @@ h2 span.empty_link{
 		align-items: center;
 		gap: 27px;
 	}
+	.pop_up_present .wrap>.wpcf7 {
+		flex: 2;
+	}
 	.pop_up_present form{
 		display: flex;
+		position: relative;
 		flex-wrap: wrap;
 		align-items: end;
 		gap: 27px;
-		flex: 2;
+		
 	}
+		.pop_up_present form .wpcf7-response-output{
+			display: none;
+		}
+		.pop_up_present form p{
+			margin: 0;
+			padding: 0;
+		}
+		.pop_up_present form .wpcf7-spinner{
+			display: none;
+		}
 		.pop_up_present form .btnForm{
 			background-color: rgba(215, 59, 75, 1);
 			margin: 0;
@@ -1290,7 +1304,15 @@ h2 span.empty_link{
 	.pop_up_present .social_link img:hover{
 		opacity: 1;
 	}
-
+	.pop_up_present .wpcf7-not-valid-tip{
+		position: absolute;
+		bottom: -37px;
+		background-color: rgb(255 255 255);
+		width: max-content;
+		border-radius:5px;
+		padding: 3px;
+		font-size: calc(10px + 4 * (100vw/1980));
+	}
 	@media screen and (max-width : 850px){
 		.pop_up_present form{
 			display: flex;
@@ -1299,6 +1321,15 @@ h2 span.empty_link{
 		.pop_up_present{
 			padding: 20px;
 			border-radius: 10px;
+		}
+		.pop_up_present .form_block .wrap{
+			flex-direction: column;
+		}
+		.pop_up_present form p{
+			width: 100%;
+		}
+		.pop_up_present .policy_conf p {
+			max-width: 100%;
 		}
 	}
 	@media screen and (max-width : 750px){
@@ -1310,6 +1341,21 @@ h2 span.empty_link{
 			right: 0;
 			top: calc(-100px - 130 * (100vw /750));
 			width: calc( 100px + 200 * (100vw / 750));
+		}
+		.pop_up_present .wpcf7-not-valid-tip{
+			bottom: -24px;
+		}
+		.pop_up_present form [name="tel-number"]{
+			text-align: center;
+		}
+	}
+
+	@media screen and ( max-width: 450px){
+		.pop_up_present{
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 0;
 		}
 	}
 
