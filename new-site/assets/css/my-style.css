@@ -755,12 +755,12 @@ h2 span.empty_link{
 /* Начало Секция Отзывы  */
 .pageCase__our-review.client{
 	background-color: rgba(45, 44, 44, 1);
-	padding: 32px 20px;
+	padding: 32px 55px;
 	margin-bottom: -65px;
 	padding-bottom: 45px;
 }	
 .link_rev{
-	max-width: 1122px;
+	max-width: 1233px;
 	text-align: right;
 	margin-bottom: 35px;
 }
@@ -1359,3 +1359,99 @@ h2 span.empty_link{
 		}
 	}
 
+	/* Секция Все задачи all_services_section.php */
+
+	section.all_services_section{
+		padding: 140px 100px 60px 100px;
+		background-color: rgba(45, 44, 44, 1);
+		color: rgba(255, 255, 255, 1);
+		margin-top: 65px;
+		margin-bottom: -65px;
+	}
+		.all_services_section .container{
+			max-width: 100%;
+			margin: 0 auto;
+		}
+		.all_services_section h2{
+			font-size: calc(40px + 60*(100vw/1920) );
+		}
+		.title_section{
+			font-size: 100px;
+			font-weight: 600;
+		}
+		.all_services_swiper{
+			width: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.all_services_section .cart_wrap{
+			background-color: rgba(250, 250, 250, 1);
+			border-radius: 40px;
+			max-width: 500px;
+			padding: 40px;
+			color: rgba(255, 255, 255, 1);
+		}
+			.cart_wrap h3{
+				font-size: calc(26px + 10*(100vw/1920) );
+				font-weight: 600;
+				color: rgb(0, 0, 0);
+			}
+			.cart_wrap.white h3{
+				color: rgb(255, 255, 255);
+			}
+			.cart_wrap li{
+				font-size: calc(16px + 4*(100vw/1920) );
+				list-style: none;
+				margin-top: calc(10px + 5*(100vw/1920) ) 
+			}
+			.swiper-wrapper a.opener__link {
+				overflow: visible;
+			}
+			.swiper-wrapper a.opener__link::before{
+				color: rgba(45, 44, 44, 1);
+			}
+			.swiper-wrapper a.opener__link{
+				color: rgba(45, 44, 44, 1);
+			}
+			.swiper-wrapper .white a.opener__link::before{
+				color: rgb(255, 255, 255);
+			}
+			.swiper-wrapper .white a.opener__link{
+				color: rgb(255, 255, 255);
+			}
+			.all_services_section .link_rev{
+				max-width: 100%;
+			}
+			.all_services_section .swiperWrapOurReview__btns{
+				margin-top: 60px;
+				margin-left: auto;
+				width: fit-content;
+			}
+			.all_services_section .swiperWrapOurReview__btns-mobile{
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+@media screen and (max-width: 1280px) {
+	section.all_services_section{
+		margin-bottom: 0;
+		padding: 32px 55px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	section.all_services_section{
+		margin-bottom: -65px;
+	}
+}
+@media screen and (max-width: 600px){
+
+	.all_services_section .cart_wrap{
+		max-width: 100%;
+	}
+}
+@media screen and (max-width: 993px) {
+    section.all_services_section, .pageCase__our-review.client{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

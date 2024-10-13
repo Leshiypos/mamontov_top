@@ -470,6 +470,30 @@ function ready() {
           prevEl: ".btn-prev__facts-case",
         },
       });
+      let swiperAllServicesSection = new Swiper(".all_services_swiper", {
+        // Настройки слайдера
+        slidesPerView: 3,
+        loop: true,
+        spaceBetween: 41,
+		breakpoints: {
+			300: { 
+				slidesPerView: 1,
+				centeredSlides: true,
+			 },
+			600: {slidesPerView: 2},
+			1300: {
+			  slidesPerView: 3,
+			},
+		  },
+    
+        // Добавление кнопок навигации
+        navigation: {
+          nextEl: ".btn-next__all_serv_sec",
+          prevEl: ".btn-prev__all_serv_sec",
+        },
+      });
+	//   Слвйдер all_services_section
+
     
       const selects = document.querySelectorAll(".pageCase__questien-select");
       if(selects) {

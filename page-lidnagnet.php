@@ -652,7 +652,7 @@ Template Post Type: page
 								</div>
 							</div>
 							<img src="<?php echo $sect_img; ?>" alt=""  class="img_audit">
-						</div>
+						</div> 
 					</section>
 					<?php
 						}
@@ -665,7 +665,8 @@ Template Post Type: page
 			endwhile;
 		endif;
 		?>
-
+			<!-- Отзывы клиентов -->
+			<?php get_template_part('templates/layout/all_services_section'); ?>
 		</main>
 		<!-- Всплывающая форма ПОДАРОК -->
 		<?php get_template_part('templates/pop-up-present'); ?>

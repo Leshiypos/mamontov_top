@@ -23,6 +23,8 @@ get_template_part('templates/footer-main');
 ?>
 </div>
 <?php wp_footer(); ?>
+<div id="chatovkrkxjrjjsnaqlrovozomwmtp"></div>
+<script src="https://wahelp.ru/app/widget/js/widget_new.js" type="text/javascript" data="cd3e9f8d-43ca-4d93-8f52-4d0f54be" id="script_widget_chat"></script>
 <script src="https://unpkg.com/imask"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/new-site/assets/js/script.js"></script>
