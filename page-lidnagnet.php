@@ -665,8 +665,7 @@ Template Post Type: page
 			endwhile;
 		endif;
 		?>
-			<!-- Отзывы клиентов -->
-			<?php get_template_part('templates/layout/all_services_section'); ?>
+
 		</main>
 		<!-- Всплывающая форма ПОДАРОК -->
 		<?php get_template_part('templates/pop-up-present'); ?>

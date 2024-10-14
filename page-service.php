@@ -1049,6 +1049,8 @@ Template Post Type: post, page, product
 							?>
 		<!-- КОНЕЦ Форма -->
 		
+		<!-- Отзывы клиентов -->
+		<?php get_template_part('templates/layout/all_services_section'); ?>
 		<!-- КОНЕЦ Работы -->
 
 
