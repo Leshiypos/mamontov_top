@@ -62,19 +62,14 @@
                                    <?php	query_posts('cat='.$idTax ); // вместо "53" указываем идентификатор вашей рубрики.
                                             while (have_posts()) : the_post();?>
                                         <article class="case__tabs-content__article radius_1 dFlex">
-                                            <?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
-                                            <p class="case__tabs-content__text"><? echo get_the_date('j.n.Y', get_the_ID()) ; ?></p>
-                                            <h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
-                                            <p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
-                                            <div class="case__tabs-content__article-btn__block">
-                                                <a href="<?php the_permalink(); ?>" class="btn btn__order radius_1">Подробнее
-                                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white"
-                                                            stroke-linecap="round" stroke-linejoin="round">
-                                                        </path>
-                                                    </svg>
-                                                </a>
+											<a href="<?php the_permalink(); ?>">
+												<?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
+												<p class="case__tabs-content__text"><? echo get_the_date('j.n.Y', get_the_ID()) ; ?></p>
+												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
+												<p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
+												<div class="case__tabs-content__article-btn__block">
+											</a>
+											<a href="<?php the_permalink(); ?>" class="read_more">Читать далее</a>
                                             </div>
                                         </article>
                                         <?php

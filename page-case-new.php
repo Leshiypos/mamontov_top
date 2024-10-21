@@ -88,11 +88,12 @@ Template Post Type: page
                                             while (have_posts()) : the_post();?>
                                         <article class="case__tabs-content__article radius_1 dFlex">
 											<a href="<?php the_permalink(); ?>">
-                                            <?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
-                                            <p class="case__tabs-content__text"><? echo get_the_date('j.n.Y', get_the_ID()) ; ?></p>
-                                            <h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
-                                            <p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
-                                            <div class="case__tabs-content__article-btn__block">
+												<?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
+												<p class="case__tabs-content__text"><? echo get_the_date('j.n.Y', get_the_ID()) ; ?></p>
+												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
+												<p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
+												<div class="case__tabs-content__article-btn__block">
+											</a>
 												<a href="<?php the_permalink(); ?>" class="read_more">Читать кейс</a>
                                         </article>
                                         <?php
