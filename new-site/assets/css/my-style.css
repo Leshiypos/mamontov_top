@@ -826,6 +826,31 @@ h2 span.empty_link{
 .header__container.wrap__reviews{
 	position: relative;
 }
+.header__box.header__box-magnit.header__reviews{
+	padding-top: 0;
+}
+.header__reviews h1, 
+.header__reviews .header__text_main{
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+.header__reviews a {
+	margin-left: auto;
+	margin-right: auto;
+}
+.header__reviews p{
+	text-align: center;
+}
+
+.header.reviews{
+	padding-bottom: 40px;
+}
+
+
+.wrap__reviews .header__block {
+    padding-bottom: 40px;
+}
 	.head__review {
 		position: relative;
 		max-width: 550px;
@@ -853,7 +878,8 @@ h2 span.empty_link{
 		}
 .wrap_reviews_page{
 	background-color: rgba(235, 235, 235, 1);
-	padding: 80px 20px 100px 20px;
+	padding: 55px 20px 100px 20px;
+	margin-bottom: -80px;
 }
 	.reviews_page{
 		max-width: 1388px;
@@ -963,6 +989,7 @@ h2 span.empty_link{
 			background-size: 537px 432px;
 			background-position: 145%;
 		}
+		
 	}
 	@media screen and (max-width: 1000px){
 		.review_single_page img.firm_logo{
@@ -984,7 +1011,7 @@ h2 span.empty_link{
 			margin-bottom: 8px;
 		}
 		.wrap_reviews_page{
-			padding: 10px 0;
+			padding: 8px 0;
 		}
 		.review_single_page .review{
 			font-size: 14px;
@@ -1004,6 +1031,9 @@ h2 span.empty_link{
 		}
 		.wrap_btn a{
 			font-size: 16px;
+		}
+		.header.reviews {
+			padding-bottom: 10px;
 		}
 	}
 	.pageCase__questien-select__content p, .pageCase__questien-select__content li{

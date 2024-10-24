@@ -26,34 +26,9 @@ $header_post = get_posts(array(
 global $post;
 ?>
 
-<header class="header header__main header__box-magnit__main">
+<header class="header header__main header__box-magnit__main reviews">
 			<div class="header__container wrap__reviews">
 				<div class="header__box header__box-magnit header__reviews">
-
-				<!-- Начала поста -->
-				<?php 
-					foreach ($header_post as $post ){
-							setup_postdata( $post );
-
-							$description = get_field('description');
-				?>
-					<div class="head__review">
-						<h4><?php the_title(); ?></h4>
-						<p class="job_title"><?php echo $description; ?></p>
-						<div class="text_review">
-							<?php the_content(); ?>
-						</div>
-						<svg width="44" height="27" viewBox="0 0 44 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 0L43.6506 26.25H0.349365L22 0Z" fill="#F6F6F6"/></svg>
-					</div>
-				<?php
-					}
-					wp_reset_postdata(); // сбрасываем переменную $post
-				?>
-				<!-- Конец Поста -->
-
-
-					<img class="header__box-magnit__image" src="<?php echo get_template_directory_uri(); ?>/new-site/assets/images/reviews.png"
-						alt="Лид-магнита">
 					<div class="header__block">
 						<h1 class="titlePage m-0">
 								<?php echo get_the_title(); ?>

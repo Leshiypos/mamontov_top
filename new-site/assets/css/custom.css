@@ -5018,5 +5018,5 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 /* wp-dev  */
 /* Отзывы */
 .header__box-magnit.header__reviews {
-	background-image: url(../images/reviews.png);
+	background-image: none;
   }
