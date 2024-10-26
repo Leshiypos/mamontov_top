@@ -6,16 +6,18 @@ Template Post Type: page
 ?>
 
 <?php 
-	//ID родительской страницы
-	$parent_page_id = 6713;
+	global $wp_query;
+	$current_page_id = $wp_query->get_queried_object_id(); //id текущуй страницы
+	$parent_page_id = !empty(get_ancestors($current_page_id, 'page')[0]) ? get_ancestors($current_page_id, 'page')[0] :  $current_page_id; // Если имеет родителбску. страницу - получает ID родительской страницы, если нет родителя - получает ID текущей страницы
 
+	// определяем текущую страницу из значения параметра "page_nav"
+	$current_page = !empty( $_GET['page_nav'] ) ? $_GET['page_nav'] : 1;
 
 	//Получение полей ACF
 	$title_1 = get_field('title_1');
 	$title_2 = get_field('title_2');
 	$cat = get_field('post_id_cat'); // получаем ID текущей рубрики
-	print $cat;
-
+	$num_post = !empty(get_field('num_post')) ? get_field('num_post') : 5 ;
 ?>
 
 <?php get_template_part('templates/head'); ?>
@@ -66,8 +68,14 @@ Template Post Type: page
 							<div class="case__tabs-contents">
                                 <div class="case__tabs-content marketing__content active">
                                     
-                                   <?php	query_posts('cat='.$cat ); // вместо "53" указываем идентификатор вашей рубрики.
-                                            while (have_posts()) : the_post();?>
+                                   <?php
+								   $posts_main = new WP_Query( array(
+										'cat'=> $cat,
+										'posts_per_page' => $num_post,
+										'paged' => $current_page, 
+								   ) );
+
+                                        while ($posts_main->have_posts()) : $posts_main->the_post();?>
                                         <article class="case__tabs-content__article radius_1 dFlex">
 											<a href="<?php the_permalink(); ?>">
 												<?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
@@ -81,12 +89,25 @@ Template Post Type: page
                                         </article>
                                         <?php
                                         endwhile;
-                                        wp_reset_query();
-                                    ?>
-
+										?>
 								</div>
 							</div>
 						</div>
+							<div id='pagination'>
+							<?php
+								// Навигация начало
+								echo paginate_links( array(
+									'format' => '?page_nav=%#%',
+									'total' => $posts_main->max_num_pages,
+									'current' => $current_page,
+									'end_size' => 1,
+									'mid_size' => 2,
+
+								) );
+								// Навигация конец
+								wp_reset_postdata( );
+							?>
+							</div>
 					</section>
 				</div>
 			</div>

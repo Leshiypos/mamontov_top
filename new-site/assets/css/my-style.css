@@ -1485,3 +1485,38 @@ h2 span.empty_link{
         padding-right: 15px;
     }
 }
+/* pagination */
+#pagination{
+	padding: 20px;
+	width: fit-content;
+	margin: 0 auto;
+}
+#pagination .page-numbers.current{
+	background: #ED4455;
+    border-radius: 180px;
+	border-color: transparent;
+    padding-top: calc(14px + 6 * (100vw / 1980) );
+    padding-bottom: calc(14px + 6 * (100vw / 1980) );
+	padding-left: calc(21px + 9 * (100vw / 1980) );
+	padding-right: calc(21px + 9 * (100vw / 1980) );
+    font-size: calc(12px + 4 * (100vw / 1980) );
+	color: rgba(255, 255, 255, 0.7);
+}
+#pagination .page-numbers {
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: #A5A3BA;
+    border-radius: 180px;
+	padding-top: calc(14px + 6 * (100vw / 1980) );
+    padding-bottom: calc(14px + 6 * (100vw / 1980) );
+	padding-left: calc(21px + 9 * (100vw / 1980) );
+	padding-right: calc(21px + 9 * (100vw / 1980) );
+	font-size: calc(12px + 4 * (100vw / 1980) );
+    color: rgba(0, 0, 0, 0.7);
+}
+#pagination .next.page-numbers,
+#pagination .prev.page-numbers{
+	background: #ED4455;
+	color: rgba(255, 255, 255, 0.7);
+	border-color: transparent;
+}

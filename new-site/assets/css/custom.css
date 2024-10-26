@@ -4307,12 +4307,12 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
     grid-row-end: auto;
   }
 
-  .case__tabs-content__article:nth-of-type(4),
+  /* .case__tabs-content__article:nth-of-type(4),
   .case__tabs-content__article:nth-of-type(5),
   .case__tabs-content__article:nth-of-type(6),
   .marketing__content .case__tabs-content__article:nth-of-type(6) {
     display: none;
-  }
+  } */
 
   .case__tabs-content {
     margin: 36px 0 18px;
