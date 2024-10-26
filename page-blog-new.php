@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Страница Блог WP-dev
+Template Name: Страница Блог и Кейсов WP-dev
 Template Post Type: page
 */
 ?>
@@ -30,7 +30,7 @@ Template Post Type: page
         <header class="header portfolio__header marketing__header">
 			<div class="container">
 				<h1 class="titlePage header__title popular_page">
-					<?php echo $title_1.'<br>'.$title_2; ?>
+					<?php echo $title_1; ?>
 				</h1>
 			</div>
 		</header>
@@ -39,7 +39,21 @@ Template Post Type: page
         <main class="pageCase portfolio__main marketing__main lots_of_cases">
 			<div class="portfolio__main-container">
 				<div class="container">
+				<?php 
+						if (have_rows('case_page_new')){
+							while (have_rows('case_page_new')){
+								the_row();
+								
+								// Секция самый популярный кейс 
+								get_template_part('/templates/layout/popular-case');
+
+							}
+						}
+					?>
 					<section class="portfolio__main-section case marketing">
+						<?php 
+							if ($title_2) { echo '<h1>'.$title_2.'</h1>'; }
+						?>
 						<!-- <h1></h1> -->
 						<div class="case__tabs marketing__tabs">
 							<div class="case__tabs-btns dFlex">
@@ -83,7 +97,7 @@ Template Post Type: page
 												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
 												<p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
 												<div class="case__tabs-content__article-btn__block">
-													<a href="<?php the_permalink(); ?>" class="read_more">Читать кейс</a>
+													<a href="<?php the_permalink(); ?>" class="read_more">Читать все</a>
 												</div>
 											</a>
                                         </article>
