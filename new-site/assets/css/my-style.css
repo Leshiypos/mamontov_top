@@ -1520,3 +1520,30 @@ h2 span.empty_link{
 	color: rgba(255, 255, 255, 0.7);
 	border-color: transparent;
 }
+
+/* Секция старая цена - новая Лид-магнит */
+.applications.cost_bid{
+	width: fit-content;
+	background-color: rgba(33, 33, 33, 1);
+	color: rgb(255, 255, 255);
+	margin-top: 40px;
+}
+.cost_bid .number{
+	color: rgb(255, 255, 255);
+}
+.relative{
+	position: relative;
+}
+.cost_bid .cross_out {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: scale(0.8);
+}
+.applications.cost_bid .cont div:first-child {
+    opacity: 1;
+}
+.applications.cost_bid .cont div:first-child span {
+    opacity: .5;
+}
+

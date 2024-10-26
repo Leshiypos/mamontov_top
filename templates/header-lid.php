@@ -8,6 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $title_button = get_field('title_button');
+$switch = get_field('switch');
+$title_discount = get_field('title_discount');
+$old_cost = get_field('old_cost');
+$new_cost = get_field('new_cost');
 ?>
 
 <header class="header header__main header__box-magnit__main">
@@ -25,6 +29,30 @@ $title_button = get_field('title_button');
 						<div class="titlePage header__text_main">
 								<?php echo the_excerpt(); ?>
 						</div>
+
+<!-- Начало СНИЖЕНИЕ ЦЕНЫ -->
+		<?php 
+			if ($switch == 'on'){
+		?>
+						<div class="applications cost_bid">
+							<div class="title"><?php echo $title_discount; ?></div>
+							<div class="dFlex cont">
+								<div>
+									<p class="number relative"> <span><?php echo $old_cost; ?></span>
+										<img src=" <?php echo get_template_directory_uri( ).'/new-site/assets/images/cross-out.png' ?> " alt="cross-out" class="cross_out">
+									</p>
+									
+								</div>
+								<div>
+									<p class="number"><?php echo $new_cost; ?></p>
+								</div>
+							</div>
+						</div>
+		<?php
+			}
+		?>
+<!-- Конец СНИЖЕНИЕ ЦЕНЫ -->
+							
 						<a href="#popupfancy" data-fancybox class="btn btn__order radius_1"><?php echo $title_button; ?>
 							<svg width="12" height="12" viewBox="0 0 12 12" fill="none"
 								xmlns="http://www.w3.org/2000/svg">

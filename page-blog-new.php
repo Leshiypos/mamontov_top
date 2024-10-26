@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Страница Блог и Кейсов WP-dev
+Template Name: Страница Блог и Кейсы WP-dev
 Template Post Type: page
 */
 ?>
