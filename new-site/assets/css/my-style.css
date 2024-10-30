@@ -1462,14 +1462,16 @@ h2 span.empty_link{
 				margin-bottom: 20px;
 			}
 @media screen and (max-width: 1280px) {
-	section.all_services_section{
+	section.all_services_section, 
+	section.tools{
 		margin-bottom: 0;
 		padding: 32px 55px;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	section.all_services_section{
+	section.all_services_section,
+	section.tools{
 		margin-bottom: -65px;
 	}
 }
@@ -1480,7 +1482,9 @@ h2 span.empty_link{
 	}
 }
 @media screen and (max-width: 993px) {
-    section.all_services_section, .pageCase__our-review.client{
+    section.all_services_section, 
+	.pageCase__our-review.client,
+	section.tools{
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -1536,9 +1540,10 @@ h2 span.empty_link{
 }
 .cost_bid .cross_out {
 	position: absolute;
-	left: 0;
+	left: 15%;
 	top: 0;
 	transform: scale(0.8);
+	width: calc(40px + 81 * (100vw / 1980) ); ;
 }
 .applications.cost_bid .cont div:first-child {
     opacity: 1;
@@ -1546,4 +1551,70 @@ h2 span.empty_link{
 .applications.cost_bid .cont div:first-child span {
     opacity: .5;
 }
+/* Виджет */
+.site-mini-widget-wrapper{
+	z-index: 300;
+}
 
+/* Инструменты tools.php */
+section.tools {
+	padding: 140px 100px 100px 100px;
+	background-color: rgba(242, 242, 242, 1);
+	color: rgb(0, 0, 0);
+	margin-bottom: -65px;
+}
+
+	section.tools .container{
+		max-width: 100%;
+		margin: 0 auto;
+	}
+		section.tools h2{
+			font-size: calc(40px + 60*(100vw/1920) );
+			font-weight: 400;
+			color: rgba(45, 44, 44, 1);
+			margin-bottom: calc(40px + 40*(100vw/1920) );;
+			text-align: center;
+		}
+		.tools h3{
+			font-size: calc(16px + 10*(100vw/1920) );
+			font-weight: 400;
+			margin-top: 30px;
+			margin-bottom: 14px;
+		}
+		.tools_wrap p{
+			font-size: 14px;
+			color: rgba(0, 0, 0, 0.6);
+		}
+		.tools .wrap{
+			background-color: rgba(255, 255, 255, 1);
+			padding: 29px 40px;
+			border-radius: 20px;
+		}
+		.tools_wrap .wrapper{
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+			gap: calc(20px + 40*(100vw/1920) );
+		}
+
+@media screen and (max-width: 1280px) {
+	section.tools{
+		margin-bottom: 0;
+		padding: 32px 55px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	section.tools{
+		margin-bottom: -65px;
+	}
+}
+
+@media screen and (max-width: 993px) {
+	section.tools{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	section.tools h2{
+		margin-top: 40px;
+	}
+}

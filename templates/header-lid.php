@@ -20,9 +20,6 @@ $new_cost = get_field('new_cost');
 					<img class="header__box-magnit__image" src="<?php echo get_template_directory_uri(); ?>/new-site/assets/images/lead-generation-strategies.png"
 						alt="Лид-магнита">
 					<div class="header__block">
-						<p class="header__box-magnit__text m-0">Триггер №1 <span></span></p>
-						<p class="header__box-magnit__text m-0">Триггер №2 <span></span></p>
-						<p class="header__box-magnit__text m-0">Триггер №3 <span></span></p>
 						<h1 class="titlePage m-0">
 								<?php echo get_the_title(); ?>
 						</h1>

@@ -1,8 +1,9 @@
 <?php
 
 /*
-Template Name: Шаблон страницы Услуги
+Template Name: Шаблон Test wp-dev 
 Template Post Type: post, page, product
+Создан на основе page-service.php
 */
 
 
@@ -1053,13 +1054,14 @@ Template Post Type: post, page, product
 		<?php get_template_part('templates/layout/all_services_section'); ?>
 		<!-- Конец секции Все услуги Слайдер -->
 		<!-- КОНЕЦ Работы -->
-
-
         <?php    endwhile; 
-
         endif;
-
         ?>
+
+<!-- Начало секции Инструменты  -->
+<?php get_template_part('templates/layout/tools'); ?>
+<!-- Конец секции Инструменты  -->
+
 
 		</main>
 	</div>
