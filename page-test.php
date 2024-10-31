@@ -1053,16 +1053,15 @@ Template Post Type: post, page, product
 		<!-- Начало секции Все услуги Слайдер -->
 		<?php get_template_part('templates/layout/all_services_section'); ?>
 		<!-- Конец секции Все услуги Слайдер -->
+
+		<!-- Начало секции Инструменты  -->
+		<?php get_template_part('templates/layout/tools_section'); ?>
+		<!-- Конец секции Инструменты  -->
+
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
         endif;
         ?>
-
-<!-- Начало секции Инструменты  -->
-<?php get_template_part('templates/layout/tools'); ?>
-<!-- Конец секции Инструменты  -->
-
-
 		</main>
 	</div>
 

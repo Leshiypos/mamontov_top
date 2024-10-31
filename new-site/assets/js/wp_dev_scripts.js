@@ -8,15 +8,14 @@ $(document).ready(function(){
 		let height = 0;
 		let elemcart = document.querySelectorAll(select);
 		for (let elem of elemcart){
-			console.log(elem.offsetHeight);
 			if (elem.offsetHeight>height) height = elem.offsetHeight;
 			
 		}
-		console.log('большая высоа = ',height);
 		for (let elem of elemcart){
 			if (elem.offsetHeight != height) elem.style.height = height + 'px';
 		}
 	}
 	maxHeight('.all_services_swiper .cart_wrap');
 	maxHeight('.cart_wrap h3');
+	maxHeight('.tools_swiper .wrap');
 });

@@ -1595,6 +1595,10 @@ section.tools {
 			grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 			gap: calc(20px + 40*(100vw/1920) );
 		}
+		.tools img{
+			width: 80px;
+			height: 75px;
+		}
 
 @media screen and (max-width: 1280px) {
 	section.tools{
@@ -1616,5 +1620,19 @@ section.tools {
 	}
 	section.tools h2{
 		margin-top: 40px;
+	}
+}
+.tools_swiper{
+	display: none;
+}
+.tools_swiper .tools_btn{
+	margin-top: 25px;
+}
+@media screen and (max-width : 804px){
+	.tools_wrap.descop{
+		display: none;
+	}
+	.tools_swiper{
+		display: block;
 	}
 }
