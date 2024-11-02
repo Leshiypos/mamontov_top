@@ -423,6 +423,91 @@ Template Post Type: page
 				endif; ?>
 <!-- Конец Наши услуги --> 
 
+<!-- Секция команды -->
+<?php 
+				if(get_row_layout() == 'section_team'):
+					$title = get_sub_field('title');
+					$conter = get_sub_field('conter');
+					echo '		
+					<section class="pageCase pageCase__comands-experts">
+						<div class="pageCase__comands dFlex">
+							<div class="pageCase__comands-container dFlex">
+								<div class="pageCase__comands-container__text dFlex">
+									<h1 class="m-0">'.$title.'</h1>
+									<p class="m-0">'.$conter.'</p>
+								</div>
+								<div class="swiper-container slider__wrapper-comands__container mobile-block__slider">
+									<div class="swiper-wrapper slider__wrapper-comand dFlex">
+										';
+												// проверяем есть ли данные в повторителе
+												if( have_rows('cards') ):
+													// перебираем строки повторителя
+													while ( have_rows('cards') ) : the_row();
+														$image = get_sub_field('image');
+														$name = get_sub_field('name');
+														$position = get_sub_field('position');
+														echo ' 															
+														<div class="swiper-slide pageCase__internet-marketing__box-block__comands-block active">
+															<div class="pageCase__internet-marketing__box-block__comands-block__image">
+																<img src="'.$image.'" alt="Марктеолог">
+															</div>
+															<div class="pageCase__internet-marketing__box-block__comands-block__texts">
+																<p class="pageCase__internet-marketing__box-block__comands-block__text-name">
+																	'.$name.'
+																</p>
+																<p class="pageCase__internet-marketing__box-block__comands-block__text-prof">
+																	'.$position.'
+																</p>
+															</div>
+														</div>	
+														';
+													endwhile;
+												endif;
+			                            echo '
+									</div>
+								</div>
+								<div class="swiperWrapClients__btns dFlex">
+									<button type="button" class="btn-slider btn-prev__comands"></button>
+									<button type="button" class="btn-slider btn-next__comands"></button>
+								</div>
+							</div>
+							<div class="swiper-container slider__wrapper-comands__container">
+								<div class="swiper-wrapper slider__wrapper-comand dFlex">
+								';
+												// проверяем есть ли данные в повторителе
+												if( have_rows('cards') ):
+													// перебираем строки повторителя
+													while ( have_rows('cards') ) : the_row();
+														$image = get_sub_field('image');
+														$name = get_sub_field('name');
+														$position = get_sub_field('position');
+														echo ' 															
+														<div class="swiper-slide pageCase__internet-marketing__box-block__comands-block active">
+															<div class="pageCase__internet-marketing__box-block__comands-block__image">
+																<img src="'.$image.'" alt="Марктеолог">
+															</div>
+															<div class="pageCase__internet-marketing__box-block__comands-block__texts">
+																<p class="pageCase__internet-marketing__box-block__comands-block__text-name">
+																	'.$name.'
+																</p>
+																<p class="pageCase__internet-marketing__box-block__comands-block__text-prof">
+																	'.$position.'
+																</p>
+															</div>
+														</div>	
+														';
+													endwhile;
+												endif;
+			                            echo '
+								</div>
+							</div>
+						</div>
+					</section>';
+				endif;
+
+ ?>
+<!-- Конец Секция команды -->
+
 <!--КОНЕЦ секции СИСТЕМНЫЙ ПОДХОД-->
 <?php
 					if(get_row_layout() == 'systems_approach'){
