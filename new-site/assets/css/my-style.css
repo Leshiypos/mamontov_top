@@ -1452,12 +1452,14 @@ h2 span.empty_link{
 			.all_services_section .link_rev{
 				max-width: 100%;
 			}
-			.all_services_section .swiperWrapOurReview__btns{
+			.all_services_section .swiperWrapOurReview__btns,
+			.rating .swiperWrapOurReview__btns{
 				margin-top: 60px;
 				margin-left: auto;
 				width: fit-content;
 			}
-			.all_services_section .swiperWrapOurReview__btns-mobile{
+			.all_services_section .swiperWrapOurReview__btns-mobile,
+			.rating .swiperWrapOurReview__btns-mobile{
 				margin-top: 20px;
 				margin-bottom: 20px;
 			}
@@ -1634,5 +1636,77 @@ section.tools {
 	}
 	.tools_swiper{
 		display: block;
+		overflow: hidden;
 	}
+}
+/* Секция Rating */
+section.rating {
+	padding: 140px 100px 60px 100px;
+	margin-top: 65px;
+	margin-bottom: -65px;
+}
+	section.rating .container{
+		max-width: 100%;
+	}
+	section.rating	.header_section{
+		display: flex;
+		gap: 50px;
+		flex-wrap: wrap;
+		max-width: 1600px;
+		margin: 0 auto;
+		margin-bottom: 140px;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+		.header_section > h2{
+			flex: 1 1 400px;
+		}
+		.header_section > div{
+			flex: 1 1 400px;
+		}
+		section.rating .review_header{
+			max-width: 700px;
+			background-color: rgba(244, 245, 246, 1);
+			border-radius: 20px;
+			padding: 15px;
+			margin-top: 40px;
+			font-size: calc(14px + 6 * (100vw / 1980) );;
+		}
+		.rating .swiper-slide img{
+			margin: 0 auto;
+		}
+	.title_rating{
+		font-size: calc(40px + 60*(100vw/1920) );
+		font-weight: 600;
+		line-height: calc(75px + 81*(100vw/1920) );
+		margin: 0;
+	}
+		.title_rating span{
+			transform: rotate(8deg);
+			max-width: 594px;
+			display: inline-block;
+			background-color: #557aff;
+			width: 100%;
+			padding: 0 0 20px;
+			text-align: center;
+			border-radius: 1000px;
+			color: var(--color-3);
+		}
+
+.rating_swiper{
+	max-width: 1750px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+	section.rating{
+		margin-bottom: -65px;
+	}
+}
+@media screen and (max-width: 993px) {
+	section.rating{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
