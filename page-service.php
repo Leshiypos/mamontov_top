@@ -1056,7 +1056,10 @@ Template Post Type: post, page, product
 		<!-- Начало секции Инструменты  -->
 		<?php get_template_part('templates/layout/tools_section'); ?>
 		<!-- Конец секции Инструменты  -->
-
+		<?php
+			// Секция рейтинг
+			get_template_part('templates/layout/rating'); 
+		?>
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
         endif;

@@ -1642,6 +1642,7 @@ section.tools {
 /* Секция Rating */
 section.rating {
 	padding: 140px 100px 60px 100px;
+	padding-top: calc(30px + 110 * (100vw / 1980) );
 	margin-top: 65px;
 	margin-bottom: -65px;
 }
@@ -1650,11 +1651,11 @@ section.rating {
 	}
 	section.rating	.header_section{
 		display: flex;
-		gap: 50px;
+		gap: calc(20px + 30 * (100vw / 1980) );
 		flex-wrap: wrap;
 		max-width: 1600px;
 		margin: 0 auto;
-		margin-bottom: 140px;
+		margin-bottom: calc(20px + 120 * (100vw / 1980) );
 		justify-content: space-between;
 		align-items: flex-start;
 	}
@@ -1665,12 +1666,13 @@ section.rating {
 			flex: 1 1 400px;
 		}
 		section.rating .review_header{
+			color: rgba(0, 0, 0, 0.6);
 			max-width: 700px;
 			background-color: rgba(244, 245, 246, 1);
 			border-radius: 20px;
 			padding: 15px;
 			margin-top: 40px;
-			font-size: calc(14px + 6 * (100vw / 1980) );;
+			font-size: calc(14px + 6 * (100vw / 1980) );
 		}
 		.rating .swiper-slide img{
 			margin: 0 auto;
