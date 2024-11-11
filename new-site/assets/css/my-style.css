@@ -1676,6 +1676,10 @@ section.rating {
 		}
 		.rating .swiper-slide img{
 			margin: 0 auto;
+			border-radius: 20px;
+		}
+		.rating .swiper-slide a:focus-visible{
+			border: none;
 		}
 	.title_rating{
 		font-size: calc(40px + 60*(100vw/1920) );

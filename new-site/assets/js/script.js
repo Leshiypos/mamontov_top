@@ -523,6 +523,9 @@ function ready() {
 			// Настройки слайдера
 			slidesPerView: 5,
 			loop: true,
+			autoplay: {
+				delay : 5000,
+			},
 			spaceBetween: 41,
 			breakpoints: {
 				300: { 

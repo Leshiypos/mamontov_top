@@ -1,51 +1,46 @@
 <?php 
-// Инструменты Секция wp-dev
+// Рейтинги Секция wp-dev
 ?>
 
-
+<?php 
+	if ( get_row_layout () == 'section_ratings' ){
+		$title_1 = get_sub_field('title_1');
+		$title_2 = get_sub_field('title_2');
+		$description = get_sub_field('description');
+?>
 <section class="rating">
 	<div class="container">
 		<div class=header_section>
 			<h2 class="title_rating">
-				Мы в лучших<br><span>рейтингах</span>				
+				<?php echo $title_1; ?><br><?php echo $title_2; ?>				
 			</h2>
 			<div class="review_header">
-				<p>На 2024 год наша команда улучшила позиции по всем категориям рейтинга, к котором участвуют более 2000 компаний из индустрии digital-маркетинга</p>
+				<p><?php echo $description; ?></p>
 			</div>
 		</div>
+<?php 
+	if (have_rows('slide')){
+?>
 		<div class="rating_swiper">
 			<div class="swiper-wrapper rating_wrap">
+			<?php 
+				while ( have_rows('slide') ){
+					the_row();
+					$id_img = get_sub_field('img');
 
+					if($id_img){
+				?>
 				<!-- Slides -->
 					<div class="swiper-slide wrap" >
-						<img src="<?php echo get_template_directory_uri(  ); ?>/new-site/assets/images/image_7.png" alt="">
+						<a href="<?php echo wp_get_attachment_image_url($id_img, 'full'); ?>" data-fancybox="gallery_rating" <?php if (wp_get_attachment_caption($id_img)) echo 'data-caption="'.wp_get_attachment_caption($id_img).'"' ?>>
+							<img src="<?php echo wp_get_attachment_image_url($id_img, 'full'); ?>" alt="">
+						</a>
 					</div>
 				<!-- END Slides -->
-				<!-- Slides -->
-				<div class="swiper-slide wrap" >
-						<img src="<?php echo get_template_directory_uri(  ); ?>/new-site/assets/images/image_7.png" alt="">
-					</div>
-				<!-- END Slides -->
-				<!-- Slides -->
-				<div class="swiper-slide wrap" >
-						<img src="<?php echo get_template_directory_uri(  ); ?>/new-site/assets/images/image_7.png" alt="">
-					</div>
-				<!-- END Slides -->
-				<!-- Slides -->
-				<div class="swiper-slide wrap" >
-						<img src="<?php echo get_template_directory_uri(  ); ?>/new-site/assets/images/image_7.png" alt="">
-					</div>
-				<!-- END Slides -->
-				<!-- Slides -->
-				<div class="swiper-slide wrap" >
-						<img src="<?php echo get_template_directory_uri(  ); ?>/new-site/assets/images/image_7.png" alt="">
-					</div>
-				<!-- END Slides -->
-				<!-- Slides -->
-				<div class="swiper-slide wrap" >
-						<img src="<?php echo get_template_directory_uri(  ); ?>/new-site/assets/images/image_7.png" alt="">
-					</div>
-				<!-- END Slides -->
+				<?php
+					}
+				}
+			?>	
 			</div>
 			<div class="swiperWrapOurReview__btns dFlex">
 				<button type="button" class="btn-slider btn-prev__rating"></button>
@@ -56,5 +51,13 @@
 				<button type="button" class="btn-slider btn-next__rating"></button>
 			</div>
 		</div>
+
+<?php
+	}
+?>
 	</div>
 </section>
+
+<?php		
+	}
+?>
