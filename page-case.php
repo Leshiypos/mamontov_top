@@ -1,7 +1,7 @@
 <?php
 
 /*
-Template Name: Шаблон страницы Кейсы
+Template Name: Запись
 Template Post Type: post, page, product
 */
 

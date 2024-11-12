@@ -1,7 +1,7 @@
 <?php
 
 /*
-Template Name: ВСЕ УСЛУГИ
+Template Name: Все услуги
 Template Post Type: post, page, product
 */
 
