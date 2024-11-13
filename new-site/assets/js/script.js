@@ -547,6 +547,36 @@ function ready() {
 
 		//Конец  Слайдер rating 
 
+		//Начало  Слайдер rating 
+		if(document.querySelector('.best_swiper')){
+			let swiperRatinglSection = new Swiper(".best_swiper", {
+				// Настройки слайдера
+				slidesPerView: 3,
+				loop: true,
+				autoplay: {
+					delay : 5000,
+				},
+				spaceBetween: 41,
+				breakpoints: {
+					300: { 
+						slidesPerView: 1,
+						centeredSlides: true,
+					 },
+					600: {slidesPerView: 2},
+					1300: {
+					  slidesPerView: 3,
+					},
+				  },    
+				// Добавление кнопок навигации
+				navigation: {
+				  nextEl: ".btn-next__best",
+				  prevEl: ".btn-prev__best",
+				},
+			  });
+			}
+	
+			//Конец  Слайдер rating 
+
     
       const selects = document.querySelectorAll(".pageCase__questien-select");
       if(selects) {

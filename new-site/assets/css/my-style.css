@@ -927,6 +927,7 @@ h2 span.empty_link{
 				color: rgba(237, 68, 85, 0.8);
 				text-decoration: none;
 				float: right;
+				margin-top: auto;
 			}
 			.job_title{
 				color: rgba(0, 0, 0, 0.5);
@@ -935,6 +936,10 @@ h2 span.empty_link{
 			}
 			.text_review_page{
 				font-weight: 600;
+			}
+			.case__tabs-content__article-btn__block{
+				align-self: flex-end ;
+				margin-top: auto;
 			}
 	.tittle_wrap_mob{
 		display: flex;
@@ -1453,13 +1458,15 @@ h2 span.empty_link{
 				max-width: 100%;
 			}
 			.all_services_section .swiperWrapOurReview__btns,
-			.rating .swiperWrapOurReview__btns{
+			.rating .swiperWrapOurReview__btns,
+			.best_post .swiperWrapOurReview__btns{
 				margin-top: 60px;
 				margin-left: auto;
 				width: fit-content;
 			}
 			.all_services_section .swiperWrapOurReview__btns-mobile,
-			.rating .swiperWrapOurReview__btns-mobile{
+			.rating .swiperWrapOurReview__btns-mobile,
+			.best_post .swiperWrapOurReview__btns-mobile{
 				margin-top: 20px;
 				margin-bottom: 20px;
 			}
@@ -1493,7 +1500,7 @@ h2 span.empty_link{
 }
 /* pagination */
 #pagination{
-	padding: 20px;
+	padding: 20px 0 20px 0;
 	width: fit-content;
 	margin: 0 auto;
 }
@@ -1715,4 +1722,56 @@ section.rating {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+/* Секция Лучше записи */
+section.best_post {
+	padding: 140px 100px 60px 100px;
+	padding-top: calc(30px + 30 * (100vw / 1980) );
+	margin-top: 65px;
+	margin-bottom: 0;
+	background-color: rgba(45, 44, 44, 1);
+}
+	section.best_post .container{
+		max-width: 1390px;
+	}
+		.best_post .swiper-slide article{
+			margin: 0 auto;
+		}
+
+	.title_best{
+		font-size: calc(40px + 20*(100vw/1920) );
+		font-weight: 200;
+		margin-bottom: 40px;
+		color: rgba(255, 255, 255, 1);
+	}
+
+.best_swiper{
+	max-width: 1750px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.best_swiper .swiper-wrapper a img {
+	height: fit-content;
+}
+	.best_single .case__tabs-content__text,
+	.best_single .case__tabs-content__subtitle{
+		margin-top: 15px;
+	}
+	section.best_post {
+		margin-bottom: 0;
+		padding: 32px 55px;
+	}
+@media screen and (max-width: 993px) {
+	section.best_post{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+	.case__tabs-content.active {
+		display: flex;
+		flex-flow: column;
+	}
+	.case__tabs-content__article:nth-of-type(7) {
+		display: flex;
+	}
 }

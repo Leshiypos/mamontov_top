@@ -17,6 +17,19 @@ Template Post Type: page
 	$title_1 = get_field('title_1');
 	$title_2 = get_field('title_2');
 	$cat = get_field('post_id_cat'); // получаем ID текущей рубрики
+	$sub_cat = ''; //id рубрики популярные
+	// получаем данные в зависимости от рубрики
+	switch ($cat){
+		case 53:
+			$sub_cat = 62;
+			$sub_title = 'Популярные статьи';
+			break;
+		case 49:
+			$sub_cat = 63;
+			$sub_title = 'Популярные кейсы';
+			break;
+	}
+
 	$num_post = !empty(get_field('num_post')) ? get_field('num_post') : 5 ;
 ?>
 
@@ -34,6 +47,60 @@ Template Post Type: page
 				</h1>
 			</div>
 		</header>
+		
+		<!-- Популярные статьи -->
+		<?php
+			$posts_best = new WP_Query( array(
+				'cat'=> $sub_cat,
+			) );
+			if ($posts_best->found_posts and $sub_cat){
+		?>
+<section class="best_post">
+	<div class="container">
+			<h2 class="title_best">
+				<?php echo $sub_title; ?>			
+			</h2>
+
+		<div class="best_swiper">
+			<div class="swiper-wrapper">
+
+				<!-- Slides -->
+				<?php
+						while ($posts_best->have_posts()) : $posts_best->the_post();?>
+						<div class="swiper-slide wrap" >
+							<article class="case__tabs-content__article radius_1 dFlex best_single">
+								<a href="<?php the_permalink(); ?>">
+									<?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
+									<p class="case__tabs-content__text"><? echo get_the_date('j.n.Y', get_the_ID()) ; ?></p>
+									<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
+									<div class="case__tabs-content__article-btn__block">
+										<div class="read_more">Читать все</div>
+									</div>
+								</a>
+							</article>
+						</div>
+				<?php
+						endwhile;
+						wp_reset_postdata( );
+				?>
+				<!-- END Slides -->
+	
+			</div>
+			<div class="swiperWrapOurReview__btns dFlex">
+				<button type="button" class="btn-slider btn-prev__best"></button>
+				<button type="button" class="btn-slider btn-next__best"></button>
+			</div>
+			<div class="swiperWrapOurReview__btns-mobile dFlex">
+				<button type="button" class="btn-slider btn-prev__best"></button>
+				<button type="button" class="btn-slider btn-next__best"></button>
+			</div>
+		</div>
+	</div>
+</section>
+	<?php 
+			}
+	?>
+		<!-- КОнец Популярные статьи -->
 
 
         <main class="pageCase portfolio__main marketing__main lots_of_cases">
@@ -95,9 +162,8 @@ Template Post Type: page
 												<?php echo get_the_post_thumbnail( get_the_ID(), '', array('class' => 'case__tabs-content__image radius_1') ); ?>
 												<p class="case__tabs-content__text"><? echo get_the_date('j.n.Y', get_the_ID()) ; ?></p>
 												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
-												<p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
 												<div class="case__tabs-content__article-btn__block">
-													<a href="<?php the_permalink(); ?>" class="read_more">Читать все</a>
+													<div class="read_more">Читать все</div>
 												</div>
 											</a>
                                         </article>

@@ -18,4 +18,5 @@ $(document).ready(function(){
 	maxHeight('.all_services_swiper .cart_wrap');
 	maxHeight('.cart_wrap h3');
 	maxHeight('.tools_swiper .wrap');
+	maxHeight('article.best_single');
 });
