@@ -1070,6 +1070,8 @@ h2 span.empty_link{
 
 	.most_popular{
 		max-width: 1720px;
+		margin-left: auto;
+		margin-right: auto;
 		background-color: rgba(45, 44, 44, 1);
 		border-radius: 40px;
 		padding: 80px;
@@ -1775,3 +1777,46 @@ section.best_post {
 		display: flex;
 	}
 }
+
+/* Страница шаблона кейсы и Блог */
+
+
+.case__tabs-content.blog .case__tabs-content__article a,
+.blog_slide .case__tabs-content__article a{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	min-height: 350px;
+	padding: 10px 10px 20px 10px;
+	background-color: transparent;
+}
+
+.case__tabs-content.blog .case__tabs-content__article .background_card,
+.blog_slide .case__tabs-content__article .background_card{
+	position: absolute;
+	/* width: 350px; */
+	top: 20px;
+	right: -50px;
+	z-index: 1;
+	opacity: .8;
+}
+.case__tabs-content.blog .case__tabs-content__article a h4,
+.blog_slide .case__tabs-content__article a h4{
+	color: rgba(255, 255, 255, 1);
+	z-index: 2;
+}
+.case__tabs-content.blog .case__tabs-content__article,
+.blog_slide .case__tabs-content__article{
+	position: relative;
+	background-color:rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+	overflow: hidden;
+}
+		.category_title{
+			color: rgba(255, 255, 255, 1);
+			padding: 5px 10px;
+			border-radius: 15px;
+			background-color: rgba(255, 255, 255, 0.3);
+			width: fit-content;
+			z-index: 2;
+		}

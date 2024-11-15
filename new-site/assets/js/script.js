@@ -547,7 +547,7 @@ function ready() {
 
 		//Конец  Слайдер rating 
 
-		//Начало  Слайдер rating 
+		//Начало  Лучшие посты 
 		if(document.querySelector('.best_swiper')){
 			let swiperRatinglSection = new Swiper(".best_swiper", {
 				// Настройки слайдера
@@ -575,7 +575,7 @@ function ready() {
 			  });
 			}
 	
-			//Конец  Слайдер rating 
+			//Конец  Лучшие посты
 
     
       const selects = document.querySelectorAll(".pageCase__questien-select");
