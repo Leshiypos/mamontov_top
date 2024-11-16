@@ -14,7 +14,7 @@ Template Post Type: post, page, product
 
         <?php get_template_part('templates/top-panel-main'); ?>
         <?php get_template_part('templates/header'); ?>
-        <main class="pageCase">
+        <main class="pageCase single_post">
             <div class="container">
 				
 				<?php
@@ -263,7 +263,8 @@ if( get_row_layout() == 'section_form_1' ):
 	';
 endif;
 
-// проверяем на нужный макет
+// Секция Лучшие посты
+get_template_part('templates/layout/popular-block-section'); 
 
 
 

@@ -1838,3 +1838,7 @@ section.best_post {
 			font-size: calc(12px + 4*(100vw/1920) );
 			margin-bottom: 5px;
 		}
+/* Шаблон Запись page-case.php */
+.single_post .best_post{
+	border-radius: 40px;
+}

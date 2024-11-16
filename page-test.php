@@ -1061,6 +1061,10 @@ Template Post Type: post, page, product
 			// Секция рейтинг
 			get_template_part('templates/layout/rating'); 
 		?>
+		<?php
+			// Секция Лучшие посты
+			get_template_part('templates/layout/popular-block-section'); 
+		?>
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
         endif;
