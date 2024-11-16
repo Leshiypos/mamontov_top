@@ -17,6 +17,7 @@ Template Post Type: page
 	$title_1 = get_field('title_1');
 	$title_2 = get_field('title_2');
 	$cat = get_field('post_id_cat'); // получаем ID текущей рубрики
+	$sub_cat = get_field('pop_cat'); //id рубрики популярные
 	$num_post = !empty(get_field('num_post')) ? get_field('num_post') : 5 ;
 ?>
 
@@ -100,7 +101,16 @@ Template Post Type: page
                                         <article class="case__tabs-content__article radius_1 dFlex" style = "background-color: <?php echo $card['color_card']; ?>">
 											<a href="<?php the_permalink(); ?>">
 												<?php if($card['img_card']){?><img src="<?php echo $card['img_card']; ?>" class="background_card"><?php } ?>
-												<div class="category_title"><?php echo get_the_category()[1]->name;?></div>
+												<div calss="dFlex">
+												<?php
+													$category_obj = get_the_category();
+													foreach($category_obj as $obj){
+														if(($obj->category_parent != 0) and ($obj->term_id != $sub_cat[0])){
+															echo '<div class="category_title">'.$obj->cat_name.'</div>';
+														}
+													}
+												?>
+												</div>
 												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
 											</a>
                                         </article>

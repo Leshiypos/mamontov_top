@@ -1535,6 +1535,20 @@ h2 span.empty_link{
 	color: rgba(255, 255, 255, 0.7);
 	border-color: transparent;
 }
+@media screen and (max-width:600px) {
+	#pagination{
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+	}
+	#pagination .page-numbers{
+		display: none;
+	}
+	#pagination .next.page-numbers,
+	#pagination .prev.page-numbers{
+		display: block;
+	}
+}
 
 /* Секция старая цена - новая Лид-магнит */
 .applications.cost_bid{
@@ -1804,6 +1818,7 @@ section.best_post {
 .blog_slide .case__tabs-content__article a h4{
 	color: rgba(255, 255, 255, 1);
 	z-index: 2;
+	font-size: calc(16px + 10*(100vw/1920) );
 }
 .case__tabs-content.blog .case__tabs-content__article,
 .blog_slide .case__tabs-content__article{
@@ -1812,6 +1827,7 @@ section.best_post {
 	border-radius: 20px;
 	overflow: hidden;
 }
+
 		.category_title{
 			color: rgba(255, 255, 255, 1);
 			padding: 5px 10px;
@@ -1819,4 +1835,6 @@ section.best_post {
 			background-color: rgba(255, 255, 255, 0.3);
 			width: fit-content;
 			z-index: 2;
+			font-size: calc(12px + 4*(100vw/1920) );
+			margin-bottom: 5px;
 		}
