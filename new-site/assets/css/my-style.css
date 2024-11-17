@@ -756,7 +756,6 @@ h2 span.empty_link{
 .pageCase__our-review.client{
 	background-color: rgba(45, 44, 44, 1);
 	padding: 32px 55px;
-	margin-bottom: -65px;
 	padding-bottom: 45px;
 }	
 .link_rev{
@@ -1841,4 +1840,45 @@ section.best_post {
 /* Шаблон Запись page-case.php */
 .single_post .best_post{
 	border-radius: 40px;
+}
+
+/* Секция Кейсов новая section_case_new.php */
+.new.pageCase__our-services{
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 1980px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.new.pageCase__our-services .case__contecst-block{
+	gap: 15px;
+}
+.new.case__contecst-box{
+	position: relative;
+	background-color:rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+	overflow: hidden;
+	padding: 30px;
+}
+.new.case__contecst-box a{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	/* min-height: 350px; */
+	padding: 10px 10px 20px 10px;
+	background-color: transparent;
+}
+.new.case__contecst-box .background_card{
+	position: absolute;
+	/* width: 350px; */
+	top: 20px;
+	right: -50px;
+	z-index: 1;
+	opacity: .8;
+}
+
+.new.case__contecst-box a h4{
+	color: rgba(255, 255, 255, 1);
+	z-index: 2;
+	font-size: calc(26px + 24*(100vw/1920) );
 }

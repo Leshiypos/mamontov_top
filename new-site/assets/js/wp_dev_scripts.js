@@ -19,4 +19,6 @@ $(document).ready(function(){
 	maxHeight('.cart_wrap h3');
 	maxHeight('.tools_swiper .wrap');
 	maxHeight('article.best_single');
+	maxHeight('.wrap_reviews .review');
+
 });

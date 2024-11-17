@@ -4,7 +4,7 @@
 		$description_rev = get_sub_field('description_rev');
 		$url_rev = get_sub_field('url_rev');
 		$col_rev = (get_sub_field('col_rev'))?get_sub_field('col_rev'):-1;
-
+		$margin_bot = get_sub_field('margin_bot'); //Получаем нижний отступ для черной категории
 		$post_rev = get_posts(array(
 				'numberposts' 	=> $col_rev,
 				'post_type' 	=> 'reviews',
@@ -15,7 +15,7 @@
 
 		global $post;
 ?>
-<section class="pageCase pageCase__our-review client">
+<section class="pageCase pageCase__our-review client" <?php if ($margin_bot) {echo 'style="margin-bottom:'.$margin_bot.'px"';} ?>>
 	<div class="container">
 		<div class="link_rev">
 			<a href="<?php echo $url_rev; ?>" class="m-0 case__contecst-link">Все отзывы</a>
