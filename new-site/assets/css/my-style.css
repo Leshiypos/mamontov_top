@@ -978,8 +978,8 @@ h2 span.empty_link{
 			padding: 20px 20px;
 		}
 		.header__reviews .header__block{
-			padding-top: 120px ;
-			margin-top: -120px;
+			/* padding-top: 120px ; */
+			/* margin-top: -120px; */
 		}
 		.head__review h4,.head__review .job_title,.head__review p {
 			font-size: 10px;
@@ -1290,8 +1290,12 @@ h2 span.empty_link{
 			margin: 0;
 			/* font-size: 16px; */
 			font-size: calc(12px + 4*(100vw / 1980));
-
+			transition: all 0.2s linear;
 		}
+		.pop_up_present form .btnForm:hover{
+			background-color: #b93240;
+		}
+
 		.pop_up_present form [name="tel-number"]{
 			opacity: .5;
 			color: rgba(255, 255, 255, 1);

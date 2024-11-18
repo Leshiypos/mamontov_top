@@ -239,6 +239,9 @@ h2 span,
 .pageCase__achievements-container {
   display: flex;
   justify-content: space-between;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__achievements-box {
@@ -322,6 +325,9 @@ h2 span,
   display: flex;
   flex-direction: column;
   gap: 140px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__internet-marketing__box-block__tehnology,
@@ -450,6 +456,9 @@ h2 span,
   gap: 140px;
   padding: 0 66px;
   flex-direction: column;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__internet-marketing__block-image {
@@ -720,6 +729,22 @@ h2 span,
 .pageCase__our-services__container {
   gap: 32px;
 }
+.pageCase__our-services .pageCase__price-services__container-block{
+	max-width: 1720px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+.pageCase__our-services .case__contecst-text{
+	max-width: 1920px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+.pageCase__our-services .pageCase__our-services__container-swiper {
+	max-width: 1720px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
 /* 
 .pageCase__our-services__container-swiper {
   display: none;
@@ -974,6 +999,9 @@ h2 span,
 
 .pageCase__level {
   gap: 50px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__level-title span {
@@ -1038,6 +1066,14 @@ h2 span,
   padding: 140px 100px;
   flex-direction: column;
   gap: 60px;
+}
+.our-clients_section_wp{
+	background-color: var(--color-1);
+}
+.our-clients_section_wp .pageCase__our-clients{
+	max-width: 1920px;
+	margin-left: auto;
+  	margin-right: auto;
 }
 
 .pageCase__our-clients__block {
@@ -1232,6 +1268,9 @@ h2 span,
 .pageCase__comands {
   flex-direction: column;
   gap: 60px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .slider__wrapper-comands__container {
@@ -1320,6 +1359,8 @@ h2 span,
 .header__container {
   max-width: 1720px;
   padding: 0 0 0 45px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__systems {
@@ -1499,6 +1540,9 @@ h2 span,
   margin-top: 0;
   padding: 140px 100px;
   margin-bottom: -65px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__session {
@@ -2104,6 +2148,9 @@ h2 span,
 .footer__block {
   flex-direction: column;
   gap: 60px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer__contacts {
@@ -5022,4 +5069,10 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 /* Отзывы */
 .header__box-magnit.header__reviews {
 	background-image: none;
+  }
+
+  .pageCase__price-services__container{
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
   }

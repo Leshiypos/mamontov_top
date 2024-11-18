@@ -628,7 +628,7 @@ Template Post Type: page
 				if(get_row_layout() == 'section_clints'):
 					$title = get_sub_field('title');
 					echo '	
-					<section>
+					<section class="our-clients_section_wp">
 						<div class="pageCase__our-clients dFlex">
 							<div class="pageCase__our-clients__block dFlex">
 								<h1 class="m-0">'.$title.'</h1>
@@ -752,6 +752,4 @@ Template Post Type: page
 		?>
 
 		</main>
-		<!-- Всплывающая форма ПОДАРОК -->
-		<?php get_template_part('templates/pop-up-present'); ?>
 		<?php get_footer(); ?>
