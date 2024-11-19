@@ -1850,7 +1850,7 @@ section.best_post {
 .new.pageCase__our-services{
 	padding-left: 15px;
 	padding-right: 15px;
-	max-width: 1980px;
+	max-width: 1920px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -1886,3 +1886,18 @@ section.best_post {
 	z-index: 2;
 	font-size: calc(26px + 24*(100vw/1920) );
 }
+
+/* Правка шаблонов на уменьшение  маштаба*/
+.pageCase__fact-case{
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.pageCase__where-lid{
+	background-color: #2D2C2C;
+}
+	.pageCase__where-lid__container{
+		max-width: 1920px;
+		margin-left: auto;
+		margin-right: auto;
+	}
