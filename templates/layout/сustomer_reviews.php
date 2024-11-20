@@ -15,7 +15,7 @@
 
 		global $post;
 ?>
-<section class="pageCase pageCase__our-review client" <?php if ($margin_bot) {echo 'style="margin-bottom:'.$margin_bot.'px"';} ?>>
+<section class="pageCase pageCase__our-review client <?php if (is_page_template( 'page-case.php' )){echo 'radius_1';} ?>" <?php if ($margin_bot) {echo 'style="margin-bottom:'.$margin_bot.'px"';} ?>>
 	<div class="container">
 		<div class="link_rev">
 			<a href="<?php echo $url_rev; ?>" class="m-0 case__contecst-link">Все отзывы</a>

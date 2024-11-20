@@ -29,7 +29,7 @@
 										
 										$card = get_field('card');
 									?>
-                                        <article class="new case__contecst-box radius_1 dFlex" style = "background-color: <?php echo $card['color_card']; ?>">
+                                        <article class="new case__contecst-box radius_1 dFlex"  <?php if($card['color_card']){ ?> style = "background-color: <?php echo $card['color_card']; ?>"<?php }?> >
 											<a href="<?php the_permalink(); ?>">
 												<?php if($card['img_card']){?><img src="<?php echo $card['img_card']; ?>" class="background_card"><?php } ?>
 												<div calss="dFlex">
@@ -47,6 +47,7 @@
                                         </article>
                                         <?php
                                         endwhile;
+										wp_reset_postdata();
 										?>
 						</div>
 					</section>

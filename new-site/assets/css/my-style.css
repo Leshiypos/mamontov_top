@@ -1901,3 +1901,34 @@ section.best_post {
 		margin-left: auto;
 		margin-right: auto;
 	}
+	/* Шаблоне page-case.php */
+	h1.titlePage.single_post {
+		font-size: calc(32px + 38*(100vw/1920) );
+		line-height: normal;
+	}
+	.header.single_post .container,
+	.pageCase.single_post .container{
+		max-width: 1200px;
+	}
+	.pad_flex_100{
+		padding-left: calc(5px + 105*(100vw/1920) );
+		padding-right: calc(5px + 105*(100vw/1920) );
+		padding-top: calc(10px + 52*(100vw/1920) );
+		padding-bottom: calc(10px + 52*(100vw/1920) );
+		
+	}
+	.pageCase.single_post .aboutCase p{
+			margin-bottom: 25px;
+			width: 100%;
+			text-align: justify;
+	}
+	.pageCase.single_post .aboutCase a {
+		max-width: 250px;
+		display: inline;
+		text-decoration: underline;
+		color: rgb(85, 122, 255);
+	}
+	.pageCase.single_post .aboutCase a:hover {
+		text-decoration: none;
+		color: rgb(237, 68, 85);
+	}

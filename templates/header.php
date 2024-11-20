@@ -23,10 +23,10 @@ $current_cat_name = $category[0]->name;
 ?>
 
 <input type="text" hidden name="utm_campaign_hidden" id="utm_metka_hidden" value="<?= $_GET['utm_campaign'];?> <?= $_GET['utm_source'];?> <?= $_GET['utm_content'];?> <?= $_GET['utm_medium'];?> <?= $_GET['utm_term'];?>">
-<header class="header">
+<header class="header <?php if (is_page_template( 'page-case.php' )){echo 'single_post';} ?>">
 	<div class="container">
 		<span class="flagPage"><pre><?php echo $current_cat_name; ?></pre></span>
-		<h1 class="titlePage">
+		<h1 class="titlePage <?php if (is_page_template( 'page-case.php' )){echo 'single_post';} ?>">
 			<?php echo get_the_title(); ?>
 		</h1>
 		<div class="descriptionPage">

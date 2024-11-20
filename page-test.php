@@ -1069,6 +1069,7 @@ Template Post Type: post, page, product
 			// Секция Кейсов Новая
 			get_template_part('templates/layout/section_case_new'); 
 		?>
+		
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
         endif;

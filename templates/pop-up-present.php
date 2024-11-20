@@ -41,7 +41,7 @@
 </div>
 
 <script>
-	let launchDelay = 10000; 								 //величина задержки запуска роявления формы
+	let launchDelay = 5000; 								 //величина задержки запуска появления формы
 	let hieght_doc = document.documentElement.offsetHeight/2; //Определяем высоту документа (величина на которую нужно прокруть до появления элемента)
 	let btn_close = $('.close_btn'); 						//Кнопка закрытия формы
 	let timeOut_submit = 24*60*60*1000; 					//отсрочка пояаления формы после отправки
@@ -53,7 +53,7 @@
 
 	let visitTime = localStorage.getItem('visitTime');		//Получаем время закрытия формы в хранилище, если таковое имеется
 
-	const winListener = function(){							//Функция добавления слушателя га скролл страницы
+	const winListener = function(){							//Функция добавления слушателя на скролл страницы
 		window.addEventListener('scroll', function() {
 			if (-(document.documentElement.getBoundingClientRect().top)>hieght_doc){
 				if(!($('#vision').hasClass('used'))){
