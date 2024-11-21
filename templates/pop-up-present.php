@@ -41,47 +41,90 @@
 </div>
 
 <script>
-	let launchDelay = 5000; 								 //величина задержки запуска появления формы
+
+	if(!document.referrer){												//Если страница получена с другого истоника - обнуляем локальное хранилище	
+		localStorage.removeItem('endTime');
+		localStorage.removeItem('oneShow');
+	}
+
+
+	console.log(document.referrer);
+
+	function dispalyPresent(){
+		$('#vision').addClass('used');
+		$('#vision').removeClass('hide_block');
+	}
+	
 	let hieght_doc = document.documentElement.offsetHeight/2; //Определяем высоту документа (величина на которую нужно прокруть до появления элемента)
 	let btn_close = $('.close_btn'); 						//Кнопка закрытия формы
+	
+	let launchDelay = 5000; 								 //величина задержки запуска появления формы
 	let timeOut_submit = 24*60*60*1000; 					//отсрочка пояаления формы после отправки
-	let periodOpen = 5*1000*60; 							//Период сплытия окна после закрытия
+	let periodOpen = 5*1000*60; 							//Прирощение при закрытии формы
+	let firstTimeout = 1*60*1000;							//начальное время установк
 
 	let currentTime = Date.now(); 							//Получаем текущее время
 
-	//localStorage.setItem('visitTime',Date.now()); //сброс
+	let startTime = currentTime;							//Начало отсчета - время входа на сайт
+	let endTime = localStorage.getItem('endTime');			//Конец отсчета - время срабатывания события
+	let oneShow = localStorage.getItem('oneShow');			//Если окно уже показывалось при прокрутке
+	let timerTime;
 
-	let visitTime = localStorage.getItem('visitTime');		//Получаем время закрытия формы в хранилище, если таковое имеется
+	if((endTime - startTime)<0){localStorage.removeItem('endTime');} //Если времявышло - удаляем переменную из хранилища
+	if (endTime == undefined) {
+		localStorage.setItem('endTime', currentTime+firstTimeout);
+		endTime = localStorage.getItem('endTime');
+	}
 
-	const winListener = function(){							//Функция добавления слушателя на скролл страницы
-		window.addEventListener('scroll', function() {
-			if (-(document.documentElement.getBoundingClientRect().top)>hieght_doc){
-				if(!($('#vision').hasClass('used'))){
-					$('#vision').addClass('used');
-					$('#vision').removeClass('hide_block');
-				}
+	if ((endTime == undefined) ||((endTime - startTime)<0) ) {timerTime = firstTimeout} else {timerTime = endTime - startTime};
+
+	if (oneShow == undefined) {localStorage.setItem('oneShow', false); oneShow = localStorage.getItem('oneShow')} 
+
+	const TimerPresent = setTimeout(dispalyPresent,timerTime);
+
+	
+	
+	console.log((endTime - startTime)/1000/60);
+	console.log(timerTime/1000/60);
+	
+
+	const scrollShowPopUp = function() {					//Функция показа окна при прокрутки страницы
+		if (-(document.documentElement.getBoundingClientRect().top)>hieght_doc){
+			if(!($('#vision').hasClass('used'))){
+				$('#vision').addClass('used');
+				$('#vision').removeClass('hide_block');
+				localStorage.setItem('oneShow', true);
 			}
-		});
+		}
 	};
 	
-	if (!visitTime || ((currentTime - visitTime) > periodOpen)){		//Если в хранилище нет переменной закрытия страницы или прошло больше времени, чем указано в счетчике после закрытия то показывать форму
-		setTimeout(winListener, launchDelay); // отсрочка функции запуска всплытия окна
+
+	const winListener = function(){							//Функция добавления слушателя на скролл страницы 
+		window.addEventListener('scroll', scrollShowPopUp);
+	};
+
+	console.log(oneShow);
+	if (oneShow == 'false'){
+		setTimeout(winListener, launchDelay); // отсрочка функции запуска всплытия окна Если оно еще не показывалось
 	}
-		// Слушатель на закрытие формы
-		btn_close.click(
-			function (){
-				$('#vision').addClass('hide_block');
-				localStorage.setItem('visitTime',Date.now()); // При закрытии формы устанавливаем в хранилище время закрытия формы
-			}
-		);
+	
+	// Слушатель на закрытие формы
+	btn_close.click(
+		function (){
+			$('#vision').addClass('hide_block');
+			localStorage.setItem('endTime', currentTime+periodOpen); //Устанавливаем нвое конечное время при закрытии формы - текущее время плюс прирощение
+			clearTimeout(TimerPresent);                          //При закрытии формы сбрасываем старый ТаймАут
+			setTimeout(TimerPresent,periodOpen);					// и запускаем новый
+		}
+	);
 	$('.pop_up_present form').submit(
 		function(){
 			if($('.pop_up_present form [name="tel-number"]').val()){
-				let timeout_sm = Date.now() + timeOut_submit; //отсрочка появления формы после отправки
-				localStorage.setItem('visitTime',timeout_sm);
+				localStorage.setItem('endTime', currentTime+timeOut_submit); //Устанавливаем новое конечное время при отправке формы - текущее время плюс прирощение
 				console.log("Нажата кнопка");
 			}
 
 		}
 	);
+
 </script>
