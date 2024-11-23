@@ -977,10 +977,6 @@ h2 span.empty_link{
 			top: -10px;
 			padding: 20px 20px;
 		}
-		.header__reviews .header__block{
-			/* padding-top: 120px ; */
-			/* margin-top: -120px; */
-		}
 		.head__review h4,.head__review .job_title,.head__review p {
 			font-size: 10px;
 		}
@@ -1932,3 +1928,69 @@ section.best_post {
 		text-decoration: none;
 		color: rgb(237, 68, 85);
 	}
+
+	/* Секция Подарок present_section.php */
+.present_section{
+	padding: 0 15px;
+}
+	.present_section .wrap{
+		max-width: 1750px;
+		background-color: rgba(61, 61, 61, 1);
+		border-radius: 40px;
+		margin: 65px auto 0 auto;
+		color:rgba(255, 255, 255, 1);
+		padding: 75px 85px 35px 85px;
+		position: relative;
+	}
+
+	.present_section h2{
+		font-size: calc(30px + 30*(100vw / 1920));
+		font-weight: 600;
+		margin-bottom: 30px;
+		
+	}
+		.present_section .descr_present{
+			font-size: calc(16px + 5*(100vw / 1920));
+			line-height: 1.5;
+			font-weight: 200;
+			margin-bottom: 20px;
+			max-width: 550px;
+		}
+		.present_section ul li{
+			font-size: calc(16px + 5*(100vw / 1920));
+			font-weight: 200;
+			margin-bottom: 5px;
+			padding-left: 30px;
+			background: url(../images/chek.svg) center left no-repeat;
+		}
+		.present_section .btn{
+			margin-top: auto;
+			margin-top: 50px;
+		}
+		.present_section .present_box{
+			position: absolute;
+			right: 0;
+			top: 55px;
+			width: calc(200px + 550*(100vw/1920) );
+		}
+		@media screen and (max-width:1100px) {
+			.present_section .present_box{
+				top: -200px;
+				right: -20px;
+			}
+
+			.present_section {
+				margin-top: 245px;
+			}
+		}
+		@media screen and (max-width: 993px) {
+			.present_section h2{
+				margin-bottom: 20px;
+			}
+		}
+		@media screen and (max-width: 600px) {
+			.present_section .wrap{
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		}
