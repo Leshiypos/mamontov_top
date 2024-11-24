@@ -1068,6 +1068,10 @@ Template Post Type: post, page, product
 			// Секция Кейсов Новая
 			get_template_part('templates/layout/section_case_new'); 
 		?>
+		<?php
+			// Секция Подарок
+			get_template_part('templates/layout/present_section'); 
+		?>
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
         endif;

@@ -269,6 +269,10 @@ get_template_part('templates/layout/popular-block-section');
 // Отзывы клиентов 
 get_template_part('templates/layout/сustomer_reviews');
 
+// Секция Подарок
+get_template_part('templates/layout/present_section'); 
+
+
 						endwhile; 
 
 					endif;
