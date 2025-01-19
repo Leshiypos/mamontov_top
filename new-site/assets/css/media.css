@@ -15,6 +15,9 @@
     .header {
         padding: 100px 55px 0;
     }
+    .header__box-magnit__main {
+        padding: 33px 55px 0;
+    }
     h1 {
         font-size: 80px;
         line-height: 96px;
@@ -173,6 +176,9 @@
     }
     .header {
         padding-top: 60px;
+    }
+    .header__box-magnit__main {
+        padding-top: 20px;
     }
     h1 {
         font-size: 60px;

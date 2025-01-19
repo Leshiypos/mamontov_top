@@ -91,6 +91,17 @@ Template Post Type: post, page, product
                     </section>
                     ';
                 endif;
+				// проверяем на нужный макет
+				if( get_row_layout() == 'section_contents' ):
+					$section_content = get_sub_field('content');
+					 echo '
+					<section class="aboutCase radius_1 greyBg pad_flex_100">
+						'.$section_content.'
+					</section>
+					 ';
+		
+				endif;
+// проверили макет 
 
 // Начало Секции Изображение слева
 				get_template_part('templates/layout/image-left');

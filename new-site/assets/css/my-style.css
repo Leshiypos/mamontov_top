@@ -1633,7 +1633,7 @@ section.tools {
 
 @media screen and (max-width: 768px) {
 	section.tools{
-		margin-bottom: -65px;
+		/* margin-bottom: -65px; */
 	}
 }
 
@@ -1931,8 +1931,9 @@ section.best_post {
 
 	/* Секция Подарок present_section.php */
 .present_section{
+	margin-top: 100px;
 	padding: 0 15px;
-	margin-bottom: 180px;
+	margin-bottom: calc(40px + 140*(100vw / 1920));
 }
 	.present_section .wrap{
 		max-width: 1750px;
@@ -1982,12 +1983,12 @@ section.best_post {
 		}
 		@media screen and (max-width:1100px) {
 			.present_section .present_box{
-				top: -220px;
+				top: -200px;
 				right: -20px;
 			}
 
 			.present_section {
-				margin-top: 245px;
+				margin-top: 300px;
 			}
 		}
 		@media screen and (max-width: 993px) {
@@ -2001,3 +2002,21 @@ section.best_post {
 				padding-right: 15px;
 			}
 		}
+		.present_section.single_p{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		/* Секция Изображение слева и справа */
+		.image_block_left_right {
+			align-items: stretch;
+
+		}
+			.image_block_left_right>a{
+				display: flex;
+				/* background-color: #2d2c2c; */
+				align-items: center;
+				border-radius: 40px;
+			}
+			.image_block_left_right>a img{
+				height: fit-content;
+			}

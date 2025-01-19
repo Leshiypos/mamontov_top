@@ -226,6 +226,9 @@ section {
 .header {
     padding: 140px 55px 0;
 }
+.header__box-magnit__main {
+    padding: 46px 55px 0;
+}
 /* Страница кейсов  */
 .pageCase {
     margin: 65px auto 0;
