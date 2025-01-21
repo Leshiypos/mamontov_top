@@ -4302,7 +4302,7 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   .header__box-magnit {
     background-size: auto;
     background-position: unset;
-    background-image: none;
+    background-image: none !important;
   }
 
   .header__box-magnit__image {
