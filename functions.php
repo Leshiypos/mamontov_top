@@ -720,7 +720,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 	 }
 
 	 // Вместо "Форма лид-магнит" необходимо указать название вашей контактной формы
-	 if ('Форма лид-магнит' == $title ) {
+	 if ('Форма лид-магнит' == $title ||  'Форма документы за данные' == $title) {
 		$submission = WPCF7_Submission::get_instance();
 		$posted_data = $submission->get_posted_data();
 		// Далее перехватываем введенные данные в полях Contact Form 7:
@@ -773,7 +773,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 		// Формируем параметры для создания лида в переменной $postData = array
 		$postData = array(
 		   // Устанавливаем название для заголовка лида
-		   'TITLE' => 'Лид с сайта mamontov.top',
+		   'TITLE' => 'Лид с сайта mamontov.top - страница Лид-магнит',
 		   'CURRENCY_ID' => "RUB",
 		   'UTM_SOURCE' => $utm_source,
 		   'UTM_MEDIUM' => $utm_medium,

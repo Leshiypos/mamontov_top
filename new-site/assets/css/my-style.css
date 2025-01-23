@@ -2049,6 +2049,59 @@ section.best_post {
 				text-decoration: none;
 			}
 			.header_modal{
-				opacity: 0.7;
+				opacity: 1;
 				font-size: calc(18px + 18*(100vw/1920) );
+				margin-bottom: 20px!important;
+			}
+			.description_modal{
+				font-size: calc(12px + 6*(100vw/1920) );
+				opacity: .7;
+				margin-bottom: 40px;
+				font-weight: 200;
+			}
+			.send_form {
+				background: url('../images/send_form.svg') top right no-repeat rgba(237, 68, 85, 1) !important;
+				background-position: 95% 40% !important;
+			}
+
+			/* Секция документы за данные */
+			.form_tel input:checked ~ .wpcf7-list-item-label .checkbox:before {
+				content: '';
+				position: absolute;
+				width: 15px;
+				height: 15px;
+				background: var(--color-3);
+				border-radius: 50%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.form_tel .checkbox {
+				display: flex;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				border: 1px solid var(--color-3);
+				position: relative;
+			}
+			.form_tel input[type="checkbox"] {
+				display: none;
+			}
+			.form_tel .checkbox {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.form_lid_magnet .wpcf7-form-control-wrap{
+				display: block;
+			}
+			.form_lid_magnet .wpcf7-form-control-wrap span{
+				color: #ffea00;
+			}
+			.form_documents_for_data .wpcf7-form-control-wrap{
+				display: block;
+			}
+			.form_documents_for_data .btn_audit{
+				margin-top: 40px;
 			}
