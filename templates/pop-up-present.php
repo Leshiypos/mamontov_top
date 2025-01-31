@@ -112,7 +112,7 @@
 	btn_close.click(
 		function (){
 			$('#vision').addClass('hide_block');
-			localStorage.setItem('endTime', currentTime+periodOpen); //Устанавливаем нвое конечное время при закрытии формы - текущее время плюс прирощение
+			localStorage.setItem('endTime', Date.now()+periodOpen); //Устанавливаем нвое конечное время при закрытии формы - текущее время плюс прирощение
 			clearTimeout(TimerPresent);                          //При закрытии формы сбрасываем старый ТаймАут
 			setTimeout(TimerPresent,periodOpen);					// и запускаем новый
 		}

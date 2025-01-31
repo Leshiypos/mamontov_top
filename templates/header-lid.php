@@ -12,13 +12,24 @@ $switch = get_field('switch');
 $title_discount = get_field('title_discount');
 $old_cost = get_field('old_cost');
 $new_cost = get_field('new_cost');
+$header_image = get_field('header_image');
 ?>
 
 <header class="header header__main header__box-magnit__main">
 			<div class="header__container">
-				<div class="header__box header__box-magnit">
-					<img class="header__box-magnit__image" src="<?php echo get_template_directory_uri(); ?>/new-site/assets/images/lead-generation-strategies.png"
-						alt="Лид-магнита">
+				<div class="header__box header__box-magnit" <?php if ($header_image){echo 'style="background-image: url('.$header_image.')"';} ?>>
+					<?php
+						if ($header_image){
+							?>
+							<img class="header__box-magnit__image" src="<?php echo $header_image; ?>"
+								alt="Лид-магнита"/>
+							<?php
+						} else {
+							?>
+							<img class="header__box-magnit__image" src="<?php echo get_template_directory_uri(); ?>/new-site/assets/images/lead-generation-strategies.png" alt="Лид-магнита"/>
+							<?php
+						}
+					?>
 					<div class="header__block">
 						<h1 class="titlePage m-0">
 								<?php echo get_the_title(); ?>

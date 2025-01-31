@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Лид - магнит
+Template Name: Трипваер
 Template Post Type: page
 */
 ?>

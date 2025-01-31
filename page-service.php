@@ -1083,6 +1083,10 @@ Template Post Type: post, page, product
 			// Секция Подарок
 			get_template_part('templates/layout/present_section'); 
 		?>
+		<?php 
+		// Секция Доска команды
+		get_template_part('templates/layout/team-board'); 
+		?>
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
         endif;

@@ -77,7 +77,13 @@
 			</div>
 		</footer>
  
-<div style="display: none; max-width: 500px; width: 100%;" id="popupfancy" class="form">
+<div style="display: none; max-width: 500px; width: 100%;" id="popupfancy" class="form form_lid_magnet">
 	<h2>Оставьте заявку на консультацию</h2>
-	<?php echo do_shortcode('[contact-form-7 id="85bcf96" title="Форма кейсов"]');  ?>
+	<?php
+				if (is_page_template('page-lidmagnet.php')){
+					echo do_shortcode('[contact-form-7 id="eae65a8" title="Форма лид-магнит"]');
+				} else {
+					echo do_shortcode('[contact-form-7 id="85bcf96" title="Форма кейсов"]');
+				}
+				?>
 </div>

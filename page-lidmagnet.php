@@ -43,7 +43,6 @@ Template Post Type: page
         <?php get_template_part('templates/header-lid'); ?>
        
 		<main class="main">
-
 		<?php
 		// проверяем есть ли данные в гибком содержании
 		if( have_rows('page_lid_magnet') ):
@@ -774,6 +773,10 @@ Template Post Type: page
 <!-- КОНЕЦ Форма -->
 		<!-- Отзывы клиентов -->
 		<?php get_template_part('templates/layout/сustomer_reviews'); ?>
+		<?php 
+		// Секция Доска команды
+		get_template_part('templates/layout/team-board'); 
+		?>
 
 		<!-- Форма Подарок за данные -->
 		<!-- Начало Форма -->
@@ -811,6 +814,7 @@ Template Post Type: page
 			endwhile;
 		endif;
 		?>
+
 
 		</main>
 		<?php get_footer(); ?>

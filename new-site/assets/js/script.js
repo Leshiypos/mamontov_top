@@ -69,8 +69,14 @@ function ready() {
     ///$('input[name="tel-number"]').mask('+7 000 000-00-00');
     //$('input[name="tel-299"]').mask('+7 000 000-00-00');
 	
+	function checkElement(selector){
+		let el = document.querySelector(selector);
+		if (el) return true;
+		return false;
+	}
     // wp-dev слайде для Отзывов клиентов
-
+	
+	if (checkElement('.slider__wrapper-licenses__container_reviewsClient')){
 	let swiperReviewClient = new Swiper(".slider__wrapper-licenses__container_reviewsClient", {
         // Настройки слайдера
         slidesPerView: 1,
@@ -83,7 +89,9 @@ function ready() {
           prevEl: ".btn-prev__reviewClient",
         },
       });
+	}
 
+	if (checkElement('.slider__wrapper-comand__container')){
     let swiperComand = new Swiper(".slider__wrapper-comand__container", {
         // Настройки слайдера
         slidesPerView: 2,
@@ -108,7 +116,9 @@ function ready() {
           prevEl: ".btn-prev",
         },
       });
-    
+	}
+
+	if (checkElement('.pageCase__our-services__container-swiper')){
       let swiperServices = new Swiper(".pageCase__our-services__container-swiper", {
         // Настройки слайдера
         slidesPerView: 4,
@@ -138,7 +148,9 @@ function ready() {
           prevEl: ".btn-prev__our-services",
         },
       });
-    
+	}
+
+	if (checkElement('.slider__wrapper-clients__container')){
       let swiperClients = new Swiper(".slider__wrapper-clients__container", {
         // Настройки слайдера
         slidesPerView: 6,
@@ -170,7 +182,9 @@ function ready() {
           prevEl: ".btn-prev__clients",
         },
       });
-    
+	}
+
+	if (checkElement('.slider__wrapper-licenses__container')){
       let swiperReview = new Swiper(".slider__wrapper-licenses__container", {
         // Настройки слайдера
         slidesPerView: 3,
@@ -201,10 +215,10 @@ function ready() {
           prevEl: ".btn-prev__review",
         },
       });
+	}
 
 
-
-
+	if (checkElement('.slider__wrapper-sertificats__container')){
       let swiperSertificats = new Swiper(
         ".slider__wrapper-sertificats__container",
         {
@@ -236,7 +250,10 @@ function ready() {
           },
         }
       );
-    
+	}
+
+
+	if (checkElement('.slider__wrapper-comands__container')){
       let swiperComands = new Swiper(".slider__wrapper-comands__container", {
         // Настройки слайдера
         slidesPerView: 5,
@@ -271,7 +288,10 @@ function ready() {
           prevEl: ".btn-prev__comands",
         },
       });
-    
+	}
+
+
+	if (checkElement('.swiper__container-price__services')){
       let swiperPriceServices = new Swiper(".swiper__container-price__services", {
         // Настройки слайдера
         slidesPerView: 3,
@@ -298,7 +318,10 @@ function ready() {
           prevEl: ".btn-prev__price-services",
         },
       });
-    
+	}
+
+
+	if (checkElement('.pageCase__stydies-internet__block-videos__container-mobile')){
       let swiperPriceStydies = new Swiper(
         ".pageCase__stydies-internet__block-videos__container-mobile",
         {
@@ -323,7 +346,10 @@ function ready() {
           },
         }
       );
-    
+	}
+
+
+	if (checkElement('.pageCase__lid-magnit__container')){
       let swiperLidMagnit = new Swiper(".pageCase__lid-magnit__container", {
         // Настройки слайдера
         slidesPerView: 2,
@@ -341,7 +367,10 @@ function ready() {
           prevEl: ".btn-prev__lid-magnit",
         },
       });
-    
+	}
+
+
+	if (checkElement('.pageCase__lid-magnit__container-mobile')){
       let swiperLidMagnitMobile = new Swiper(
         ".pageCase__lid-magnit__container-mobile",
         {
@@ -362,7 +391,10 @@ function ready() {
           },
         }
       );
-    
+	}
+
+
+    if (checkElement('.pageCase__where-lid__block-box__slider')){
       let swiperLidMagnitWhere = new Swiper(
         ".pageCase__where-lid__block-box__slider",
         {
@@ -384,7 +416,10 @@ function ready() {
           },
         }
       );
-    
+	}
+
+
+	if (checkElement('.pageCase__fact-case__box-conatiner')){
       let swiperFactsCase = new Swiper(".pageCase__fact-case__box-conatiner", {
         // Настройки слайдера
         slidesPerView: 1,
@@ -403,9 +438,10 @@ function ready() {
           prevEl: ".btn-prev__facts-case",
         },
       });
-
+	}
 
 	  //  Начало Слайдер all_services_section
+	  if (checkElement('.all_services_swiper')){
       let swiperAllServicesSection = new Swiper(".all_services_swiper", {
         // Настройки слайдера
         slidesPerView: 3,
@@ -431,9 +467,11 @@ function ready() {
           prevEl: ".btn-prev__all_serv_sec",
         },
       });
+	}
 	//  Конец Слайдер all_services_section
 
 	//Начало  Слайдер Tool 
+	if (checkElement('.tools_swiper')){
 	let swiperToollSection = new Swiper(".tools_swiper", {
         // Настройки слайдера
         slidesPerView: 1,
@@ -448,10 +486,12 @@ function ready() {
           prevEl: ".btn-prev__tools",
         },
       });
+	}
 	//Конец  Слайдер Tool 
 
+	
 		//Начало  Слайдер rating 
-		if(document.querySelector('.rating_swiper')){
+		if(checkElement('.rating_swiper')){
 		let swiperRatinglSection = new Swiper(".rating_swiper", {
 			// Настройки слайдера
 			slidesPerView: 5,
@@ -481,7 +521,7 @@ function ready() {
 		//Конец  Слайдер rating 
 
 		//Начало  Лучшие посты 
-		if(document.querySelector('.best_swiper')){
+		if(checkElement('.best_swiper')){
 			let swiperRatinglSection = new Swiper(".best_swiper", {
 				// Настройки слайдера
 				slidesPerView: 3,
