@@ -372,7 +372,8 @@ ul#menu-podval {
 #menu-podval .sub-menu {
     flex-direction: column;
     gap: 24px;
-    opacity: 0.5;
+    /* opacity: 0.5; */
+	color: rgb(89, 89, 89)
 }
 #menu-podval a {
     text-transform: math-auto;

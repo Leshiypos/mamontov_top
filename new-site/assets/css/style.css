@@ -145,10 +145,18 @@ section {
 .sectionForm input.btnForm,
 .btnForm {
 	border: 0!important;
-    background: var(--color-7);
+    background: var(--color-1);
     padding: 20px 71px;
     margin-top: 32px;
     font-size: 20px;
+}
+.sectionForm input.btnForm:hover,
+.btnForm:hover {
+    background: var(--color-7);
+}
+.sectionForm input.btnForm:disabled:hover,
+.btnForm:disabled:hover {
+    background: var(--color-1);
 }
 /* Top Panel */
 .city,

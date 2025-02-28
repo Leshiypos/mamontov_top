@@ -1825,6 +1825,17 @@ h2 span,
   content: attr(data-title);
   top: 100%;
 }
+#menu-podval .sub-menu .opener__link {
+	color: rgb(89, 89, 89)
+}
+#menu-podval .opener__link::before {
+  content: "";
+  position: absolute;
+  content: attr(data-title);
+  top: 100%;
+  color:#ffffff;
+}
+
 
 .opener__link:hover {
   transform: translateY(-100%);
