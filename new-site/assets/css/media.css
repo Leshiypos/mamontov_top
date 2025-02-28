@@ -296,7 +296,7 @@
     .aboutCase img {
         margin: 25px 0;
     }
-    .aboutCase ol li {
+    .aboutCase ol li, .aboutCase ul li {
         margin-left: 23px;
         font-size: 16px;
     }
@@ -490,7 +490,7 @@
     .aboutCase ul {
         margin-bottom: 20px;
     }
-    .aboutCase ol li {
+    .aboutCase ol li, .aboutCase ul li {
         font-size: 14px;
     }
     .sectionForm .form {

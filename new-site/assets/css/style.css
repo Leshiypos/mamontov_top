@@ -377,7 +377,10 @@ section {
     flex-direction: column;
     gap: 16px;
 }
-.aboutCase ol li {
+.aboutCase ul{
+	list-style: disc;
+}
+.aboutCase ol li, .aboutCase ul li  {
     margin-left: 28px;
     font-size: 20px;
 }

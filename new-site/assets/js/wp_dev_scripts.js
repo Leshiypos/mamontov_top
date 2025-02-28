@@ -23,14 +23,14 @@ $(document).ready(function(){
 
 	// Функция кнопки - Смотреть больше
 
-	const butReadMore = document.querySelector('button.read_more_team_but');
-	const container = document.querySelector('.height_limit');
-	const wrapBut = document.querySelector('.read_more_team_but_wrap');
-	if(butReadMore){
-	butReadMore.addEventListener('click', ()=>{
-		container.classList.remove('height_limit');
-		wrapBut.classList.remove('visible_mob');
-	})
-	}
+	// const butReadMore = document.querySelector('button.read_more_team_but');
+	// const container = document.querySelector('.height_limit');
+	// const wrapBut = document.querySelector('.read_more_team_but_wrap');
+	// if(butReadMore){
+	// butReadMore.addEventListener('click', ()=>{
+	// 	container.classList.remove('height_limit');
+	// 	wrapBut.classList.remove('visible_mob');
+	// })
+	// }
 
 });

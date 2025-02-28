@@ -2170,7 +2170,7 @@ h2 span,
 }
 
 .footer__contacts .mail:hover {
-  color: #e24175;
+  color: rgb(237, 68, 85);
 }
 
 .footer__contacts-box,
@@ -2257,8 +2257,8 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 }
 
 .footer__contacts-list:hover a svg path {
-  fill: #e24175;
-  stroke: #e24175;
+  fill: rgb(237, 68, 85)
+  stroke: rgb(237, 68, 85)
 }
 
 .footer__contacts-services {

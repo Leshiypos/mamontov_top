@@ -550,6 +550,38 @@ function ready() {
 	
 			//Конец  Лучшие посты
 
+//Начало  Доска команды 
+if(checkElement('.board_swiper')){
+	let swiperTeamBoard = new Swiper(".board_swiper", {
+		// Настройки слайдера
+        slidesPerView:"auto",
+        loop: true,
+        spaceBetween: 50,
+		speed: 2500,   
+		autoplay: {
+			delay : 0.001,
+		},
+	  });
+	}
+
+if(checkElement('.board_swiper_reverse')){
+	let swiperTeamBoard = new Swiper(".board_swiper_reverse", {
+		// Настройки слайдера
+        slidesPerView:"auto",
+        loop: true,
+        spaceBetween: 50,
+		speed: 2500,   
+		autoplay: {
+			delay : 0.001,
+			reverseDirection: true,
+		},
+	  });
+	}
+
+	//Конец  Доска команды
+
+
+
     
       const selects = document.querySelectorAll(".pageCase__questien-select");
       if(selects) {
