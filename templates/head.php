@@ -35,7 +35,8 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/new-site/assets/lib/slick/slick-theme.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/new-site/assets/lib/slick/slick.css">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"> -->
+	<link rel="stylesheet" href="<?php  echo get_template_directory_uri();?>/new-site/assets/lib/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/new-site/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/new-site/assets/css/media.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/new-site/assets/css/custom.css">
@@ -44,7 +45,8 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
   src="https://code.jquery.com/jquery-3.7.1.js"
   integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
   crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script> -->
+	<script src="<?php  echo get_template_directory_uri();?>/new-site/assets/lib/fancybox/jquery.fancybox.min.js"></script>
 	<script src="https://unpkg.com/imask"></script>
 	 <title>
         <?php echo wp_get_document_title(); ?>
