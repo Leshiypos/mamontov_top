@@ -347,7 +347,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 
 	   $utm_source = $posted_data['utm_source'];
 	   $utm_medium = $posted_data['utm_medium'];
-	   $utm_compaign = $posted_data['utm_compaign'];
+	   $utm_compaign = $posted_data['utm_campaign'];
 	   $utm_content = $posted_data['utm_content'];
 	   $utm_term = $posted_data['utm_term'];
 
@@ -444,7 +444,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 		
 		$utm_source = $posted_data['utm_source'];
 		$utm_medium = $posted_data['utm_medium'];
-		$utm_compaign = $posted_data['utm_compaign'];
+		$utm_compaign = $posted_data['utm_campaign'];
 		$utm_content = $posted_data['utm_content'];
 		$utm_term = $posted_data['utm_term'];
 
@@ -542,7 +542,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 	
 	$utm_source = $posted_data['utm_source'];
 	$utm_medium = $posted_data['utm_medium'];
-	$utm_compaign = $posted_data['utm_compaign'];
+	$utm_compaign = $posted_data['utm_campaign'];
 	$utm_content = $posted_data['utm_content'];
 	$utm_term = $posted_data['utm_term'];
 
@@ -640,7 +640,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
 		
 		$utm_source = $posted_data['utm_source'];
 		$utm_medium = $posted_data['utm_medium'];
-		$utm_compaign = $posted_data['utm_compaign'];
+		$utm_compaign = $posted_data['utm_campaign'];
 		$utm_content = $posted_data['utm_content'];
 		$utm_term = $posted_data['utm_term'];
 	
@@ -743,7 +743,7 @@ function your_wpcf7_mail_sent_function( $contact_form ) {
  
 		$utm_source = $posted_data['utm_source'];
 		$utm_medium = $posted_data['utm_medium'];
-		$utm_compaign = $posted_data['utm_compaign'];
+		$utm_compaign = $posted_data['utm_campaign'];
 		$utm_content = $posted_data['utm_content'];
 		$utm_term = $posted_data['utm_term'];
  
