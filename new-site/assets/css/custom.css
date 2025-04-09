@@ -47,6 +47,7 @@ h2 span,
   background-size: 805px 646px;
   background-position: right;
   padding-top: 105px;
+  background-size: auto;
 }
 
 .header__box-magnit .header__text_main {
@@ -136,10 +137,10 @@ h2 span,
 
 .aboutCase ul {
   margin-bottom: 0;
-	width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-	row-gap: 24px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 24px;
 }
 
 .aboutCase__block {
@@ -166,7 +167,7 @@ h2 span,
 
 .aboutCase__block-list {
   font-size: 20px;
-	width: 50%;
+  width: 50%;
 }
 
 .aboutCase__block-link:hover {
@@ -275,33 +276,33 @@ h2 span,
 .pageCase__achievements-box:nth-of-type(1)
   .pageCase__achievements-box__number::before {
   top: -33px;
-  left: -59px;   
-	  left: 50%;
-    transform: translate(-50%, 0);
+  left: -59px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .pageCase__achievements-box:nth-of-type(2)
   .pageCase__achievements-box__number::before {
   top: -24px;
   left: -46px;
-	  	  left: 50%;
-    transform: translate(-50%, 0);
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .pageCase__achievements-box:nth-of-type(3)
   .pageCase__achievements-box__number::before {
   top: -22px;
   left: -43px;
-	  	  left: 50%;
-    transform: translate(-50%, 0);
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .pageCase__achievements-box:nth-of-type(4)
   .pageCase__achievements-box__number::before {
   top: -23px;
   left: -55px;
-	  	  left: 50%;
-    transform: translate(-50%, 0);
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .pageCase__achievements-box__text {
@@ -468,7 +469,7 @@ h2 span,
   border-radius: 40px;
 }
 .pageCase__our-services__block-card__text p {
-    word-break: break-word;
+  word-break: break-word;
 }
 .pageCase__internet-marketing__block-texts {
   display: flex;
@@ -730,20 +731,20 @@ h2 span,
 .pageCase__our-services__container {
   gap: 32px;
 }
-.pageCase__our-services .pageCase__price-services__container-block{
-	max-width: 1720px;
-	margin-left: auto;
-  	margin-right: auto;
+.pageCase__our-services .pageCase__price-services__container-block {
+  max-width: 1720px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.pageCase__our-services .case__contecst-text{
-	max-width: 1920px;
-	margin-left: auto;
-  	margin-right: auto;
+.pageCase__our-services .case__contecst-text {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .pageCase__our-services .pageCase__our-services__container-swiper {
-	max-width: 1720px;
-	margin-left: auto;
-  	margin-right: auto;
+  max-width: 1720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* 
@@ -1068,13 +1069,13 @@ h2 span,
   flex-direction: column;
   gap: 60px;
 }
-.our-clients_section_wp{
-	background-color: var(--color-1);
+.our-clients_section_wp {
+  background-color: var(--color-1);
 }
-.our-clients_section_wp .pageCase__our-clients{
-	max-width: 1920px;
-	margin-left: auto;
-  	margin-right: auto;
+.our-clients_section_wp .pageCase__our-clients {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pageCase__our-clients__block {
@@ -1082,25 +1083,33 @@ h2 span,
   align-items: end;
 }
 .section_process_four .pageCase__our-services__block {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.section_process_four .pageCase__our-services__block .pageCase__our-services__block-card:nth-child(1),
-.section_process_four .pageCase__our-services__block .pageCase__our-services__block-card:nth-child(4) {
-    width: 62%;
+.section_process_four
+  .pageCase__our-services__block
+  .pageCase__our-services__block-card:nth-child(1),
+.section_process_four
+  .pageCase__our-services__block
+  .pageCase__our-services__block-card:nth-child(4) {
+  width: 62%;
 }
-.section_process_four .pageCase__our-services__block .pageCase__our-services__block-card:nth-child(2),
-.section_process_four .pageCase__our-services__block .pageCase__our-services__block-card:nth-child(3) {
-    width: 34%;
+.section_process_four
+  .pageCase__our-services__block
+  .pageCase__our-services__block-card:nth-child(2),
+.section_process_four
+  .pageCase__our-services__block
+  .pageCase__our-services__block-card:nth-child(3) {
+  width: 34%;
 }
 .swiper-wrapper a {
-    overflow: hidden;
+  overflow: hidden;
 }
 .swiper-wrapper a img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .pageCase__our-clients__block h1 {
   color: var(--color-3);
@@ -1149,10 +1158,10 @@ h2 span,
 }
 /* wp_dev */
 .slider__wrapper-licenses__container_reviewsClient {
-	max-width: 699px;
-	width: 100%;
-	overflow: hidden;
-  }
+  max-width: 699px;
+  width: 100%;
+  overflow: hidden;
+}
 
 .slider__wrapper-license {
   border-radius: 20px;
@@ -1350,7 +1359,7 @@ h2 span,
   visibility: hidden;
   min-height: 0;
   height: 0;
-/*   transition: all 0.2s linear; */
+  /*   transition: all 0.2s linear; */
 }
 
 /* .pageCase__internet-marketing__section {
@@ -1826,16 +1835,15 @@ h2 span,
   top: 100%;
 }
 #menu-podval .sub-menu .opener__link {
-	color: rgb(89, 89, 89)
+  color: rgb(89, 89, 89);
 }
 #menu-podval .opener__link::before {
   content: "";
   position: absolute;
   content: attr(data-title);
   top: 100%;
-  color:#ffffff;
+  color: #ffffff;
 }
-
 
 .opener__link:hover {
   transform: translateY(-100%);
@@ -2218,36 +2226,45 @@ h2 span,
   stroke: var(--color-3);
   transition: all 0.2s linear;
 }
-input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
-    border-radius: 0;
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+  border-radius: 0;
 }
 #popupfancy h2 {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 #popupfancy {
-    background: var(--color-2);
-    color: #fff;
-	padding-bottom: 0;
+  background: var(--color-2);
+  color: #fff;
+  padding-bottom: 0;
 }
 #popupfancy input,
 #popupfancy input::placeholder,
 #popupfancy .wpcf7-list-item-label a {
-    color: #fff;
+  color: #fff;
 }
 #popupfancy input::placeholder {
-    font-size: 20px;
-} 
+  font-size: 20px;
+}
 #popupfancy input {
-	padding: 2px 0 20px 0;
-    margin-bottom: 20px;
-    width: 100%;
+  padding: 2px 0 20px 0;
+  margin-bottom: 20px;
+  width: 100%;
 }
 #popupfancy .btn.btnForm {
-    padding: 15px 0;
-    background: var(--color-7);
+  padding: 15px 0;
+  background: var(--color-7);
 }
 #popupfancy .wpcf7-list-item-label {
-    font-size: 15px;
+  font-size: 15px;
 }
 .footer__contacts-list:nth-of-type(1) a svg {
   width: 20px;
@@ -2267,9 +2284,9 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   width: 22px;
 }
 
-.footer__contacts-list:hover a svg path {
-  fill: rgb(237, 68, 85)
-  stroke: rgb(237, 68, 85)
+.footer__contacts-list a svg path:hover {
+  fill: var(--color-2);
+  stroke: var(--color-2);
 }
 
 .footer__contacts-services {
@@ -2326,8 +2343,6 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 }
 
 @media screen and (max-width: 1740px) {
-
-
   .pageCase__internet-marketing__block-image {
     align-self: center;
   }
@@ -2559,7 +2574,7 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 }
 
 @media screen and (max-width: 1280px) {
-	.pageCase__internet-marketing__box-block {
+  .pageCase__internet-marketing__box-block {
     flex-direction: column;
   }
   h1 {
@@ -2681,19 +2696,19 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   .pageCase__internet-marketing__block-texts__list {
     opacity: 1;
   }
-.pageCase__internet-marketing__box {
+  .pageCase__internet-marketing__box {
     padding: 0;
-}
-	.pageCase__internet-marketing__box-block.right {
-    flex-direction: column!important; /*wp-dev*/
-}
-.pageCase__internet-marketing__box-block__comands-container {
+  }
+  .pageCase__internet-marketing__box-block.right {
+    flex-direction: column !important; /*wp-dev*/
+  }
+  .pageCase__internet-marketing__box-block__comands-container {
     flex-direction: column-reverse;
-}
-.slider__wrapper-comand__container {
+  }
+  .slider__wrapper-comand__container {
     max-width: 100%;
     width: 100%;
-}
+  }
   /*.pageCase__internet-marketing__block-texts {
     background-color: transparent;
     color: var(--color-1);
@@ -3025,7 +3040,7 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 
   .pageCase__session-section {
     overflow: hidden;
-	margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   .pageCase__session-texts {
@@ -3033,7 +3048,8 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   }
 
   .header__box-magnit {
-    background-size: 477px 382px;
+    /* background-size: 477px 382px; */
+    background-size: 60%;
     padding-top: 67px;
   }
 
@@ -3092,7 +3108,7 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
     grid-row: 2;
   }
 
-/*   .pageCase__check-list__image:nth-of-type(1) {
+  /*   .pageCase__check-list__image:nth-of-type(1) {
     display: none;
   } */
 
@@ -3481,9 +3497,9 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 }
 
 @media screen and (max-width: 993px) {
-	iframe {
-		width: 100%;
-	}
+  iframe {
+    width: 100%;
+  }
   .main .pageCase,
   .pageCase.portfolio__main {
     padding: 0 15px;
@@ -4159,16 +4175,16 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   }
 }
 .callback:hover {
-    background: var(--color-2);
-	color: #fff;
+  background: var(--color-2);
+  color: #fff;
 }
 .footer__contacts .telphone:hover {
-	color: var(--color-2);
+  color: var(--color-2);
 }
 @media screen and (max-width: 700px) {
-	.header__box-round__btn {
-		position: static;
-	}
+  .header__box-round__btn {
+    position: static;
+  }
   .aboutCase__block-texts {
     flex-direction: column;
     gap: 12px;
@@ -4930,8 +4946,6 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   }
 }
 
-
-
 /* subscribe */
 
 .subscribe__header-block {
@@ -5067,7 +5081,7 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
   background-color: transparent;
 }
 
-.sectionFormWrap  h3 {
+.sectionFormWrap h3 {
   font-size: 60px !important;
   font-weight: 600 !important;
   margin-bottom: 47px;
@@ -5080,11 +5094,11 @@ input[type=date], input[type=email], input[type=number], input[type=password], i
 /* wp-dev  */
 /* Отзывы */
 .header__box-magnit.header__reviews {
-	background-image: none;
-  }
+  background-image: none;
+}
 
-  .pageCase__price-services__container{
-	max-width: 1920px;
-	margin-left: auto;
-	margin-right: auto;
-  }
+.pageCase__price-services__container {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
