@@ -828,6 +828,60 @@ Template Post Type: page
 		</section>
 <!-- Конец Квалифицированне лиды -->
 
+<!--Начало cloud-message секция -->
+		<section class="cloud_section">
+			<div>
+				<b>Наша цель</b> – обеспечить стабильный приток квалифицированных лидов для наших заказчиков, снизить стоимость привлечения клиента и способствовать  росту бизнеса с помощью эффективных <b>email-кампаний</b>!
+			</div>
+		</section>
+<!--Конец cloud-message секция -->
+
+<!-- Начало quote секция -->
+		<section class="quote_section">
+			<div class="wrap_section">
+				<div class="quote">
+					<p>
+						<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/quotes.png'; ?>" alt="quotes" class="quotes_top">
+						<b>Digital-стратегия и CJM</b> – это каркас, на основе которого должна строиться вся система продвижения металлургического предприятия в интернете
+						<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/quotes.png'; ?>" alt="quotes" class="quotes_bottom">
+					</p>
+				</div>
+				<div class="business_card">
+					<div class="photo">
+						<img src="<?php  echo get_template_directory_uri().'/new-site/assets/images/photo.png';?>" alt="">
+					</div>
+					<p class="name">Вадим Мамонтов</p>
+					<p class="job_title">Генеральный директор</p>
+				</div>
+			</div>
+		</section>
+<!-- Конец quote секция -->
+
+<!-- Начало секции tariffs -->
+		<section class="white_section">
+			<div class="wrap_section">
+				<h2 class="fs-h2">Стоимость</h2>
+				<div class="service_compos">
+					<h4>Состав услуги</h4>
+					<ul>
+						<li>Сбор базы контактов по критериям</li>
+						<li>Техническая организация:</li>
+						<li>а) помощь в настройке нового домена</li>
+						<li>б) помощь в создании почт, с которых будет</li>
+						<li>Прогрев email-аккаунтов</li>
+						<li>Оптимизация кампании при необходимости</li>
+						<li>Рассылка: запуск, контроль и ответная</li>
+						<li>Отчетность</li>
+						<li>Верификация и валидация контактов</li>
+						<li>Настройка цепочек взаимодействия</li>
+					</ul>
+
+				</div>
+			</div>
+
+		</section>
+<!-- Конец секции tariffs -->
+
 
 
 
