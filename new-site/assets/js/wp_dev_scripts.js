@@ -32,5 +32,25 @@ $(document).ready(function(){
 	// 	wrapBut.classList.remove('visible_mob');
 	// })
 	// }
+	// tariffs секция
+
+	const liElements = document.querySelectorAll('.service_compos li');
+	for (let elem of liElements){
+		elem.addEventListener('click', (e)=>{
+			document.querySelectorAll('.tariffs_content .targetTariff').forEach((element) => element.classList.remove('targetTariff'));
+			let targetClass = e.target.className;
+			let leElementsCurrent = document.querySelectorAll(`.${targetClass}`);
+			leElementsCurrent.forEach((element)=>{
+				element.classList.add('targetTariff');
+			})
+
+		} )
+		let selector = elem.className;
+		if(selector){
+			maxHeight(`.${selector}`);
+		}
+	}
+
+	
 
 });

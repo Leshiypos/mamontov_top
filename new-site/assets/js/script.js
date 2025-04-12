@@ -74,6 +74,12 @@ function ready() {
 		if (el) return true;
 		return false;
 	}
+
+	function swiperWidthHorizontal(wrapSelector, siblingBlockSelector, swiperSelector){
+		let wrapWidth =  document.querySelector(wrapSelector).offsetWidth;
+		let contentWidth =  document.querySelector(siblingBlockSelector).offsetWidth;
+		document.querySelector(swiperSelector).style.width = wrapWidth - contentWidth + 'px';
+	}
     // wp-dev слайде для Отзывов клиентов
 	
 	if (checkElement('.slider__wrapper-licenses__container_reviewsClient')){
@@ -579,6 +585,38 @@ if(checkElement('.board_swiper_reverse')){
 	}
 
 	//Конец  Доска команды
+
+	// Начало Слайдер tariffs
+
+
+	if(checkElement('.swiper_tariffs')){
+		swiperWidthHorizontal('.white_section .wrap_section','.white_section .service_compos','.swiper_tariffs' );
+
+		let swiperTariffsSection = new Swiper(".swiper_tariffs", {
+			// Настройки слайдера
+			slidesPerView: 1,
+			loop: true,
+			breakpoints: {
+				600: { 
+					slidesPerView: 1,
+					centeredSlides: true,
+				 },
+				1100: {slidesPerView: 2},
+				1600 : {
+				  slidesPerView: 3,
+				},
+			  },    
+			// Добавление кнопок навигации
+			navigation: {
+			  nextEl: ".btn-next__tariffs",
+			  prevEl: ".btn-prev__tariffs",
+			},
+		  });
+		}
+	// Конец Слайдер tariffs
+
+
+
 
 
 

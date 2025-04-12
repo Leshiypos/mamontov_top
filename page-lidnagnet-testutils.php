@@ -757,10 +757,10 @@ Template Post Type: page
 			<div class="wrap_section">
 				<div class="header_block_section">
 					<div class="title_block">
-						<h2 class="fs-h2">Получите квалифицированные лиды из умных email-рассылок!</h2>
+						<h2 class="fs_h2">Получите квалифицированные лиды из умных email-рассылок!</h2>
 					</div> 
 					<div class="description_block">
-						<p class="fs-desc">Настроим систему привлечения целевых B2B-лидов через умные холодные email-рассылки. Берём на себя все этапы: от анализа ЦА и сбора баз до прогрева почтовых ящиков и оптимизации цепочек писем. Получайте стабильный поток квалифицированных лидов без головной боли!</p>
+						<p class="fs_desc">Настроим систему привлечения целевых B2B-лидов через умные холодные email-рассылки. Берём на себя все этапы: от анализа ЦА и сбора баз до прогрева почтовых ящиков и оптимизации цепочек писем. Получайте стабильный поток квалифицированных лидов без головной боли!</p>
 					</div>
 				</div>
 				<div class="main_info_section">
@@ -860,22 +860,170 @@ Template Post Type: page
 <!-- Начало секции tariffs -->
 		<section class="white_section">
 			<div class="wrap_section">
-				<h2 class="fs-h2">Стоимость</h2>
-				<div class="service_compos">
-					<h4>Состав услуги</h4>
-					<ul>
-						<li>Сбор базы контактов по критериям</li>
-						<li>Техническая организация:</li>
-						<li>а) помощь в настройке нового домена</li>
-						<li>б) помощь в создании почт, с которых будет</li>
-						<li>Прогрев email-аккаунтов</li>
-						<li>Оптимизация кампании при необходимости</li>
-						<li>Рассылка: запуск, контроль и ответная</li>
-						<li>Отчетность</li>
-						<li>Верификация и валидация контактов</li>
-						<li>Настройка цепочек взаимодействия</li>
-					</ul>
+				<div class = "tariffs_header">
+					<h2 class="fs_h2">Стоимость</h2>
+					<div class="swiperWrapTariffs__btns dFlex">
+						<button type="button" class="btn-slider btn-prev__tariffs" ></button>
+						<button type="button" class="btn-slider btn-next__tariffs" ></button>
+					</div>
+				</div>
+				<div class="tariffs_content">
+					<div class="service_compos">
+						<h3 class="fs_h3">Состав услуги</h3>
+						<ul>
+							<li class="el_1">Сбор базы контактов по критериям</li>
+							<li class="el_2">Техническая организация:</li>
+							<li class="el_3">а) помощь в настройке нового домена</li>
+							<li class="el_4">б) помощь в создании почт, с которых будет</li>
+							<li class="el_5">Прогрев email-аккаунтов</li>
+							<li class="el_6">Оптимизация кампании при необходимости</li>
+							<li class="el_7">Рассылка: запуск, контроль и ответная</li>
+							<li class="el_8">Отчетность</li>
+							<li class="el_9">Верификация и валидация контактов</li>
+							<li class="el_10">Настройка цепочек взаимодействия</li>
+						</ul>
 
+					</div>
+					<div class="tariffs_block">
+						<!-- Slider main container -->
+						<div class="swiper_tariffs">
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<div class="swiper-slide">
+								<div class="tariffs_card">
+									<h3  class="fs_h3">Базовый</h3>
+									<ul>
+										<li class="el_1">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_2">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_3">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_4">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_5">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_6">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_7">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_8">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_9">
+											<p>&#10004;</p> 
+										</li>										
+										<li class="el_10">
+											<p>&#10004;</p> 
+										</li>										
+									</ul>
+									<div class="tariffs_price">
+										<p>175 000</p>
+									</div>
+									<a href="#popupfancy" data-fancybox="" class="btn btn__order radius_1">Заказать
+										<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+									</a>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="tariffs_card">
+									<h3  class="fs_h3">Стандарт</h3>
+									<ul>
+										<li class="el_1">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_2">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_3">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_4">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_5">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_6">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_7">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_8">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_9">
+											<p>&#10004;</p> 
+										</li>										
+										<li class="el_10">
+											<p>&#10004;</p> 
+										</li>										
+									</ul>
+									<div class="tariffs_price">
+										<p>175 000</p>
+									</div>
+									<a href="#popupfancy" data-fancybox="" class="btn btn__order radius_1">Заказать
+										<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+									</a>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="tariffs_card">
+										<h3 class="fs_h3">Индивидуальный</h3>
+										<ul>
+										<li class="el_1">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_2">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_3">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_4">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_5">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_6">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_7">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_8">
+											<p>&#10004;</p> 
+										</li>
+										<li class="el_9">
+											<p>&#10004;</p> 
+										</li>										
+										<li class="el_10">
+											<p>&#10004;</p> 
+										</li>										
+									</ul>
+										<div class="tariffs_price fs_h3">
+											<p>175 000</p>
+										</div>
+										<a href="#popupfancy" data-fancybox="" class="btn btn__order radius_1">Заказать
+											<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+										</a>
+									</div>
+								</div>
+						</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
