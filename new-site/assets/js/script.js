@@ -676,6 +676,50 @@ if(checkElement('.board_swiper_reverse')){
 		  });
 		}
 	// Конец Слайдер tariffs
+	
+		
+		let swiperSowSectionHeder = new Swiper(".swiper_SOW_header", {
+			// Настройки слайдера
+			slidesPerView: 2,
+			loop: true,
+			spaceBetween: 60,  
+			// Добавление кнопок навигации
+		  });
+		
+
+
+		
+			let swiperSowSectionContent = new Swiper(".swiper_SOW_content", {
+				// Настройки слайдера
+				slidesPerView: 1,
+				loop: true,
+				// autoplay: {
+				// 	delay : 10000,
+				// },
+				spaceBetween: 41,
+				scrollbar: {
+					el: '.swiper-scrollbar-sow-content',
+					draggable: false,
+				  },   
+				// Добавление кнопок навигации
+				navigation: {
+				  nextEl: ".btn-next__SOW",
+				  prevEl: ".btn-prev__SOW",
+				},
+			  });
+			
+
+		swiperSowSectionHeder.controller.control = swiperSowSectionContent;
+		swiperSowSectionContent.controller.control = swiperSowSectionHeder;
+		swiperSowSectionContent.on('slideChangeTransitionEnd',(e)=>{
+			let prevElement = document.querySelector('.header_section_SOW.descope .swiper-slide-active');
+			if(prevElement){prevElement.classList.remove('swiper-slide-active');}
+			let classNameActiveSlide= document.querySelector('.swiper_SOW_content .swiper-slide-active').dataset.slide;
+			document.querySelector(`.header_section_SOW.descope .${classNameActiveSlide}`).classList.add('swiper-slide-active');
+		})
+	// Начало Слайдеры stages_of_work
+		
+	// Конец Слайдеры stages_of_work
 
       //video play
     
