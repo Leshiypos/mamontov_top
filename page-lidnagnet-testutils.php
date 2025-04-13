@@ -1030,6 +1030,123 @@ Template Post Type: page
 		</section>
 <!-- Конец секции tariffs -->
 
+<!--Начало facts-case секция -->
+		<section class="white_section facts_case">
+				<div class="wrap_section">
+					<h2 class="fs_100_32">Факты-кейсы</h2>
+					<div class="swiper_facts_case">
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper">
+							<!-- Slides 1 -->
+							<div class="swiper-slide">
+								<div class="wrap_content">
+									<div class="case">
+										<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/img_case.png'; ?>" alt="">
+										<p class="fs_22_14 title_case">Ниша - Маркетинг</p>
+										<h3 class="fs_28-18 title">Кейс "Завалили качественными лидами отдел продаж коттеджного посёлка"</h3>	
+										<a href="#" class="btn btn__order radius_1">Читать кейс
+											<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+										</a>
+									</div>
+									<div class="description_facts_case">
+										<div class="col_left">
+											<div>
+												<h5 class="fs_22_18">Бюджет</h5>
+												<p>324 300 руб.</p>
+											</div>
+											<div>
+												<h5 class="fs_22_18">Привлечено заявок:</h5>
+												<p>1828 шт.</p>
+											</div>
+											<div>
+												<h5 class="fs_22_18">Цена заявки:</h5>
+												<p>177 руб.</p>
+											</div>
+											<div class="social_links">
+												<a href="#" class="social_link">
+													<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/vk.png'; ?>" alt="">
+												</a>
+												<a href="#" class="social_link">
+													<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/tg.png'; ?>" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col_right">
+											<div>
+												<h5 class="fs_22_18">Задача:</h5>
+												<p>Проводим интервью для точного выявления проблем и определения целей.</p>
+											</div>
+											<div>
+												<h5 class="fs_22_18">Результат:</h5>
+												<p>Большой результат, которое будет в две строки или может быть в три строки</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+								<!-- Slides 2 -->
+
+								<div class="swiper-slide">
+								<div class="wrap_content">
+									<div class="case">
+										<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/img_case.png'; ?>" alt="">
+										<p class="fs_22_14 title_case">Ниша - Маркетинг</p>
+										<h3 class="fs_28-18 title">Кейс "Завалили качественными лидами отдел продаж коттеджного посёлка"</h3>	
+										<a href="#" class="btn btn__order radius_1">Читать кейс
+											<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+										</a>
+									</div>
+									<div class="description_facts_case">
+										<div class="col_left">
+											<div>
+												<h5 class="fs_22_18">Бюджет</h5>
+												<p>324 300 руб.</p>
+											</div>
+											<div>
+												<h5 class="fs_22_18">Привлечено заявок:</h5>
+												<p>1828 шт.</p>
+											</div>
+											<div>
+												<h5 class="fs_22_18">Цена заявки:</h5>
+												<p>177 руб.</p>
+											</div>
+											<div class="social_links">
+												<a href="#" class="social_link">
+													<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/vk.png'; ?>" alt="">
+												</a>
+												<a href="#" class="social_link">
+													<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/tg.png'; ?>" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col_right">
+											<div>
+												<h5 class="fs_22_18">Задача:</h5>
+												<p>Проводим интервью для точного выявления проблем и определения целей.</p>
+											</div>
+											<div>
+												<h5 class="fs_22_18">Результат:</h5>
+												<p>Большой результат, которое будет в две строки или может быть в три строки</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slades End -->
+						</div>
+						<div class="panel_bottom">
+							<div class="swiperWrapFacts__btns dFlex">
+								<button type="button" class="btn-slider btn-prev__facts_case" ></button>
+								<button type="button" class="btn-slider btn-next__facts_case" ></button>
+							</div>
+							<div class="swiper-scrollbar"></div>
+						</div>
+						</div>
+				</div>
+		</section>
+<!--Конец facts-case секция -->
+
 
 
 

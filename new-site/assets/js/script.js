@@ -653,6 +653,29 @@ if(checkElement('.board_swiper_reverse')){
         });
       }
     
+	//   Слайдер ФАКТЫ-КЕЙСЫ
+	  if(checkElement('.swiper_facts_case')){
+		
+		let swiperFactsCaseSection = new Swiper(".swiper_facts_case", {
+			// Настройки слайдера
+			slidesPerView: 1,
+			loop: true,
+			autoplay: {
+				delay : 10000,
+			},
+			spaceBetween: 41,
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			  },   
+			// Добавление кнопок навигации
+			navigation: {
+			  nextEl: ".btn-next__facts_case",
+			  prevEl: ".btn-prev__facts_case",
+			},
+		  });
+		}
+	// Конец Слайдер tariffs
 
       //video play
     
