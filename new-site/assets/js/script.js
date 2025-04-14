@@ -709,13 +709,16 @@ if(checkElement('.board_swiper_reverse')){
 			  });
 			
 
-		swiperSowSectionHeder.controller.control = swiperSowSectionContent;
-		swiperSowSectionContent.controller.control = swiperSowSectionHeder;
+		//swiperSowSectionHeder.controller.control = swiperSowSectionContent;
+		// swiperSowSectionContent.controller.control = swiperSowSectionHeder;
 		swiperSowSectionContent.on('slideChangeTransitionEnd',(e)=>{
 			let prevElement = document.querySelector('.header_section_SOW.descope .swiper-slide-active');
 			if(prevElement){prevElement.classList.remove('swiper-slide-active');}
 			let classNameActiveSlide= document.querySelector('.swiper_SOW_content .swiper-slide-active').dataset.slide;
 			document.querySelector(`.header_section_SOW.descope .${classNameActiveSlide}`).classList.add('swiper-slide-active');
+
+			let curElement = document.querySelector('.swiper_SOW_content .swiper-slide-active').dataset.swiperSlideIndex; 
+			swiperSowSectionHeder.slideToLoop(curElement, 500);
 		})
 	// Начало Слайдеры stages_of_work
 		
