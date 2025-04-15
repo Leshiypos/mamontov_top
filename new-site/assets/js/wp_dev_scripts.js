@@ -36,10 +36,10 @@ $(document).ready(function(){
 
 	const liElements = document.querySelectorAll('.service_compos li');
 	for (let elem of liElements){
-		elem.addEventListener('click', (e)=>{
+		elem.addEventListener('mouseover', (e)=>{
 			document.querySelectorAll('.tariffs_content .targetTariff').forEach((element) => element.classList.remove('targetTariff'));
 			let targetClass = e.target.className;
-			let leElementsCurrent = document.querySelectorAll(`.${targetClass}`);
+			let leElementsCurrent = document.querySelectorAll(`.tariffs_content .${targetClass}`);
 			leElementsCurrent.forEach((element)=>{
 				element.classList.add('targetTariff');
 			})

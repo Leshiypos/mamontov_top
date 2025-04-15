@@ -2444,6 +2444,7 @@ section.teame_gallery .profession {
 	max-width: 200px;
 	border-radius: 50%;
 	border: 1px solid rgba(45, 44, 44, 0.2);
+	overflow: hidden;
 }
 .quote_section .name{
 	font-size: calc(20px + 8 * (100vw / 1920));
@@ -2588,6 +2589,8 @@ section.teame_gallery .profession {
 				font-size:calc(14px + 18 * (100vw / 1920));
 				font-weight: 600;
 				text-align: center;
+				margin-top: 18px;
+				margin-bottom: 36px;
 			}
 		.tariffs_content ul li p{
 			-webkit-margin-after: 0; 
@@ -2661,6 +2664,8 @@ section.teame_gallery .profession {
 	}
 	.tariffs_card .tariffs_price p{
 		font-size:14px;
+		margin-top: 8px;
+		margin-bottom: 18px;
 	}
 	.tariffs_card .btn__order,
 	.swiper_facts_case .btn__order{
