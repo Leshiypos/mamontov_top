@@ -34,17 +34,24 @@ $(document).ready(function(){
 	// }
 	// tariffs секция
 
-	const liElements = document.querySelectorAll('.service_compos li');
+	const liElements = document.querySelectorAll('.tariffs_content li');
 	for (let elem of liElements){
 		elem.addEventListener('mouseover', (e)=>{
 			document.querySelectorAll('.tariffs_content .targetTariff').forEach((element) => element.classList.remove('targetTariff'));
-			let targetClass = e.target.className;
-			let leElementsCurrent = document.querySelectorAll(`.tariffs_content .${targetClass}`);
-			leElementsCurrent.forEach((element)=>{
-				element.classList.add('targetTariff');
-			})
+			let targetClass = e.currentTarget.className;
+			console.log(targetClass);
+			if(targetClass){
+				let leElementsCurrent = document.querySelectorAll(`.tariffs_content .${targetClass}`);
+				leElementsCurrent.forEach((element)=>{
+					element.classList.add('targetTariff');
+				})
+			}
 
-		} )
+		})
+		elem.addEventListener('mouseout',()=>{
+			document.querySelectorAll('.tariffs_content .targetTariff').forEach((element) => element.classList.remove('targetTariff'));
+		})
+
 		let selector = elem.className;
 		if(selector){
 			maxHeight(`.${selector}`);

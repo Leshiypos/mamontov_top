@@ -2616,6 +2616,7 @@ section.teame_gallery .profession {
 	.tariffs_block ul li{
 		display: flex;
 		align-items: center;
+		cursor: pointer;
 	}
 	.tariffs_content ul li:nth-child(odd){
 		background-color: rgba(242, 242, 242, 1);
@@ -2935,6 +2936,7 @@ section.teame_gallery .profession {
 .header_section_SOW .stage{
 	color: rgba(255, 255, 255, .5);
 	flex: 1;
+	cursor: pointer;
 }
 .header_section_SOW .stage span{
 	display: block;

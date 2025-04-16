@@ -686,31 +686,40 @@ if(checkElement('.board_swiper_reverse')){
 			// Добавление кнопок навигации
 		  });
 		
-
-
-		
-			let swiperSowSectionContent = new Swiper(".swiper_SOW_content", {
-				// Настройки слайдера
-				slidesPerView: 1,
-				loop: true,
-				// autoplay: {
-				// 	delay : 10000,
-				// },
-				spaceBetween: 41,
-				scrollbar: {
-					el: '.swiper-scrollbar-sow-content',
-					draggable: false,
-				  },   
-				// Добавление кнопок навигации
-				navigation: {
-				  nextEl: ".btn-next__SOW",
-				  prevEl: ".btn-prev__SOW",
-				},
-			  });
+		let swiperSowSectionContent = new Swiper(".swiper_SOW_content", {
+			// Настройки слайдера
+			slidesPerView: 1,
+			loop: true,
+			// autoplay: {
+			// 	delay : 10000,
+			// },
+			spaceBetween: 41,
+			scrollbar: {
+				el: '.swiper-scrollbar-sow-content',
+				draggable: false,
+				},   
+			// Добавление кнопок навигации
+			navigation: {
+				nextEl: ".btn-next__SOW",
+				prevEl: ".btn-prev__SOW",
+			},
+			});
 			
 
 		//swiperSowSectionHeder.controller.control = swiperSowSectionContent;
 		// swiperSowSectionContent.controller.control = swiperSowSectionHeder;
+
+		//Добавляем обработчик событий на кнопки шапки. При нажатии на кнопку меняется слайд
+		let headerStageElements = document.querySelectorAll('.header_section_SOW.descope .stage');
+
+		for (let elem of headerStageElements){
+			elem.addEventListener('click', (e)=>{
+				let numberClickElement =  e.currentTarget.dataset.numberElement;
+				swiperSowSectionContent.slideToLoop(numberClickElement, 500);
+			})
+		}
+
+		// Обработчик событий при смене слайда
 		swiperSowSectionContent.on('slideChangeTransitionEnd',(e)=>{
 			let prevElement = document.querySelector('.header_section_SOW.descope .swiper-slide-active');
 			if(prevElement){prevElement.classList.remove('swiper-slide-active');}
@@ -720,6 +729,13 @@ if(checkElement('.board_swiper_reverse')){
 			let curElement = document.querySelector('.swiper_SOW_content .swiper-slide-active').dataset.swiperSlideIndex; 
 			swiperSowSectionHeder.slideToLoop(curElement, 500);
 		})
+
+		// Обработчик событий при прокрутке хедера в в мобильной версии
+		swiperSowSectionHeder.on('slideChangeTransitionEnd', ()=>{
+			let elementActiveNumber = document.querySelector('.header_section_SOW.mobile .swiper-slide-active').dataset.swiperSlideIndex;
+			swiperSowSectionContent.slideToLoop(elementActiveNumber, 500);
+		});
+
 	// Начало Слайдеры stages_of_work
 		
 	// Конец Слайдеры stages_of_work

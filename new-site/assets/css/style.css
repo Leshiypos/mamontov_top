@@ -430,6 +430,9 @@ section {
     left: 0;
     top: 200%;
 }
+#sectionForm .wpcf7-not-valid-tip{
+	top: 70%;
+}
 .sectionForm .input,
 .sectionForm label {
     opacity: .5;
