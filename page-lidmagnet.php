@@ -809,6 +809,25 @@ Template Post Type: page
 						}
 					?>
 <!-- КОНЕЦ Форма -->
+		<?php
+		// Квалифицированне лиды
+		get_template_part('templates/layout/qualified_leads');
+
+		// cloud-message секция
+		get_template_part('templates/layout/cloud_message');
+
+		// quote секция
+		get_template_part('templates/layout/quote'); 
+
+		// quote tariffs
+		get_template_part('templates/layout/tariffs'); 
+		
+		// facts-case секция
+		get_template_part('templates/layout/facts_case'); 
+
+		// stages of work секция
+		get_template_part('templates/layout/stages_of_work_section'); 
+		?>
 		
 		<?php
 			endwhile;

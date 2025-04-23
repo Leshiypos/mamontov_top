@@ -1085,7 +1085,25 @@ Template Post Type: post, page, product
 		?>
 		<?php 
 		// Секция Доска команды
-		get_template_part('templates/layout/team-board'); 
+		get_template_part('templates/layout/team-board');
+		
+		// Квалифицированне лиды
+		get_template_part('templates/layout/qualified_leads');
+
+		// cloud-message секция
+		get_template_part('templates/layout/cloud_message');
+
+		// quote секция
+		get_template_part('templates/layout/quote'); 
+
+		// quote tariffs
+		get_template_part('templates/layout/tariffs'); 
+		
+		// facts-case секция
+		get_template_part('templates/layout/facts_case'); 
+
+		// stages of work секция
+		get_template_part('templates/layout/stages_of_work_section');
 		?>
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 

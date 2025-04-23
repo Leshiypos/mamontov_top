@@ -42,7 +42,7 @@ if(get_row_layout()=='stage_of_work'){
 							$url_img = get_sub_field('url_img');
 						?>
 							<div class="swiper-slide">
-								<div class="stage fs_22_14">
+								<div class="stage fs_22_14" data-number-element="<?php echo $count-1;?>">
 									<span><?php echo $count++; ?> Этап</span>
 									<h5 class="fs_22_14"><?php echo $stage_name; ?></h5>
 								</div>
