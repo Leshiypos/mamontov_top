@@ -827,6 +827,9 @@ Template Post Type: page
 
 		// stages of work секция
 		get_template_part('templates/layout/stages_of_work_section'); 
+
+		// teach_marketing секция Обучаем интернет маркетингу
+		get_template_part('templates/layout/teach_marketing_section'); 
 		?>
 		
 		<?php

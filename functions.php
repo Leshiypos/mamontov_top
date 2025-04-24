@@ -98,6 +98,7 @@ function wp_dev_setup_theme(){
 		add_image_size( 'avatar', 200, 200, true );	
 		add_image_size( 'logo-firm', 5000, 125);
 		add_image_size( 'team-board', 200, 250, true);
+		add_image_size( 'teach-mark-thumb', 370, 262, true);
 	}
 
 }

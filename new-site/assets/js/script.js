@@ -759,6 +759,33 @@ function ready() {
     swiperSowSectionContent.slideToLoop(elementActiveNumber, 500);
   });
 
+  //   Слайдер teach_marketing Обучаем Интернет маркетингу
+  if (checkElement(".swiper_teach_marketing")) {
+    let swiperTeachMarketing = new Swiper(".swiper_teach_marketing", {
+      // Настройки слайдера
+      slidesPerView: 4,
+      loop: true,
+      //   autoplay: {
+      //     delay: 10000,
+      //   },
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+        },
+        900: { slidesPerView: 3 },
+        1400: {
+          slidesPerView: 4,
+        },
+      },
+      spaceBetween: 20,
+      // Добавление кнопок навигации
+      navigation: {
+        nextEl: ".btn-next__teachMarketing",
+        prevEl: ".btn-prev__teachMarketing",
+      },
+    });
+  }
+  // Конец Слайдер tariffs
   // Начало Слайдеры stages_of_work
 
   // Конец Слайдеры stages_of_work

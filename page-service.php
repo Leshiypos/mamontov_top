@@ -1104,6 +1104,9 @@ Template Post Type: post, page, product
 
 		// stages of work секция
 		get_template_part('templates/layout/stages_of_work_section');
+
+		// teach_marketing секция Обучаем интернет маркетингу
+		get_template_part('templates/layout/teach_marketing_section'); 
 		?>
 		<!-- КОНЕЦ Работы -->
         <?php    endwhile; 
