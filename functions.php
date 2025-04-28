@@ -215,11 +215,21 @@ while ($posts_main->have_posts()){
 	$card = get_field('card');
 	$request =$request.'
 		<article class="case__tabs-content__article radius_1 dFlex">
+
+
 			<a href="'.get_the_permalink().'">
-				<img src="'.$card['img_card'].'" class="background_card">
-				<div calss="dFlex">
-				</div>
+				<img src="'.get_the_post_thumbnail_url(get_the_ID()).'" class="thumb">
+				<span class="chapter fs_18_14">Кейс</span>
 				<h4 class="case__tabs-content__subtitle">'.get_the_title().'</h4>
+				<div class="excerpt fs_18_14">'.get_the_excerpt().'</div>
+				<div>
+					<a href="'.get_the_permalink().'" class="btn btn__order radius_1">Подробнее
+						<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+							</path>
+						</svg>
+					</a>
+				</div>
 			</a>
 		</article>
 	';
@@ -229,11 +239,6 @@ wp_reset_postdata();
    	echo $request;
 	wp_die();
 }
-
-
-
-
-
 
 if ( ! function_exists( 'hello_elementor_register_elementor_locations' ) ) {
 	/**

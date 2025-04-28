@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
       e.preventDefault();
       myajax.paged = 1;
       let button_filter = e.currentTarget;
-      let parentWrapClass = button_filter.closest("div").className;
+      let parentWrapClass = button_filter.closest("div").dataset.filterType;
 
       if (button_filter.classList.contains("active")) {
         button_filter.classList.remove("active");
@@ -36,7 +36,7 @@ jQuery(document).ready(function ($) {
           ? (myajax.categoryId = button_filter.dataset.idTerm)
           : (myajax.solutionId = button_filter.dataset.idTerm);
       }
-      console.log("Категория ", myajax.categoryId);
+      console.log("Инструменты ", myajax.categoryId);
       console.log("Решение ", myajax.solutionId);
       //   Ajax
 
@@ -93,10 +93,10 @@ jQuery(document).ready(function ($) {
             $("#preloader>div").addClass("loader");
           },
           success: function (response) {
+            $("#preloader>div").removeClass("loader");
             if (response) {
               articleWrap.insertAdjacentHTML("beforeEnd", response);
               $("body").removeClass("loading");
-              $("#preloader>div").removeClass("loader");
               console.log("Скролл", data);
             }
           },

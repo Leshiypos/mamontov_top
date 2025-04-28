@@ -74,29 +74,36 @@ Template Post Type: page
 						<div class="case__tabs marketing__tabs">
 							<div class="filters_tab">
 								<div class="category_tab">
-									<?php 
-									foreach($category_children_term as $term){
-									?>
-										<a href="#" class="button_filt fs_20_13" data-id-term="<?php  echo $term->term_id; ?> "> <?php echo  $term->name; ?></a>
-									<?php
-									}
-									?>		
+									<h4 class="fs_24_12">Инструменты</h4>
+									<div data-filter-type="category_tab">
+										<?php 
+										foreach($category_children_term as $term){
+										?>
+											<a href="#" class="button_filt fs_20_10" data-id-term="<?php  echo $term->term_id; ?> "> <?php echo  $term->name; ?></a>
+										<?php
+										}
+										?>
+									</div>
+			
 								</div>
 								<div class="solution_tab">
-								<?php 
-									foreach($solution_children_term as $term){
-									?>
-										<a href="#" class="button_filt fs_20_13>" data-id-term="<?php  echo $term->term_id; ?> "> <?php echo  $term->name; ?></a>
-									<?php
-									}
-									?>	
+									<h4 class="fs_24_12">Решения</h4>
+									<div data-filter-type="solution_tab">
+									<?php 
+										foreach($solution_children_term as $term){
+										?>
+											<a href="#" class="button_filt fs_20_10" data-id-term="<?php  echo $term->term_id; ?> "> <?php echo  $term->name; ?></a>
+										<?php
+										}
+										?>	
+									</div>
 								</div>
 
 							</div>
 
 
-							<div class="case__tabs-contents">
-                                <div id="article_wrap" class="case__tabs-content blog marketing__content active">
+							<div class="case__tabs-contents partfolio_case_ajax">
+                                <div id="article_wrap" class="case__tabs-content marketing__content active">
                                     
                                    <?php
 								   $posts_main = new WP_Query( array(
@@ -115,8 +122,8 @@ Template Post Type: page
 											$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 											// максимум страниц
 											$max_pages = $posts_main->max_num_pages;
-											print_r($posts_main -> max_num_pages); //Количесвто постов
-											print_r($posts_main->query['paged']); //Количесвто постов
+											// print_r($posts_main -> max_num_pages); //Количесвто постов
+											// print_r($posts_main->query['paged']); //Количесвто постов
 
                                         while ($posts_main->have_posts()) : $posts_main->the_post();
 										
@@ -131,20 +138,20 @@ Template Post Type: page
 										myajax.solutionId = false;
 									</script>
                                         
-										<article class="case__tabs-content__article radius_1 dFlex" style = "background-color: <?php echo $card['color_card']; ?>">
+										<article class="case__tabs-content__article radius_1 dFlex">
 											<a href="<?php the_permalink(); ?>">
-												<?php if($card['img_card']){?><img src="<?php echo $card['img_card']; ?>" class="background_card"><?php } ?>
-												<div calss="dFlex">
-												<?php
-													$category_obj = get_the_category();
-													foreach($category_obj as $obj){
-														if(($obj->category_parent != 0) and ($obj->term_id != $sub_cat[0])){
-															echo '<div class="category_title">'.$obj->cat_name.'</div>';
-														}
-													}
-												?>
+												<img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" class="thumb">
+												<span class="chapter fs_18_14">Кейс</span>
+												<h4 class="case__tabs-content__subtitle fs_24_26"><?php the_title(); ?></h4>
+												<div class="excerpt fs_18_14"><?php echo get_the_excerpt(); ?></div>
+												<div>
+													<a href="<?php the_permalink(); ?>" class="btn btn__order radius_1">Подробнее
+														<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+															</path>
+														</svg>
+													</a>
 												</div>
-												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
 											</a>
                                         </article>
                                         <?php

@@ -1875,6 +1875,7 @@ section.best_post {
   font-size: calc(12px + 4 * (100vw / 1920));
   margin-bottom: 5px;
 }
+
 /* Шаблон Запись page-case.php */
 .single_post .best_post {
   border-radius: 40px;
@@ -2739,6 +2740,16 @@ p.fs_desc {
   margin: 0;
   padding: 0;
 }
+.fs_24_12 {
+  font-size: calc(12px + 12 * (100vw / 1920));
+  margin: 0;
+  padding: 0;
+}
+.fs_20_10 {
+  font-size: calc(10px + 10 * (100vw / 1920));
+  margin: 0;
+  padding: 0;
+}
 .fs_18_14 {
   font-size: calc(14px + 4 * (100vw / 1920));
   margin: 0;
@@ -2868,6 +2879,12 @@ p.fs_desc {
   .fs_22_14 {
     font-size: 22px;
   }
+  .fs_24_12 {
+    font-size: 24px;
+  }
+  .fs_20_10 {
+    font-size: 20px;
+  }
   .fs_18_14 {
     font-size: 18px;
   }
@@ -2944,6 +2961,12 @@ p.fs_desc {
     font-size: 13px;
   }
   .fs_18_10 {
+    font-size: 10px;
+  }
+  .fs_24_12 {
+    font-size: 12px;
+  }
+  .fs_20_10 {
     font-size: 10px;
   }
 
@@ -3184,7 +3207,7 @@ p.fs_desc {
   }
 }
 
-/* Страница Кейсов */
+/* Страница шаблона кейсы и Блог AJAX*/
 
 .filters_tab {
   display: flex;
@@ -3193,16 +3216,19 @@ p.fs_desc {
   gap: 36px;
 }
 .filters_tab > div {
+  background-color: var(--color-19);
+  border-radius: 40px;
+  padding: 24px;
+}
+.filters_tab > div > div {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
   gap: 8px;
-  background-color: var(--color-19);
-  padding: 24px;
-  border-radius: 40px;
   flex: 1;
+  margin-top: 14px;
 }
 .filters_tab a {
   display: block;
@@ -3218,4 +3244,77 @@ p.fs_desc {
 .filters_tab a.active {
   background-color: var(--color-20);
   color: var(--color-21);
+}
+
+.partfolio_case_ajax {
+  overflow: visible;
+}
+.partfolio_case_ajax .case__tabs-content__article {
+  justify-content: space-between;
+}
+.partfolio_case_ajax .thumb {
+  border-radius: 40px;
+  object-fit: cover;
+  height: 352px;
+}
+.partfolio_case_ajax article:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.lots_of_cases .marketing {
+  overflow: visible;
+}
+.partfolio_case_ajax .case__tabs-content__article .btn__order {
+  display: block;
+  opacity: 0;
+  align-self: flex-end;
+}
+.partfolio_case_ajax .case__tabs-content__article:hover .btn__order {
+  display: block;
+  opacity: 1;
+}
+
+.partfolio_case_ajax article .chapter {
+  text-transform: uppercase;
+  color: rgba(45, 44, 44, 0.7);
+  font-weight: 600;
+}
+
+.partfolio_case_ajax
+  .marketing__content
+  .case__tabs-content__article:nth-of-type(2) {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+.partfolio_case_ajax
+  .marketing__content
+  .case__tabs-content__article:nth-of-type(1) {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+@media screen and (max-width: 430px) {
+  .filters_tab a {
+    padding: 4px;
+    border-radius: 20px;
+  }
+  .filters_tab {
+    gap: 8px;
+  }
+  .filters_tab > div {
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .partfolio_case_ajax .thumb {
+    height: 254px;
+  }
+  .partfolio_case_ajax .case__tabs-content__article .btn__order {
+    display: none;
+  }
+  .partfolio_case_ajax .marketing__content .case__tabs-content__article > a {
+    gap: 16px;
+  }
+  .filters_tab > div > div {
+    margin-top: 4px;
+  }
 }
