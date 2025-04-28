@@ -5,6 +5,13 @@
  * @package HelloElementor
  */
 
+ if( WP_DEBUG && WP_DEBUG_DISPLAY && (defined('DOING_AJAX') && DOING_AJAX) ){
+	@ ini_set( 'display_errors', 1 );
+}
+
+
+
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -143,6 +150,90 @@ if ( ! function_exists( 'hello_elementor_scripts_styles' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_scripts_styles' );
+
+// Подключаем AJAX
+add_action( 'wp_enqueue_scripts', 'myajax_data', 9999 );
+function myajax_data(){
+	wp_enqueue_script( 'jquery' );
+	$data = [
+		'url' => admin_url( 'admin-ajax.php' )
+	];
+	wp_enqueue_script( 'ajax-load-posts-scroll', get_template_directory_uri().'/new-site/assets/js/ajax-load-posts-scroll.js', array( 'jquery' ), '1.0' );
+	wp_add_inline_script(
+		'ajax-load-posts-scroll',
+		'window.myajax = ' . wp_json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ),
+		'before'
+	);
+}
+add_action( 'wp_ajax_load_posts_scroll', 'load_posts_scroll_callback' );
+add_action( 'wp_ajax_nopriv_load_posts_scroll', 'load_posts_scroll_callback' );
+
+function load_posts_scroll_callback(){
+	$categoryId = $_POST['categoryId'] != 'false' ? $_POST['categoryId'] : false;
+	$solutionId = $_POST['solutionId'] != 'false' ? $_POST['solutionId'] : false;
+	$num_post = $_POST['num_post'] != 'false' ? $_POST['num_post'] : 5;
+	$paged = $_POST['paged'] != 'false' ? $_POST['paged'] : 1;
+	$cat = $_POST['cat'] != 'false' ? $_POST['cat'] : false;
+
+	$filter_cat = [];
+	if ($categoryId){
+		$filter_cat[] = array(
+		'taxonomy' => 'category',
+		'field'		=> 'term_id',
+		'terms'		=> $categoryId
+		);
+} else {
+		$filter_cat[] = array(
+		'taxonomy' => 'category',
+		'field'		=> 'term_id',
+		'terms'		=> $cat
+		);
+	}
+	if ($solutionId){
+		$filter_cat[] = array(
+			'taxonomy' => 'solutions',
+			'field'		=> 'term_id',
+			'terms'		=> $solutionId
+			);
+	}
+
+	$request='';
+	$posts_main = new WP_Query( array(
+		'tax_query' =>[
+			'relation' => 'AND',
+			$filter_cat,
+		],
+		'posts_per_page' => $num_post,
+		'paged' => $paged, 
+   ) );
+
+
+//    получаем данные постов
+
+while ($posts_main->have_posts()){
+	$posts_main->the_post();
+	$card = get_field('card');
+	$request =$request.'
+		<article class="case__tabs-content__article radius_1 dFlex">
+			<a href="'.get_the_permalink().'">
+				<img src="'.$card['img_card'].'" class="background_card">
+				<div calss="dFlex">
+				</div>
+				<h4 class="case__tabs-content__subtitle">'.get_the_title().'</h4>
+			</a>
+		</article>
+	';
+}
+wp_reset_postdata();
+   
+   	echo $request;
+	wp_die();
+}
+
+
+
+
+
 
 if ( ! function_exists( 'hello_elementor_register_elementor_locations' ) ) {
 	/**
@@ -299,6 +390,33 @@ function my_custom_block_register_block() {
 			'hierarchical' => true,
 		)
 	);
+
+
+	register_taxonomy(
+		'solutions',
+		['post'],
+		array(
+			'label' => 'Решения',
+			'labels' => array(
+				'singular_name'	 	=> 'Решение',
+				'popular_items' 	=> 'Популярные решения',
+				'edit_item' 		=> 'Редактировать решения',
+				'add_new_item'		=> 'Добавить решение',
+				'view_item' 		=> 'Просмотреть решения',
+				'new_item_name'		=> 'Добавить решение',
+				'add_or_remove_items' => 'Добавить или удалить решение',
+				'not_found' 		=> 'Решений не найдено',
+				'back_to_items' 	=> 'Перейти к решениям',
+				'parent_item' 		=> 'Родительское решение',
+			),
+			'show_ui'           => true,
+			'show_in_menu'      => true,
+			'show_in_nav_menus' => true,
+			'show_in_rest' => true,
+			'rewrite' 			=> array( 'slug' => 'solutions' ),
+			'hierarchical' => true,
+		)
+		);
 }
 
 add_action( 'init', 'my_custom_block_register_block' );

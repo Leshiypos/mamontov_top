@@ -1992,7 +1992,7 @@ h2 span,
   grid-template-columns: repeat(3, 1fr);
   gap: 36px;
   margin: 36px 0;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .case__tabs-content.active {
