@@ -102,8 +102,8 @@ Template Post Type: page
 							</div>
 
 
-							<div class="case__tabs-contents partfolio_case_ajax">
-                                <div id="article_wrap" class="case__tabs-content marketing__content active">
+							<div class="case__tabs-contents">
+                                <div id="article_wrap" class="case__tabs-content blog marketing__content active">
                                     
                                    <?php
 								   $posts_main = new WP_Query( array(
@@ -138,20 +138,20 @@ Template Post Type: page
 										myajax.solutionId = false;
 									</script>
                                         
-										<article class="case__tabs-content__article radius_1 dFlex">
+                                        <article class="case__tabs-content__article radius_1 dFlex" style = "background-color: <?php echo $card['color_card']; ?>">
 											<a href="<?php the_permalink(); ?>">
-												<img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" class="thumb">
-												<span class="chapter fs_18_14">Кейс</span>
-												<h4 class="case__tabs-content__subtitle fs_24_26"><?php the_title(); ?></h4>
-												<div class="excerpt fs_18_14"><?php echo get_the_excerpt(); ?></div>
-												<div>
-													<a href="<?php the_permalink(); ?>" class="btn btn__order radius_1">Подробнее
-														<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round">
-															</path>
-														</svg>
-													</a>
+												<?php if($card['img_card']){?><img src="<?php echo $card['img_card']; ?>" class="background_card"><?php } ?>
+												<div calss="dFlex">
+												<?php
+													$category_obj = get_the_category();
+													foreach($category_obj as $obj){
+														if(($obj->category_parent != 0) and ($obj->term_id != $sub_cat[0])){
+															echo '<div class="category_title">'.$obj->cat_name.'</div>';
+														}
+													}
+												?>
 												</div>
+												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
 											</a>
                                         </article>
                                         <?php

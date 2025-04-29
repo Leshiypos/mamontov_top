@@ -61,6 +61,10 @@ jQuery(document).ready(function ($) {
       // button = $( '#loadmore a' ),
       paged = myajax.paged,
       maxPages = myajax.maxPages;
+    console.log(
+      $(document).scrollTop() > $(document).height() - bottomOffset &&
+        !$("body").hasClass("loading")
+    );
 
     if (
       $(document).scrollTop() > $(document).height() - bottomOffset &&
@@ -94,9 +98,9 @@ jQuery(document).ready(function ($) {
           },
           success: function (response) {
             $("#preloader>div").removeClass("loader");
+            $("body").removeClass("loading");
             if (response) {
               articleWrap.insertAdjacentHTML("beforeEnd", response);
-              $("body").removeClass("loading");
               console.log("Скролл", data);
             }
           },
