@@ -433,15 +433,7 @@ function my_custom_block_render_callback( $attributes ) {
 
 add_action( 'wpcf7_mail_sent', 'your_wpcf7_mail_sent_function' );
 function your_wpcf7_mail_sent_function( $contact_form ) {
-   // Подключаемся к серверу CRM
-   define('CRM_HOST', 'ego-agency.bitrix24.ru'); // Ваш домен CRM системы
-   define('CRM_PORT', '443'); // Порт сервера CRM. Установлен по умолчанию
-   define('CRM_PATH', '/crm/configs/import/lead.php'); // Путь к компоненту lead.rest
-   // Авторизуемся в CRM под необходимым пользователем:
-   // 1. Указываем логин пользователя Вашей CRM по управлению лидами
-   define('CRM_LOGIN', 'v.grudtsina@mamontov.top');
-   // 2. Указываем пароль пользователя Вашей CRM по управлению лидами
-   define('CRM_PASSWORD', 'ObmN%+DC1d');
+
    // Перехватываем данные из Contact Form 7
    $title = $contact_form->title;
    $posted_data = $contact_form->posted_data;
