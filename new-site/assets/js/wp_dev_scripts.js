@@ -69,4 +69,25 @@ $(document).ready(function () {
       maxHeight(`.${selector}`);
     }
   }
+
+  //   Добавление в главное меню дополнительного конечного блока
+  function addConsultationBlock() {
+    const HTMLBlock = `
+		<li class="consultation_block">
+		  <div>
+			  <h6>Обсудить задачу с экспертом</h6>
+			  <p>Консультация от эксперта </br> в интернет-маркетинге</p>
+		  </div>
+		  <a href="#popupfancy" data-fancybox="" class="btn btn__order radius_1">Получить консультацию
+			  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+		  </a>
+	  </li>
+   
+	`;
+    const wrapSubMenu = document.querySelectorAll(".menu .dropdownWrap > ul");
+    console.log(wrapSubMenu);
+    wrapSubMenu.forEach((el) => {
+      el.insertAdjacentHTML("beforeend", HTMLBlock);
+    });
+  }
 });

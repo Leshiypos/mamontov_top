@@ -107,6 +107,11 @@ function wp_dev_setup_theme(){
 		add_image_size( 'team-board', 200, 250, true);
 		add_image_size( 'teach-mark-thumb', 370, 262, true);
 	}
+	register_nav_menus(
+		array(
+			'main_header_new' => 'Новое верхнее меню',
+		)
+	);
 
 }
 
@@ -1072,4 +1077,75 @@ class Footer_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 }
 
+//Новое Header меню
+
+class Header_new_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+	function start_lvl( &$output, $depth = 0, $args = NULL ) {
+		if($depth === 0){$output .= '<div class="dropdownWrap"><ul class="submenu dropdown sub-menu">';}
+		if($depth === 1){$output .= '<div class="wrap_sub_menu"><ul class="sub">';}
+		
+	}
+
+	function start_el( &$output, $item, $depth = 0, $args = NULL, $id = 0 ) {
+		//global $wp_query;
+
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		$class_names = $value = '';
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+
+		if ($args->walker->has_children) {
+			$classes[] = 'has-dropdown';
+		}
+
+		// функция join превращает массив в строку
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = ' class="' . esc_attr( $class_names ) . '"';
+
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+		// атрибуты элемента, title="", rel="", target="" и href=""
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+		// ссылка и околоссылочный текст
+		$item_output = $args->before;
+		if ($depth === 0){
+			$item_output .= '<span class="opener"><a class="opener__link" data-title="'. $item->title .'" '. $attributes .'>';
+		} elseif($depth === 1){
+			$item_output .= '<h6>';
+		}
+		else {
+			$item_output .= '<a class="link"'. $attributes .'>';
+		}
+		
+
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+
+		if ($args->walker->has_children && $depth === 0) {
+			$item_output .= '</a><svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path d="M7 13L1 7L7 1" stroke="#000000" stroke-width="1" stroke-linecap="round"
+				stroke-linejoin="round" />
+		</svg></span>';
+		} 
+		elseif($depth === 1){
+			$item_output .= '</h6>';
+		}
+		else {
+			$item_output .= '</a>';
+		}
+
+		$item_output .= $args->after;
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+}
 

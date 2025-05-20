@@ -1,4 +1,5 @@
 <div class="topPanelWrap">
+	<!-- shadow_1 убрал класс -->
 			<div class="topPanel shadow_1 radius_1">
 				<a href="/" class="logo"><img
 						src="https://mamontov.top/wp-content/themes/hello-elementor/new-site/assets/img/logo.svg"
@@ -14,6 +15,12 @@
 						'walker'          => new Header_Walker_Nav_Menu,
 					)
 				);
+				// wp_nav_menu(
+				// 	array(
+				// 		'theme_location'  => 'main_header_new',
+				// 		'walker'          => new Header_new_Walker_Nav_Menu,
+				// 	)
+				// );
 				?>
 					<!--<div class="menu-glavnoe-menju-container">
 						<ul id="menu-glavnoe-menju" class="menu">

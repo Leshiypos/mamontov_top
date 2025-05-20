@@ -2271,7 +2271,8 @@ section.teame_gallery .profession {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(45, 44, 44, 1);
 }
-.wrap_section {
+.dark_section .wrap_section,
+.white_section .wrap_section {
   max-width: 1720px;
   margin-left: auto;
   margin-right: auto;
@@ -2339,12 +2340,16 @@ p.fs_desc {
 .visual_content {
   width: 100%;
   height: 100%;
-  background-image: url(../images/test_fon.jpg);
+  /* background-image: url(../images/test_fon.jpg); */
   background-size: cover;
   background-position: right;
   border-radius: 20px;
+  overflow: hidden;
+  height: fit-content;
 }
-
+.visual_content img {
+  border-radius: 20px;
+}
 @media screen and (min-width: 1920px) {
   h2.fs_h2 {
     font-size: 60px;
@@ -3092,12 +3097,14 @@ p.fs_desc {
     display: block;
     max-width: 100%;
   }
-
+  .content_SOW {
+    gap: 40px;
+  }
   .header_section_SOW.descope {
     display: none;
   }
 }
-@media screen and (max-width: 423px) {
+@media screen and (max-width: 431px) {
   .content_SOW h4 {
     font-size: 18px;
   }
@@ -3318,3 +3325,68 @@ p.fs_desc {
     margin-top: 4px;
   }
 }
+
+/* Новое главное меню 
+
+.menu ul.dropdown {
+  display: flex;
+  box-shadow: none;
+  border-radius: var(--radius-1);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  flex-direction: column;
+  width: 1720px;
+  padding: 24px;
+  gap: 15px;
+  background: #f7f7f7;
+}
+
+.menu ul.dropdown h6 {
+  font-size: 28px;
+  font-weight: 600;
+}
+.menu ul.dropdown .wrap_sub_menu ul {
+  flex-direction: column;
+  gap: 10px;
+}
+.menu .dropdownWrap .submenu > li {
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 28px;
+}
+
+.menu .dropdownWrap {
+  left: -191px;
+  padding: 36px 0 0;
+}
+.topPanel {
+  max-width: 1720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 17px 24px;
+  background: #f7f7f7;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.menu .dropdownWrap > .submenu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.menu .dropdownWrap > .submenu > li {
+  min-width: 30%;
+  flex: 1;
+}
+
+.menu .dropdownWrap .consultation_block {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #2d2c2c !important;
+  color: #fff;
+}
+.menu .dropdownWrap .consultation_block p {
+  font-size: 18px;
+  font-weight: 200;
+}
+*/
