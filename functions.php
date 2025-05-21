@@ -1120,7 +1120,7 @@ class Header_new_Walker_Nav_Menu extends Walker_Nav_Menu {
 		if ($depth === 0){
 			$item_output .= '<span class="opener"><a class="opener__link" data-title="'. $item->title .'" '. $attributes .'>';
 		} elseif($depth === 1){
-			$item_output .= '<h6>';
+			$item_output .= '<div class="title_sub_menu"><h6>';
 		}
 		else {
 			$item_output .= '<a class="link"'. $attributes .'>';
@@ -1136,8 +1136,12 @@ class Header_new_Walker_Nav_Menu extends Walker_Nav_Menu {
 				stroke-linejoin="round" />
 		</svg></span>';
 		} 
-		elseif($depth === 1){
-			$item_output .= '</h6>';
+		elseif($args->walker->has_children && $depth === 1){
+			$item_output .= '</h6><svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path d="M7 13L1 7L7 1" stroke="#000000" stroke-width="1" stroke-linecap="round"
+				stroke-linejoin="round" />
+		</svg></div>';
 		}
 		else {
 			$item_output .= '</a>';

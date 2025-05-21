@@ -72,15 +72,33 @@ $(document).ready(function () {
 
   //   Добавление в главное меню дополнительного конечного блока
   function addConsultationBlock() {
+    const widthTopPanel = document.getElementById("topPanel")?.offsetWidth;
+    const dropElement = document.querySelectorAll(
+      "#topPanel .dropdownWrap .dropdown"
+    );
+    if (widthTopPanel && window.innerWidth > 1250) {
+      dropElement.forEach((el) => {
+        el.style.width = `${widthTopPanel}px`;
+      });
+    }
+    console.log(window.innerWidth);
     const HTMLBlock = `
 		<li class="consultation_block">
-		  <div>
-			  <h6>Обсудить задачу с экспертом</h6>
-			  <p>Консультация от эксперта </br> в интернет-маркетинге</p>
+		  	  <div class="title_sub_menu">
+			  	<h6>Обсудить задачу с экспертом</h6>
+				  <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path d="M7 13L1 7L7 1" stroke="#000000" stroke-width="1" stroke-linecap="round"
+					stroke-linejoin="round" />
+			  	</svg>
+			  </div>
+			  <div class="wrap_sub_menu">
+				<p>Консультация от эксперта </br> в интернет-маркетинге</p>
+				<a href="#popupfancy" data-fancybox="" class="btn btn__order radius_1" id="button_consult">Получить консультацию
+					<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+				</a>
 		  </div>
-		  <a href="#popupfancy" data-fancybox="" class="btn btn__order radius_1">Получить консультацию
-			  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-		  </a>
+
 	  </li>
    
 	`;
@@ -90,4 +108,43 @@ $(document).ready(function () {
       el.insertAdjacentHTML("beforeend", HTMLBlock);
     });
   }
+
+  function unActiveAllSubMenu() {
+    subMenuContent.forEach((el, index) => {
+      el.classList.add("hidden_menu");
+    });
+    subMenuElem.forEach((el, index) => {
+      el.classList.add("un_active");
+    });
+  }
+  function UnActiveInitialStart() {
+    subMenuContent.forEach((el, index) => {
+      if (index !== 0) {
+        el.classList.add("hidden_menu");
+      }
+    });
+
+    subMenuElem.forEach((el, index) => {
+      if (index !== 0) {
+        el.classList.add("un_active");
+      }
+    });
+  }
+  addConsultationBlock();
+  const subMenuContent = document.querySelectorAll("#topPanel .wrap_sub_menu");
+  const subMenuElem = document.querySelectorAll(
+    "#topPanel .dropdownWrap>ul>li"
+  );
+  const sumMenuTitle = document.querySelectorAll("#topPanel .title_sub_menu");
+
+  UnActiveInitialStart();
+
+  sumMenuTitle.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      unActiveAllSubMenu();
+      e.currentTarget.nextElementSibling.classList.remove("hidden_menu");
+      e.currentTarget.parentElement.classList.remove("un_active");
+    });
+  });
+  //   Логика нажатия на заголовки
 });
