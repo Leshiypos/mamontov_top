@@ -3361,8 +3361,12 @@ p.fs_desc {
 }
 
 .menu .dropdownWrap {
-  left: -191px;
+  /* left: -191px; */
   padding: 36px 0 0;
+}
+#topPanel.top-radius-none {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 #topPanel .menu ul.dropdown a:hover {
   color: var(--color-2);
@@ -3379,8 +3383,8 @@ p.fs_desc {
   margin: 0 auto;
   padding: 17px 24px;
   background: #f7f7f7;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  /* border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; */
 }
 .menu .dropdownWrap > .submenu {
   /* display: flex; */

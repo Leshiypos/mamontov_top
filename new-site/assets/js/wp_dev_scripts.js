@@ -81,7 +81,6 @@ $(document).ready(function () {
         el.style.width = `${widthTopPanel}px`;
       });
     }
-    console.log(window.innerWidth);
     const HTMLBlock = `
 		<li class="consultation_block">
 		  	  <div class="title_sub_menu">
@@ -103,7 +102,6 @@ $(document).ready(function () {
    
 	`;
     const wrapSubMenu = document.querySelectorAll(".menu .dropdownWrap > ul");
-    console.log(wrapSubMenu);
     wrapSubMenu.forEach((el) => {
       el.insertAdjacentHTML("beforeend", HTMLBlock);
     });
@@ -147,4 +145,40 @@ $(document).ready(function () {
     });
   });
   //   Логика нажатия на заголовки
+
+  //   выравнивание субменю
+  const menuTop = document.getElementById("topPanel");
+  const leftDistanceTopMenu = menuTop.getBoundingClientRect().left;
+  const dropdownWrapElement = document.querySelectorAll(
+    "#topPanel .dropdownWrap"
+  );
+
+  dropdownWrapElement.forEach((el) => {
+    el.style.left = `-${
+      el.getBoundingClientRect().left - leftDistanceTopMenu
+    }px`;
+  });
+
+  // Скругление углов меню, если появляется субМеню
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          menuTop.classList.add("top-radius-none");
+        } else {
+          menuTop.classList.remove("top-radius-none");
+        }
+      });
+    },
+    {
+      threshold: 0.1, // сработает, когда хотя бы 10% элемента видно
+    }
+  );
+  const wrapSubMenu = document.querySelectorAll(".menu .dropdownWrap > ul");
+  if (window.innerWidth > 1205) {
+    wrapSubMenu.forEach((el) => {
+      observer.observe(el);
+    });
+  }
 });
