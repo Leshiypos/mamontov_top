@@ -38,23 +38,31 @@ if(get_row_layout()=='facts_case'){
 									</div>
 									<div class="description_facts_case">
 										<div class="col_left">
+											<?php if ($budjet){ ?>
 											<div>
 												<h5 class="fs_22_18">Бюджет</h5>
 												<p><?php echo $budjet; ?></p>
 											</div>
+											<?php };
+											if ($bid_count){
+											?>
 											<div>
 												<h5 class="fs_22_18">Привлечено заявок:</h5>
 												<p><?php echo $bid_count; ?></p>
 											</div>
+											<?php };
+											if ($bid_price){
+											?>
 											<div>
 												<h5 class="fs_22_18">Цена заявки:</h5>
 												<p><?php echo $bid_price; ?></p>
 											</div>
+											<?php }; ?>
 											<div class="social_links">
 												<a href="<?php echo $vk_link; ?>" class="social_link">
 													<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/vk.png'; ?>" alt="">
 												</a>
-												<a href="<?php $telegram_link; ?>" class="social_link">
+												<a href="<?php echo $telegram_link; ?>" class="social_link">
 													<img src="<?php echo get_template_directory_uri().'/new-site/assets/images/tg.png'; ?>" alt="">
 												</a>
 											</div>

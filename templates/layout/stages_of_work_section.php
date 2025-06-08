@@ -75,7 +75,8 @@ if(get_row_layout()=='stage_of_work'){
 									<?php echo $description; ?>
 								</div>
 								<div>
-									<div class="visual_content" <?php if($url_img){ echo 'style ="background-image: url('.$url_img.')";';} ?>>
+									<div class="visual_content" <?php //if($url_img){ echo 'style ="background-image: url('.$url_img.')";';} ?>>
+									<img src="<?php  echo esc_attr($url_img);?>" alt="<?php echo esc_attr($stage_name); ?>">
 									</div>
 								</div>
 							</div>

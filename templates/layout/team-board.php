@@ -26,10 +26,10 @@ if (get_row_layout() == 'team_board'){
 				</div>
 				<?php
 				} ?>
-				<div class="read_more_team_but_wrap visible_mob">
+				<!-- <div class="read_more_team_but_wrap visible_mob">
 					<div class="head_but"></div>
 					<button class="read_more_team_but">Смотреть больше</button>
-				</div>
+				</div> -->
 			</div>
 			</div>
 		<?php	

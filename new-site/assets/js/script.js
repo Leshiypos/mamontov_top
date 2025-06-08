@@ -567,10 +567,10 @@ function ready() {
       // Настройки слайдера
       slidesPerView: "auto",
       loop: true,
-      spaceBetween: 50,
+      spaceBetween: 20,
       speed: 2500,
       autoplay: {
-        delay: 0.001,
+        delay: 0,
       },
     });
   }
@@ -580,10 +580,10 @@ function ready() {
       // Настройки слайдера
       slidesPerView: "auto",
       loop: true,
-      spaceBetween: 50,
+      spaceBetween: 30,
       speed: 2500,
       autoplay: {
-        delay: 0.001,
+        delay: 0,
         reverseDirection: true,
       },
     });
@@ -634,19 +634,22 @@ function ready() {
         const selectId = document.getElementById(selectData);
         const isView = selectId.style.visibility === "visible";
         blockSelects.forEach((item) => {
-          item.style.visibility = "hidden";
+          item.classList.add("disabled_cont");
+          //   item.style.visibility = "hidden";
           item.style.height = 0;
           item.style.minHeight = 0;
           item.style.maxHeight = 0;
           selects.forEach((select) => select.classList.remove("active"));
         });
         if (!isView) {
-          selectId.style.visibility = "visible";
+          selectId.classList.remove("disabled_cont");
+          //   selectId.style.visibility = "visible";
           selectId.style.height = selectId.scrollHeight + "px";
           selectId.style.minHeight = selectId.scrollHeight + "px";
           this.classList.add("active");
         } else {
-          selectId.style.visibility = "hidden";
+          selectId.classList.add("disabled_cont");
+          //   selectId.style.visibility = "hidden";
           selectId.style.height = 0;
           selectId.style.minHeight = 0;
           selects.forEach((select) => select.classList.remove("active"));
@@ -688,6 +691,7 @@ function ready() {
 
   let swiperSowSectionContent = new Swiper(".swiper_SOW_content", {
     // Настройки слайдера
+    autoHeight: true,
     slidesPerView: 1,
     loop: true,
     // autoplay: {

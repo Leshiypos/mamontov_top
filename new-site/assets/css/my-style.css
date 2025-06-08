@@ -2160,8 +2160,9 @@ section.teame_gallery .wrap_section {
   /* gap: calc(10px + 30*(100vw/1920) ); */
   position: relative;
 }
+
 section.teame_gallery .team_card {
-  max-width: 150px;
+  width: 150px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -2821,6 +2822,7 @@ p.fs_desc {
 .facts_case .social_links {
   display: flex;
   gap: 15px;
+  margin-top: auto;
 }
 .facts_case .social_links a img {
   width: 40px;
@@ -3195,6 +3197,9 @@ p.fs_desc {
   width: fit-content;
   margin-top: 60px;
 }
+.btn-slider {
+  margin: 1px;
+}
 @media screen and (max-width: 423px) {
   .swiperWrapTeachMarketing__btns {
     margin-top: 24px;
@@ -3375,7 +3380,7 @@ p.fs_desc {
   color: var(--color-2);
 }
 #topPanel .menu ul.dropdown a.btn__order:hover {
-  color: var(--color-2);
+  color: #ffffff;
 }
 .topPanel {
   max-width: 1720px;
@@ -3506,4 +3511,25 @@ p.fs_desc {
   .menu ul.dropdown .un_active .title_sub_menu svg {
     transform: rotate(90deg);
   }
+}
+
+/* Отмена свечения кнопок в фокусе */
+[type="button"]:focus,
+[type="submit"]:focus,
+button:focus {
+  color: inherit !important;
+  background-color: inherit !important;
+  text-decoration: inherit !important;
+  border: 1px solid var(--color-4);
+}
+
+[type="button"]:active,
+[type="submit"]:active,
+button:active {
+  color: #fff !important;
+  background-color: #c36 !important;
+  text-decoration: none !important;
+}
+.pageCase__achievements-container .pageCase__achievements-box:first-child {
+  margin-top: 10px;
 }

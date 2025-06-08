@@ -1316,6 +1316,7 @@ h2 span,
 
 .pageCase__questien-select svg {
   transform: rotate(270deg);
+  margin-right: 20px;
 }
 
 .pageCase__questien-select.active {
@@ -1357,10 +1358,12 @@ h2 span,
 }
 
 .pageCase__questien-select__content {
-  visibility: hidden;
+  /* visibility: hidden; */
   min-height: 0;
   height: 0;
-  /*   transition: all 0.2s linear; */
+  overflow: hidden;
+  padding-left: 40px;
+  transition: all 0.2s linear;
 }
 
 /* .pageCase__internet-marketing__section {

@@ -38,8 +38,12 @@ if(get_row_layout()=='qualified_leads'){
 	}
 ?>
 			<div class="colomn_2">
-				<div class="visual_content" <?php if($img_url){echo 'style="background-image: url('.$img_url.');"'; } ?>>
+				<div class="visual_content">
 					<?php if($video){ echo $video;} ?>
+					<?php if($img_url){?>
+						<img src="<?php echo esc_attr($img_url); ?>" alt="<?php echo esc_attr($title); ?>">
+					<?php
+					} ?>
 				</div>
 			</div>
 		</div>

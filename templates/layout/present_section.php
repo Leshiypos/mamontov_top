@@ -10,7 +10,7 @@
 		$link_but = get_sub_field('link_but');
 		$margin_bot = get_sub_field('margin_bot');
 ?>
-<section class="present_section <?php if ($margin_bot) {echo 'style="margin-bottom:'.$margin_bot.'px"';} ?>">
+<section class="present_section <?php if( is_page_template( 'page-case.php' )) echo 'single_p'; ?>" <?php if ($margin_bot) {echo 'style="margin-bottom:'.$margin_bot.'px"';} ?>>
 	<div class="wrap"> 
 	<img src="<?php echo get_template_directory_uri(  ).'/new-site/assets/images/present_box_big.png'; ?>" alt="" class="present_box <?php if( is_page_template( 'page-case.php' )) echo 'single_post_img'; ?>">
 		<div class="presentition">
