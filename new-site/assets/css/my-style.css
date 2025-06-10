@@ -1054,7 +1054,7 @@ h4.title_review {
 }
 
 .portfolio__main-section h2 {
-  font-size: 100px;
+  /* font-size: 100px; */
   font-weight: 600;
 }
 
@@ -3085,6 +3085,49 @@ p.fs_desc {
   background-color: rgba(255, 255, 255, 1) !important;
 }
 
+.stages_of_work {
+  color: rgba(255, 255, 255, 0.5);
+}
+.stages_of_work .dd_list.active,
+.stages_of_work .dd_list.active .title_list,
+.stages_of_work .dd_list.active .wrap,
+.content_SOW .dd_list.active p {
+  color: rgba(255, 255, 255, 1) !important;
+  opacity: 1 !important;
+  transition: all 0.5s;
+}
+.stages_of_work .dd_list .title_list {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.stages_of_work .dd_list .title_list::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13L1 7L7 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  transition: transform 0.3s;
+  margin-left: 12px;
+  /* Поворачиваем стрелку вниз (90deg) */
+  transform: rotate(90deg);
+  opacity: 0.5;
+}
+.stages_of_work .dd_list.active .title_list::after {
+  transform: rotate(270deg);
+}
+
+.stages_of_work .dd_list .wrap {
+  height: 0;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.stages_of_work .dd_list .wrap.visible {
+  height: auto;
+}
+
 @media screen and (min-width: 1920px) {
   .content_SOW h4 {
     font-size: 36px;
@@ -3445,6 +3488,11 @@ p.fs_desc {
     transform: rotate(270deg);
     transition: all 0.5s;
   }
+  .menu .opener.closed svg {
+    display: block;
+    transform: rotate(90deg);
+    transition: all 0.5s;
+  }
   .menu ul.dropdown .wrap_sub_menu a {
     font-size: 10px;
   }
@@ -3511,6 +3559,12 @@ p.fs_desc {
   .menu ul.dropdown .un_active .title_sub_menu svg {
     transform: rotate(90deg);
   }
+}
+
+.menu .dropdownWrap.hidden {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
 }
 
 /* Отмена свечения кнопок в фокусе */

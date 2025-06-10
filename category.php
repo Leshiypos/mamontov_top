@@ -5,7 +5,6 @@
         
         <?php get_template_part('templates/top-panel-main'); ?>
 
-        <pre>
 
             <?
             $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -21,9 +20,11 @@
                 $idTax = get_field('id_taxonomy', 5696);
                 $link = '/blog/';
             }
+			$categoryArh = get_queried_object(); //ПОлучаем архив категории
+			$category_id = $categoryArh->term_id; //Получаем ID категории
             ?>
             
-        </pre>
+       
        
         <header class="header portfolio__header marketing__header">
 			<div class="container">
@@ -49,7 +50,7 @@
                             <a href="<?=  $link;?>" class="case__btn-tab marketing__content-tab radius_1">Все</a></li>
                                 
                             <? foreach ($categories as $category): ?>
-								<a href="<?php echo get_category_link($category->term_id) ?>" class="case__btn-tab marketing__content-tab radius_1"><?php echo $category->name; ?></a></li>
+								<a href="<?php echo get_category_link($category->term_id) ?>?catId=<?php echo $category->term_id; ?>" class="case__btn-tab marketing__content-tab radius_1"><?php echo $category->name; ?></a></li>
                             <? endforeach; ?>
 							</div>
 
@@ -59,7 +60,7 @@
                                     <? if(count(explode("/", parse_url($url)["path"])) > 3):?>
                                         <? $idTax = array_pop(get_the_category( get_the_ID() ))->term_id; ?>
                                     <? endif; ?>
-                                   <?php	query_posts('cat='.$idTax ); // вместо "53" указываем идентификатор вашей рубрики.
+                                   <?php	query_posts('cat='.$category_id ); // вместо "53" указываем идентификатор вашей рубрики.
                                             while (have_posts()) : the_post();?>
                                         <article class="case__tabs-content__article radius_1 dFlex">
 											<a href="<?php the_permalink(); ?>">
@@ -68,9 +69,9 @@
 												<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
 												<p class="case__tabs-content__paragraph"><?php  the_content(); ?></p>
 												<div class="case__tabs-content__article-btn__block">
+													<a href="<?php the_permalink(); ?>" class="read_more">Читать далее</a>
+                                            	</div>
 											</a>
-											<a href="<?php the_permalink(); ?>" class="read_more">Читать далее</a>
-                                            </div>
                                         </article>
                                         <?php
                                         endwhile;

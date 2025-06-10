@@ -139,8 +139,11 @@ $(document).ready(function () {
 
   sumMenuTitle.forEach((el) => {
     el.addEventListener("click", (e) => {
+      isActive =
+        e.currentTarget.nextElementSibling.classList.contains("hidden_menu");
       unActiveAllSubMenu();
-      e.currentTarget.nextElementSibling.classList.remove("hidden_menu");
+      if (isActive)
+        e.currentTarget.nextElementSibling.classList.remove("hidden_menu");
       e.currentTarget.parentElement.classList.remove("un_active");
     });
   });
@@ -181,4 +184,45 @@ $(document).ready(function () {
       observer.observe(el);
     });
   }
+
+  //    открытие - закрытие субменю
+  function toogleMenu() {
+    const menuTitles = document.querySelectorAll(".menu .opener");
+    menuTitles.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        item.classList.toggle("closed");
+        const subMenuWrap = item.nextElementSibling;
+        if (subMenuWrap.classList.contains("dropdownWrap")) {
+          subMenuWrap.classList.toggle("hidden");
+        }
+      });
+    });
+  }
+  if (window.innerWidth <= 746) {
+    toogleMenu();
+  }
+
+  //   stages_of_work - секция - раскрытие меню в тексте
+  //<div class="dd_list">
+  //<div class="title_list">Яндекс Директ</div>
+  //<div class="wrap">
+  //</div>
+  //</div>
+
+  function hiddenContent() {
+    const titles = document.querySelectorAll(
+      ".stages_of_work .dd_list .title_list"
+    );
+    titles.forEach((title) => {
+      title.addEventListener("click", (e) => {
+        const currentElement = e.currentTarget;
+        currentElement
+          .closest(".swiper-wrapper")
+          .style.removeProperty("height");
+        currentElement.closest(".dd_list").classList.toggle("active");
+        currentElement.nextElementSibling.classList.toggle("visible");
+      });
+    });
+  }
+  hiddenContent();
 });
