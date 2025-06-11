@@ -735,7 +735,7 @@ function ready() {
   }
 
   // Обработчик событий при смене слайда
-  swiperSowSectionContent.on("slideChangeTransitionEnd", (e) => {
+  swiperSowSectionContent.on("slideChange", (e) => {
     let prevElement = document.querySelector(
       ".header_section_SOW.descope .swiper-slide-active"
     );

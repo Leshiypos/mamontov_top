@@ -73,6 +73,39 @@ if(get_row_layout()=='stage_of_work'){
 								<div>
 									<h4><?php echo $count++; ?>. <?php echo $stage_name; ?></h4>
 									<?php echo $description; ?>
+
+									<?php 
+									if (have_rows('lists_drop')){
+										$count_iter = 1;
+										while(have_rows('lists_drop')){
+											the_row();
+												$title_list= get_sub_field('title_list');
+											?>
+											<div class="dd_list <?php echo $count_iter == 1 ? 'active' : ''; ?>"> 
+										<div class="title_list"><?php echo $title_list ? esc_html( $title_list ) : ''; ?></div>
+
+										<?php if (have_rows('lists')){
+										?>
+										<div class="wrap <?php echo $count_iter++ == 1 ? 'visible' : ''; ?>">
+										<?php while(have_rows('lists')){
+											the_row();
+											$list = get_sub_field('list');
+										?>
+											<p><?php echo $list ? esc_html($list):''; ?></p>
+										<?php
+										} ?>
+										</div>
+
+
+										<?php
+										} ?>
+
+										
+									</div>
+									<?php
+										}
+									}
+									?>
 								</div>
 								<div>
 									<div class="visual_content" <?php //if($url_img){ echo 'style ="background-image: url('.$url_img.')";';} ?>>

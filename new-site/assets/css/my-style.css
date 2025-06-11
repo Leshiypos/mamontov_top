@@ -3069,6 +3069,7 @@ p.fs_desc {
 .content_SOW h4 {
   font-size: calc(18px + 18 * (100vw / 1920));
   margin-bottom: 24px;
+  color: rgba(255, 255, 255, 1);
 }
 .swiper_SOW_header {
   overflow: hidden;
@@ -3087,6 +3088,9 @@ p.fs_desc {
 
 .stages_of_work {
   color: rgba(255, 255, 255, 0.5);
+}
+.stages_of_work .dd_list {
+  margin-bottom: 10px;
 }
 .stages_of_work .dd_list.active,
 .stages_of_work .dd_list.active .title_list,
