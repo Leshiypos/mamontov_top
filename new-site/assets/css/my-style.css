@@ -2561,7 +2561,7 @@ p.fs_desc {
   justify-content: space-between;
 }
 .tariffs_header .swiperWrapTariffs__btns {
-  display: none;
+  /* display: none; */
 }
 .tariffs_header .swiperWrapTariffs__btns button {
   width: 60px;
@@ -2859,7 +2859,7 @@ p.fs_desc {
   flex: 8;
 }
 .description_facts_case .col_right p {
-  font-size: calc(16px + 12 * (100vw / 1920));
+  font-size: calc(14px + 6 * (100vw / 1920));
   font-weight: 400;
 }
 .description_facts_case h5 {
@@ -2917,7 +2917,7 @@ p.fs_desc {
     font-size: 36px;
   }
   .description_facts_case .col_right p {
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 900px) {
@@ -2981,7 +2981,7 @@ p.fs_desc {
     font-size: 16px;
   }
   .description_facts_case .col_right p {
-    font-size: 16px;
+    font-size: 14px;
   }
   .description_facts_case {
     padding: 16px;

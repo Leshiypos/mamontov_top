@@ -20,6 +20,7 @@ $(document).ready(function () {
   maxHeight("article.best_single");
   maxHeight(".wrap_reviews .review");
   maxHeight(".facts_case .case");
+  maxHeight(".white_section.facts_case .description_facts_case");
 
   // Функция кнопки - Смотреть больше
 

@@ -31,10 +31,16 @@ if(get_row_layout()=='facts_case'){
 									<div class="case">
 										<img src="<?php echo $url_img; ?>" alt="">
 										<p class="fs_22_14 title_case"><?php echo $description;  ?></p>
-										<h3 class="fs_28-18 title"><?php echo $title_case; ?></h3>	
-										<a href="<?php echo $link_case; ?>" class="btn btn__order radius_1" target="_blank">Читать кейс
-											<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-										</a>
+										<h3 class="fs_28-18 title"><?php echo $title_case; ?></h3>
+										<?php 
+											if ($link_case){
+												?>
+												<a href="<?php echo $link_case; ?>" class="btn btn__order radius_1" target="_blank">Читать кейс
+													<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+												</a> 
+												<?php
+											}
+										?>	
 									</div>
 									<div class="description_facts_case">
 										<div class="col_left">

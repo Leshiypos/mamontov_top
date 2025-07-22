@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // $category = get_the_category($post->ID);
 // $current_cat_id = $category[0]->cat_ID;
 // $current_cat_name = $category[0]->name;
-
+$label_button = get_field('label_button');
 ?>
 
 
@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <a class="header__box-round" data-fancybox href="#popupfancy">
                     <span class="header__box-round__two"></span>
                     <p class="header__box-round__link">
-                        Получить консультацию
+						<?php echo !empty($label_button)? esc_html( $label_button ) : 'Получить консультацию'; ?>
                         <span></span>
                     </p>
                 </a>
