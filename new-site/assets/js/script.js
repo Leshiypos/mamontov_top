@@ -82,29 +82,20 @@ function ready() {
     siblingBlockSelector,
     swiperSelector
   ) {
-    let wrapWidth = document.querySelector(wrapSelector).offsetWidth;
-    let contentWidth = document.querySelector(siblingBlockSelector).offsetWidth;
-    document.querySelector(swiperSelector).style.width =
-      wrapWidth - contentWidth + "px";
-  }
-  // wp-dev слайде для Отзывов клиентов
+    // Находим все обёртки
+    const wraps = document.querySelectorAll(wrapSelector);
 
-  if (checkElement(".slider__wrapper-licenses__container_reviewsClient")) {
-    let swiperReviewClient = new Swiper(
-      ".slider__wrapper-licenses__container_reviewsClient",
-      {
-        // Настройки слайдера
-        slidesPerView: 1,
-        loop: true,
-        spaceBetween: 36,
+    wraps.forEach((wrap) => {
+      // В пределах каждой обёртки ищем нужные элементы
+      const sibling = wrap.querySelector(siblingBlockSelector);
+      const swiper = wrap.querySelector(swiperSelector);
 
-        // Добавление кнопок навигации
-        navigation: {
-          nextEl: ".btn-next__reviewClient",
-          prevEl: ".btn-prev__reviewClient",
-        },
+      if (sibling && swiper) {
+        const wrapWidth = wrap.offsetWidth;
+        const siblingWidth = sibling.offsetWidth;
+        swiper.style.width = wrapWidth - siblingWidth + "px";
       }
-    );
+    });
   }
 
   if (checkElement(".slider__wrapper-comand__container")) {
@@ -600,27 +591,62 @@ function ready() {
       ".swiper_tariffs"
     );
 
-    let swiperTariffsSection = new Swiper(".swiper_tariffs", {
-      // Настройки слайдера
-      slidesPerView: 1,
-      loop: false,
-      breakpoints: {
-        600: {
-          slidesPerView: 1,
-          centeredSlides: true,
+    let sliders = document.querySelectorAll(".swiper_tariffs");
+    sliders.forEach((slider, index) => {
+      // Уникализируем кнопки навигации (если они в каждой секции свои)
+      const nextBtn = slider
+        .closest(".wrap_section")
+        .parentElement.querySelector(".btn-next__tariffs");
+      const prevBtn = slider
+        .closest(".wrap_section")
+        .parentElement.querySelector(".btn-prev__tariffs");
+
+      new Swiper(slider, {
+        // Настройки слайдера
+        slidesPerView: 1,
+        loop: false,
+        breakpoints: {
+          600: {
+            slidesPerView: 1,
+            centeredSlides: true,
+          },
+          1100: { slidesPerView: 2 },
+          1600: {
+            slidesPerView: 3,
+          },
         },
-        1100: { slidesPerView: 2 },
-        1600: {
-          slidesPerView: 3,
+        // Добавление кнопок навигации
+        navigation: {
+          nextEl: nextBtn,
+          prevEl: prevBtn,
         },
-      },
-      // Добавление кнопок навигации
-      navigation: {
-        nextEl: ".btn-next__tariffs",
-        prevEl: ".btn-prev__tariffs",
-      },
+      });
+
+      // Прячем кнопки, если слайдов мало
+      console.log(slider.querySelectorAll(".swiper-slide").length);
+      console.log(window.innerWidth);
+      if (
+        slider.querySelectorAll(".swiper-slide").length < 4 &&
+        window.innerWidth > 1100
+      ) {
+        const btnsWrap = slider
+          .closest(".wrap_section")
+          ?.querySelector(".swiperWrapTariffs__btns");
+        if (btnsWrap) {
+          btnsWrap.style.display = "none";
+        }
+      }
     });
+
+    // срываем кнопки при количестве сладов меньше 4
+
+    // if (swiperTariffsSection.slides.length < 4 && window.innerWidth > 1100) {
+    //   document.querySelector(
+    //     ".tariffs_header .swiperWrapTariffs__btns"
+    //   ).style.display = "none";
+    // }
   }
+
   // Конец Слайдер tariffs
 
   const selects = document.querySelectorAll(".pageCase__questien-select");

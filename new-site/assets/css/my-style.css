@@ -2692,6 +2692,9 @@ p.fs_desc {
     min-width: calc(100vw / 2 - 55px);
     margin-right: 12px;
   }
+  .tariffs_header {
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 430px) {

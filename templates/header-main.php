@@ -31,7 +31,7 @@ $label_button = get_field('label_button');
                 <?php echo get_the_title(); ?>
                 </h1>
                 <div class="titlePage header__text_main">
-                    <?php echo the_excerpt(); ?>
+                    <?php echo the_content(); ?>
                 </div>
             </div>
             <div class="header__box-round__btn">
