@@ -97,6 +97,25 @@ function ready() {
       }
     });
   }
+  // wp-dev слайде для Отзывов клиентов
+
+  if (checkElement(".slider__wrapper-licenses__container_reviewsClient")) {
+    let swiperReviewClient = new Swiper(
+      ".slider__wrapper-licenses__container_reviewsClient",
+      {
+        // Настройки слайдера
+        slidesPerView: 1,
+        loop: true,
+        spaceBetween: 36,
+
+        // Добавление кнопок навигации
+        navigation: {
+          nextEl: ".btn-next__reviewClient",
+          prevEl: ".btn-prev__reviewClient",
+        },
+      }
+    );
+  }
 
   if (checkElement(".slider__wrapper-comand__container")) {
     let swiperComand = new Swiper(".slider__wrapper-comand__container", {
