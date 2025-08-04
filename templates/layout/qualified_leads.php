@@ -4,8 +4,16 @@ if(get_row_layout()=='qualified_leads'){
 	$description = get_sub_field('description');
 	$img_url = get_sub_field('img_title');
 	$video = get_sub_field('video');
+
+	// ПРоверка отступов
+		$mb = get_sub_field('margin_bot');
+		$mt = get_sub_field('margin_top');
+		$margin_top = (is_numeric($mt)) ? "margin-top:{$mt}px;" : '';
+		$margin_bottom = (is_numeric($mb)) ? "margin-bottom:{$mb}px;" : '';
+		$padding_style = ($margin_top || $margin_bottom) ? 'style="' . $margin_top . $margin_bottom . '"' : '';
+	//конец проверки отступов
 ?>
-<section class="dark_section">
+<section class="dark_section" <?php echo $padding_style; ?>>
 	<div class="wrap_section">
 		<div class="header_block_section">
 			<div class="title_block">

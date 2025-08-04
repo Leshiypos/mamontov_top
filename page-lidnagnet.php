@@ -23,12 +23,13 @@ Template Post Type: page
 			while ( have_rows('page_lid_magnet') ) : the_row();
 		?>
 <!-- Начало секции ПРИЧИНЫ -->
-			<section class="pageCase pageCase__lid-magnit">
-			<div class="pageCase__systems">
+
 				
 		<?php		if( get_row_layout() == 'benefit' ):
 					$title = get_sub_field('title');
 		?>
+		<section class="pageCase pageCase__lid-magnit">
+			<div class="pageCase__systems">
 					<div class="pageCase__lid-magnit__block dFlex">
 						<h3 class="m-0"><?php echo $title ?></h3>
 						<div class="swiper-container pageCase__lid-magnit__container-mobile">
@@ -124,83 +125,14 @@ Template Post Type: page
 					</div>
 				<?php
 					}
-				?>	
+				?>
+				</div>
+			</section>	
 		<?php
 				endif; //Конец секции
 		?>
-				</div>
-				</section>
+
 <!-- Конец секции ПРИЧИНЫ -->
-
-<!-- Начало секции Для кого -->
-		<?php
-			if( get_row_layout() == 'for_whom' ){
-				$title = get_sub_field( 'title' );
-				$sub_title = get_sub_field( 'sub_title' );
-				$description = get_sub_field( 'description' );
-		?>
-			<section class="pageCase__where-lid">
-				<div class="pageCase__where-lid__container">
-					<div class="pageCase__where-lid__block-box dFlex">
-						<div class="pageCase__where-lid__container-block dFlex">
-							<?php if( $title ) echo '<h1 class="m-0">'.$title.' <br /> <span>'.$sub_title.'</span></h1>';?>
-							<?php if( $description ) echo '<p class="m-0 pageCase__where-lid__container-block__text">'.$description.'</p>'; ?>
-						</div>
-						<div class="pageCase__where-lid__container-box  pageCase__where-lid__block-box__slider-not__slider">
-						<?php
-							if( have_rows( 'blocks' ) ){
-								$count = 0;
-								while( have_rows( 'blocks' ) ){
-									the_row();
-									$description_bloks = get_sub_field( 'block_discript' );
-									$count++;
-						?>
-								<div class="pageCase__where-lid__container-box__card dFlex">
-									<p class="pageCase__where-lid__container-box__card-number m-0"><?php echo $count ?></p>
-									<p class="pageCase__where-lid__container-box__card-text m-0"><?php echo $description_bloks; ?></p>
-								</div>
-						<?php
-								}
-							}
-						?>
-
-
-						</div>
-					</div>
-					<div class="swiper-container pageCase__where-lid__block-box__slider">
-						<div class="swiper-wrapper pageCase__where-lid__container-box">
-						<?php
-							if( have_rows( 'blocks' ) ){
-								$count = 0;
-								while( have_rows( 'blocks' ) ){
-									the_row();
-									$description_bloks = get_sub_field( 'block_discript' );
-									$count++;
-						?>
-							<div class="swiper-slide pageCase__where-lid__container-box__card dFlex">
-								<p class="pageCase__where-lid__container-box__card-number m-0"><?php echo $count ?></p>
-								<p class="pageCase__where-lid__container-box__card-text m-0"><?php echo $description_bloks; ?></p>
-							</div>
-						<?php
-								}
-							}
-						?>	
-						</div>
-					</div>
-					<div class="swiperWrapLidWhere__btns-mobile dFlex">
-						<button type="button" class="btn-slider btn-prev__lid-where" tabindex="0"
-							aria-label="Previous slide" aria-controls="swiper-wrapper-fba573f438188884"></button>
-						<button type="button" class="btn-slider btn-next__lid-where" tabindex="0"
-							aria-label="Next slide" aria-controls="swiper-wrapper-fba573f438188884"></button>
-					</div>
-				</div>
-			</section>
-		<?php		
-			}
-		?>
-
-<!-- Конец секции Для кого -->
-
 
 <!-- Начало секции ФАКТЫ -->
 		<?php
@@ -549,39 +481,6 @@ Template Post Type: page
 
 
 <?php
-// Начало Секции Рейтинг 
-				if( get_row_layout() == 'rating' ):
-                    // проверяем есть ли данные в повторителе
-                    if( have_rows('rating_list') ):
-                        echo '
-                        <section class="pageCase__achievements">
-                            <div class="pageCase__achievements-container">
-                        ';
-                        // перебираем строки повторителя
-                        while ( have_rows('rating_list') ) : the_row();
-
-                            $counter = get_sub_field('counter');
-                            $name = get_sub_field('name');
-                            $text = get_sub_field('text');
-
-                            echo '
-                            <div class="pageCase__achievements-box">
-                                <p class="pageCase__achievements-box__number">'.$counter.'</p>
-                                <p class="pageCase__achievements-box__text">'.$name.'</p>
-                                <p class="pageCase__achievements-box__desc">
-                                    '.$text.'
-                                </p>
-                            </div>
-                            ';
-
-                        endwhile;
-                        echo '
-                            </div>
-                        </section>  
-                        ';
-                    endif;
-                endif;
-// Конец Секции Рейтинг 
 // Начало Секции Блок со списком
                 if( get_row_layout() == 'block_with_list' ):
                     $title = get_sub_field('Title');
@@ -623,44 +522,6 @@ Template Post Type: page
 // Начало Секции Изображение справа
 				get_template_part('templates/layout/image-right');
 // Конец Секции Изображение справа
-
-// Начало Секции слайдера с клиентом
-				if(get_row_layout() == 'section_clints'):
-					$title = get_sub_field('title');
-					echo '	
-					<section class="our-clients_section_wp">
-						<div class="pageCase__our-clients dFlex">
-							<div class="pageCase__our-clients__block dFlex">
-								<h1 class="m-0">'.$title.'</h1>
-								<div class="swiperWrapClients__btns dFlex">
-									<button type="button" class="btn-slider btn-slider__clients btn-prev__clients"></button>
-									<button type="button" class="btn-slider btn-slider__clients btn-next__clients"></button>
-								</div>
-							</div>							
-							<div class="swiper-container slider__wrapper-clients__container">
-								<div class="swiper-wrapper slider__wrapper-clients dFlex">';
-									// проверяем есть ли данные в повторителе
-									if( have_rows('images') ):
-										// перебираем строки повторителя
-										while ( have_rows('images') ) : the_row();
-											$image = get_sub_field('image');
-											echo ' 										
-											<div
-												class="swiper-slide pageCase__internet-marketing__box-block__image-container radius_1">
-												<img class="pageCase__internet-marketing__box-block__image"
-													src="'.$image.'" alt="Проект">
-											</div>
-											';
-										endwhile;
-									endif;
-								echo '
-								</div>
-							</div>
-						</div>
-					</section>
-					';
-				endif;
-// Конец Секции слайдера с клиентом
 
 // Начало секции с отзывами
 				if(get_row_layout() == 'section_review'):
@@ -773,6 +634,15 @@ Template Post Type: page
 
 		// Секция вопросов section_questions.php
 		get_template_part('templates/layout/section_questions'); 
+
+		// Секция рейтинга (достижений) section_achievements.php
+		get_template_part('templates/layout/section_achievements'); 
+
+		// Секция Для кого section_from_whom.php
+		get_template_part('templates/layout/section_from_whom'); 
+
+		// Секция Слайдер с клиентами  section_our_clients.php
+		get_template_part('templates/layout/section_our_clients'); 
 		?>
 		
 		<?php
