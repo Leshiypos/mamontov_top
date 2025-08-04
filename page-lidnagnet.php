@@ -768,6 +768,11 @@ Template Post Type: page
 		
 		// teach_marketing секция Обучаем интернет маркетингу
 		get_template_part('templates/layout/teach_marketing_section'); 
+		// teach_marketing секция Доска команды
+		get_template_part('templates/layout/team-board'); 
+
+		// Секция вопросов section_questions.php
+		get_template_part('templates/layout/section_questions'); 
 		?>
 		
 		<?php
