@@ -164,6 +164,13 @@ function myajax_data(){
 		'url' => admin_url( 'admin-ajax.php' )
 	];
 	wp_enqueue_script( 'ajax-load-posts-scroll', get_template_directory_uri().'/new-site/assets/js/ajax-load-posts-scroll.js', array( 'jquery' ), '1.0' );
+
+	// Добавление скрипта по заданию для рекламмной страницы
+	if (is_page( 11193 )){
+		wp_enqueue_script( 'mamontov-dycon-script','//dycont.com/js/module.js?h=f9pTcse0H37n8273339ihTNhvjoEuSXA', array( ), '1.0', false );
+	}
+	
+	
 	wp_add_inline_script(
 		'ajax-load-posts-scroll',
 		'window.myajax = ' . wp_json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ),
@@ -204,6 +211,7 @@ function load_posts_scroll_callback(){
 
 	$request='';
 	$posts_main = new WP_Query( array(
+		'post_status'    => 'publish',
 		'tax_query' =>[
 			'relation' => 'AND',
 			$filter_cat,
@@ -1153,3 +1161,88 @@ class Header_new_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 }
 
+// Отключить все формы Elementor они не видны
+// add_action('elementor/widget/render_content', function($content, $widget){
+//     // Проверяем тип виджета
+//     if ( $widget->get_name() === 'form' ) {
+//         // Вместо формы возвращаем пустую строку (или свой текст)
+//         return '<!-- Elementor form disabled -->';
+//     }
+//     return $content;
+// }, 10, 2);
+
+/**
+ * 1. Блокируем отправку Elementor Forms
+ * 2. Разрешаем только выбранные формы Contact Form 7
+ */
+
+/**
+ * Elementor Forms → не отправляются, но видны на фронте
+ */
+/**
+ * Блокируем отправку ВСЕХ Elementor Forms на фронте (видны, но не отправляются).
+ * CF7 и прочие формы работают как обычно.
+ *
+ * Можно разрешить отдельные Elementor-формы по их form_id (см. hidden input name="form_id").
+ */
+const EFORM_ALLOW = [ /* '5381d37b', ... */ ]; // оставить пустым — блокируются все
+
+// 1) Жёсткая блокировка на уровне AJAX-обработчика Elementor
+function wpdev_block_elementor_ajax() {
+    // Разрешим, если явный allowlist
+    $form_id = isset($_POST['form_id']) ? (string) $_POST['form_id'] : '';
+    if ($form_id && in_array($form_id, EFORM_ALLOW, true)) {
+        return; // эту форму пропускаем
+    }
+
+    // Разрешим только редактору, чтобы проверять отправку в режиме редактирования
+    if (is_user_logged_in() && current_user_can('edit_pages')) {
+        // Если вы хотите полностью запрещать даже в редакторе — закомментируйте return;
+        return;
+    }
+
+    // Возвращаем стандартный JSON-ответ с ошибкой — фронт Elementor отобразит сообщение
+    wp_send_json_error([
+        'message' => __('Отправка через Elementor-формы временно отключена. Используйте контактную форму на сайте.', 'wpdev'),
+    ]);
+}
+add_action('wp_ajax_nopriv_elementor_pro_forms_send_form', 'wpdev_block_elementor_ajax', 0);
+add_action('wp_ajax_elementor_pro_forms_send_form',      'wpdev_block_elementor_ajax', 0);
+
+// 2) Доп. рубеж: заваливаем валидацию (если по какой-то причине ajax-хук не сработал)
+add_action('elementor_pro/forms/validation', function($record, $ajax_handler){
+    // Разрешаем только тем, кто в редакторе и в белом списке
+    $form_settings = $record->get_form_settings();
+    $form_id = isset($form_settings['form_id']) ? (string)$form_settings['form_id'] : '';
+
+    if (is_user_logged_in() && current_user_can('edit_pages') && in_array($form_id, EFORM_ALLOW, true)) {
+        return; // в редакторе и разрешена
+    }
+
+    $ajax_handler->add_error_message('Отправка через Elementor-формы временно отключена. Используйте контактную форму на сайте.');
+    $ajax_handler->is_success = false;
+
+    foreach ($record->get_fields() as $id => $field) {
+        $ajax_handler->add_error($id, '');
+    }
+}, 1, 2);
+
+
+/**
+ * Contact Form 7 → разрешаем только формы с указанными ID
+ */
+add_action('wpcf7_before_send_mail', function($contact_form){
+    $allowed_ids = [
+        '709ba22', // Бесплатный аудит
+        'b859e01', // Подарок
+        'e7c305', // Документы за данные
+        '85bcf96', // Кейс
+        'eae65a8', // Лид-магнит
+        'ab81165', // Много заявок, мало продаж
+    ];
+
+    $form_id = $contact_form->id();
+    if ( !in_array($form_id, $allowed_ids) ) {
+        add_filter('wpcf7_skip_mail', '__return_true'); // блокируем отправку
+    }
+});
