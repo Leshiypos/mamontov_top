@@ -1161,88 +1161,172 @@ class Header_new_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 }
 
-// Отключить все формы Elementor они не видны
-// add_action('elementor/widget/render_content', function($content, $widget){
-//     // Проверяем тип виджета
-//     if ( $widget->get_name() === 'form' ) {
-//         // Вместо формы возвращаем пустую строку (или свой текст)
-//         return '<!-- Elementor form disabled -->';
-//     }
-//     return $content;
-// }, 10, 2);
+// Подмешиваем данные по отправки формы спама
+add_filter('elementor/widget/render_content', function ($content, $widget) {
+    if (is_admin() || !method_exists($widget,'get_name') || $widget->get_name() !== 'form') {
+        return $content;
+    }
+    $scheme = is_ssl() ? 'https://' : 'http://';
+    $host   = $_SERVER['HTTP_HOST'] ?? parse_url(home_url(), PHP_URL_HOST);
+    $uri    = $_SERVER['REQUEST_URI'] ?? '/';
+    $url    = $scheme . $host . $uri;
+    $title  = wp_get_document_title();
+
+    $inputs = sprintf(
+        '<input type="hidden" name="form_fields[page_url]" value="%s">' .
+        '<input type="hidden" name="form_fields[page_title]" value="%s">',
+        esc_attr($url),
+        esc_attr($title)
+    );
+
+    if (preg_match('/<form[^>]*class="[^"]*elementor-form[^"]*"[^>]*>/i', $content, $m, PREG_OFFSET_CAPTURE)) {
+        $pos = $m[0][1] + strlen($m[0][0]);
+        $content = substr($content, 0, $pos) . $inputs . substr($content, $pos);
+    }
+    return $content;
+}, 10, 2);
+
+
+
 
 /**
- * 1. Блокируем отправку Elementor Forms
- * 2. Разрешаем только выбранные формы Contact Form 7
- */
-
-/**
- * Elementor Forms → не отправляются, но видны на фронте
- */
-/**
- * Блокируем отправку ВСЕХ Elementor Forms на фронте (видны, но не отправляются).
- * CF7 и прочие формы работают как обычно.
+ * Elementor Forms — антиспам без плагинов
+ * - Honeypot + минимальное время заполнения
+ * - Антифлуд по IP (rate limit)
+ * - Валидация телефона/почты
+ * - Блокировка ссылок и «чёрных слов»
  *
- * Можно разрешить отдельные Elementor-формы по их form_id (см. hidden input name="form_id").
+ * CF7 и прочие формы не затрагиваются.
  */
-const EFORM_ALLOW = [ /* '5381d37b', ... */ ]; // оставить пустым — блокируются все
 
-// 1) Жёсткая блокировка на уровне AJAX-обработчика Elementor
-function wpdev_block_elementor_ajax() {
-    // Разрешим, если явный allowlist
-    $form_id = isset($_POST['form_id']) ? (string) $_POST['form_id'] : '';
-    if ($form_id && in_array($form_id, EFORM_ALLOW, true)) {
-        return; // эту форму пропускаем
+/* === Настройки === */
+const EFORM_MIN_FILL_SECONDS   = 3;   // меньше — подозрительно
+const EFORM_RATE_LIMIT_COUNT   = 3;   // макс. заявок …
+const EFORM_RATE_LIMIT_WINDOW  = 300; // … за N секунд (5 минут)
+const EFORM_MESSAGE_GENERIC    = 'Отправка отклонена: похоже на спам. Попробуйте ещё раз или свяжитесь с нами другим способом.';
+
+// Если знаешь точные ID полей в Elementor Form — укажи их здесь
+const EFORM_FIELD_IDS = [
+  'phone'   => ['phone','tel','tel-number','tel-numberaudit','tel-299', 'field_0da2d9d'], // перебор возможных ID
+  'email'   => ['email','email-627'],
+  'name'    => ['name','text-name'],
+  'message' => ['message','text-223'],
+];
+
+// Слова, по которым режем (добавляй по необходимости)
+const EFORM_BLACKLIST = [
+   'bitcoin', 
+];
+
+/* === 1) Вставляем honeypot и start_ts в каждую форму Elementor на фронте === */
+add_filter('elementor/widget/render_content', function ($content, $widget) {
+    if (is_admin() || !method_exists($widget,'get_name') || $widget->get_name() !== 'form') {
+        return $content;
     }
 
-    // Разрешим только редактору, чтобы проверять отправку в режиме редактирования
+    // Honeypot — невидимое поле (но не display:none, чтобы боты видели)
+    $hp = '<div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+             <label>Do not fill<input type="text" name="form_fields[hp]" value=""></label>
+           </div>';
+    // Время появления формы
+    $ts = '<input type="hidden" name="form_fields[start_ts]" value="'.time().'">';
+
+    if (preg_match('/<form[^>]*class="[^"]*elementor-form[^"]*"[^>]*>/i', $content, $m, PREG_OFFSET_CAPTURE)) {
+        $pos = $m[0][1] + strlen($m[0][0]);
+        $content = substr($content, 0, $pos) . $hp . $ts . substr($content, $pos);
+    }
+    return $content;
+}, 10, 2);
+
+
+/* === 2) Валидируем отправку (режем спам) === */
+add_action('elementor_pro/forms/validation', function($record, $ajax_handler){
+
+    // Разрешаем редактирование в админке
     if (is_user_logged_in() && current_user_can('edit_pages')) {
-        // Если вы хотите полностью запрещать даже в редакторе — закомментируйте return;
         return;
     }
 
-    // Возвращаем стандартный JSON-ответ с ошибкой — фронт Elementor отобразит сообщение
-    wp_send_json_error([
-        'message' => __('Отправка через Elementor-формы временно отключена. Используйте контактную форму на сайте.', 'wpdev'),
-    ]);
-}
-add_action('wp_ajax_nopriv_elementor_pro_forms_send_form', 'wpdev_block_elementor_ajax', 0);
-add_action('wp_ajax_elementor_pro_forms_send_form',      'wpdev_block_elementor_ajax', 0);
+    // Получаем все поля формы в виде id => value
+    $fields = [];
+    foreach ($record->get_fields() as $f) {
+        $fields[$f['id']] = is_string($f['value']) ? trim($f['value']) : $f['value'];
+    }
+    $getFirst = function(array $ids) use ($fields) {
+        foreach ($ids as $id) if (!empty($fields[$id])) return $fields[$id];
+        return '';
+    };
+    $phone   = $getFirst(EFORM_FIELD_IDS['phone']);
+    $email   = $getFirst(EFORM_FIELD_IDS['email']);
+    $name    = $getFirst(EFORM_FIELD_IDS['name']);
+    $message = $getFirst(EFORM_FIELD_IDS['message']);
 
-// 2) Доп. рубеж: заваливаем валидацию (если по какой-то причине ajax-хук не сработал)
-add_action('elementor_pro/forms/validation', function($record, $ajax_handler){
-    // Разрешаем только тем, кто в редакторе и в белом списке
-    $form_settings = $record->get_form_settings();
-    $form_id = isset($form_settings['form_id']) ? (string)$form_settings['form_id'] : '';
-
-    if (is_user_logged_in() && current_user_can('edit_pages') && in_array($form_id, EFORM_ALLOW, true)) {
-        return; // в редакторе и разрешена
+    /* 2.1 Honeypot */
+    if (!empty($fields['hp'])) {
+        $ajax_handler->add_error_message(EFORM_MESSAGE_GENERIC);
+        $ajax_handler->is_success = false;
+        return;
     }
 
-    $ajax_handler->add_error_message('Отправка через Elementor-формы временно отключена. Используйте контактную форму на сайте.');
-    $ajax_handler->is_success = false;
-
-    foreach ($record->get_fields() as $id => $field) {
-        $ajax_handler->add_error($id, '');
+    /* 2.2 Минимальное время заполнения */
+    $start_ts = isset($fields['start_ts']) ? (int)$fields['start_ts'] : 0;
+    if ($start_ts && (time() - $start_ts) < EFORM_MIN_FILL_SECONDS) {
+        $ajax_handler->add_error_message(EFORM_MESSAGE_GENERIC);
+        $ajax_handler->is_success = false;
+        return;
     }
-}, 1, 2);
 
-
-/**
- * Contact Form 7 → разрешаем только формы с указанными ID
- */
-add_action('wpcf7_before_send_mail', function($contact_form){
-    $allowed_ids = [
-        '709ba22', // Бесплатный аудит
-        'b859e01', // Подарок
-        'e7c305', // Документы за данные
-        '85bcf96', // Кейс
-        'eae65a8', // Лид-магнит
-        'ab81165', // Много заявок, мало продаж
-    ];
-
-    $form_id = $contact_form->id();
-    if ( !in_array($form_id, $allowed_ids) ) {
-        add_filter('wpcf7_skip_mail', '__return_true'); // блокируем отправку
+    /* 2.3 Антифлуд по IP */
+    $ip   = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    $key  = 'eform_rate_'.md5($ip);
+    $data = get_transient($key);
+    if (!is_array($data)) $data = ['count'=>0,'ts'=>time()];
+    if (time() - $data['ts'] > EFORM_RATE_LIMIT_WINDOW) $data = ['count'=>0,'ts'=>time()];
+    $data['count']++;
+    set_transient($key, $data, EFORM_RATE_LIMIT_WINDOW);
+    if ($data['count'] > EFORM_RATE_LIMIT_COUNT) {
+        $ajax_handler->add_error_message('Слишком много попыток. Попробуйте позже.');
+        $ajax_handler->is_success = false;
+        return;
     }
-});
+
+    /* 2.4 Базовая проверка телефона */
+    if ($phone !== '') {
+        $digits = preg_replace('~\D+~','', $phone);
+        if (strlen($digits) < 7 || strlen($digits) > 20) {
+            $ajax_handler->add_error_message('Проверьте номер телефона.');
+            $ajax_handler->add_error(array_key_first(EFORM_FIELD_IDS['phone']), 'Некорректный номер');
+            $ajax_handler->is_success = false;
+            return;
+        }
+    }
+
+    /* 2.5 Базовая проверка e-mail */
+    if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $ajax_handler->add_error_message('Проверьте e-mail.');
+        $ajax_handler->add_error(array_key_first(EFORM_FIELD_IDS['email']), 'Некорректный e-mail');
+        $ajax_handler->is_success = false;
+        return;
+    }
+
+    /* 2.6 Ссылки и «чёрные слова» в сообщении/имени */
+    $haystack = mb_strtolower(trim($name.' '.$message));
+    if ($haystack !== '') {
+        // ссылки
+        if (preg_match('~(?:https?://|www\.)~i', $haystack)) {
+            $ajax_handler->add_error_message(EFORM_MESSAGE_GENERIC);
+            $ajax_handler->is_success = false;
+            return;
+        }
+        // слова
+        foreach (EFORM_BLACKLIST as $bad) {
+            if ($bad !== '' && mb_stripos($haystack, mb_strtolower($bad)) !== false) {
+                $ajax_handler->add_error_message(EFORM_MESSAGE_GENERIC);
+                $ajax_handler->is_success = false;
+                return;
+            }
+        }
+    }
+
+    // если дошли сюда — пропускаем отправку
+}, 10, 2);

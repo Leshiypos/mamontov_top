@@ -226,4 +226,24 @@ $(document).ready(function () {
     });
   }
   hiddenContent();
+
+  //   Динамический call tracking в Битрикс24
+
+  (function (w, d, u) {
+    var s = d.createElement("script");
+    s.defer = false;
+    s.async = false;
+    s.id = "b242ya-script";
+    s.src = u + "?" + ((Date.now() / 60000) | 0);
+    var h = d.getElementsByTagName("script")[0];
+    h.parentNode.insertBefore(s, h);
+  })(window, document, "https://67p.b242ya.ru/static/js/b242ya.js");
+  var b242yaScript = document.querySelector("#b242ya-script");
+  b242yaScript.addEventListener("load", function () {
+    B242YAInit({
+      portal: "https://ego-agency.bitrix24.ru/",
+      pid: "b44ceb46e05aa94e3ac56e8cb2891987",
+      presets: {},
+    });
+  });
 });
