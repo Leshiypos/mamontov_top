@@ -586,6 +586,19 @@ ul#menu-podval {
   font-size: 20px;
   color: rgba(255, 255, 255, 1);
 }
+.form_tel .wpcf7-form-control-wrap {
+  position: relative;
+}
+.form_tel .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+  position: absolute;
+  bottom: -40px;
+  color: #fff;
+  background: red;
+  font-size: 14px;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
 .form_tel .tel::placeholder {
   font-size: 20px;
   color: rgba(255, 255, 255, 1);
@@ -600,17 +613,27 @@ button.btn_audit {
   border-radius: 40px;
   border: none;
   padding: 18px 50px;
-  margin-left: 36px;
+  /* margin-left: 36px; */
+  margin-top: 30px;
 }
 button.btn_audit svg {
   margin-bottom: -2px;
 }
-button.btn_audit:hover,
-button.btn_audit:focus {
+button.btn_audit:hover {
   color: rgba(45, 44, 44, 1);
   background-color: rgb(223, 223, 223);
   outline: none;
 }
+button.btn_audit:focus {
+  color: rgba(45, 44, 44, 1);
+  background-color: rgb(223, 223, 223);
+  outline: none;
+  border: 2px solid #fcb900;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
 .download {
   display: flex;
   margin-top: 50px;
@@ -1250,7 +1273,11 @@ p.number {
   padding-left: 30px;
   background: url(../images/chek.svg) center left no-repeat;
 }
-
+.pop_up_present .wpcf7-not-valid-tip {
+  color: rgb(237, 68, 85) !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .presentition {
   position: relative;
 }
@@ -1365,11 +1392,11 @@ p.number {
 }
 .pop_up_present .wpcf7-not-valid-tip {
   position: absolute;
-  bottom: -37px;
+  bottom: -32px;
   background-color: rgb(255 255 255);
   width: max-content;
   border-radius: 5px;
-  padding: 3px;
+  padding: 3px 10px;
   font-size: calc(10px + 4 * (100vw / 1980));
 }
 @media screen and (max-width: 850px) {
@@ -1402,7 +1429,8 @@ p.number {
     width: calc(100px + 200 * (100vw / 750));
   }
   .pop_up_present .wpcf7-not-valid-tip {
-    bottom: -24px;
+    bottom: -31px;
+    right: 3%;
   }
   .pop_up_present form [name="tel-number"] {
     text-align: center;
@@ -3593,4 +3621,21 @@ button:active {
 }
 .pageCase__achievements-container .pageCase__achievements-box:first-child {
   margin-top: 10px;
+}
+
+/* Поиск по кейсам */
+.search_wrap {
+  margin-top: 35px;
+}
+.search_wrap .search_panel {
+  display: flex;
+  justify-content: flex-end;
+}
+.search_wrap input[type="search"] {
+  border: 1px solid rgba(45, 44, 44, 0.2) !important;
+  border-radius: 10px;
+  background-color: var(--color-19);
+  width: 50%;
+  max-width: 300px;
+  margin-left: auto;
 }

@@ -56,6 +56,53 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     return matches ? decodeURIComponent(matches[1]) : undefined;
   }
+  //   Для фикса яндекс метрики
+
+  const YM_COUNTER_ID = 57479515; // твой ID
+
+  function getCookie(n) {
+    const m = document.cookie.match(
+      new RegExp(
+        "(?:^|; )" + n.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)"
+      )
+    );
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+
+  function setMetrikaIdToFields(id) {
+    document
+      .querySelectorAll("input.metka_clientId")
+      .forEach((el) => (el.value = id || ""));
+  }
+
+  function fetchMetrikaId(cb) {
+    // 1) cookie
+    const fromCookie = getCookie("metrika_client_id") || getCookie("_ym_uid");
+    if (fromCookie) return cb(fromCookie);
+
+    // 2) через API счётчика (когда загрузится)
+    if (typeof ym === "function") {
+      try {
+        ym(YM_COUNTER_ID, "getClientID", (id) => cb(id || ""));
+        return;
+      } catch (e) {}
+    }
+    cb("");
+  }
+
+  // Заполнить при загрузке...
+  fetchMetrikaId(setMetrikaIdToFields);
+
+  // ...и прямо перед отправкой (важно для медленной/отложенной загрузки)
+  document.addEventListener(
+    "submit",
+    (e) => {
+      if (e.target && e.target.matches(".wpcf7 form, form.wpcf7-form")) {
+        fetchMetrikaId(setMetrikaIdToFields);
+      }
+    },
+    true
+  );
 
   //   Тестовая для определене полей
   function checkClientId() {

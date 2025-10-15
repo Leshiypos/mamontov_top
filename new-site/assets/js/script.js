@@ -55,21 +55,150 @@ function ready() {
       menu.classList.toggle("active");
     });
   }
-  let tel1 = document.querySelectorAll('input[name="tel-number"]');
-  let tel2 = document.querySelectorAll('input[name="tel-299"]');
-  let maskOptions = {
-    mask: "+7 000 000-00-00",
-  };
-  for (let i = 0; i < tel1.length; i++) {
-    let mask = IMask(tel1[i], maskOptions);
-  }
-  for (let i = 0; i < tel2.length; i++) {
-    let mask = IMask(tel2[i], maskOptions);
-  }
+  //   let tel1 = document.querySelectorAll('input[name="tel-number"]');
+  //   let tel2 = document.querySelectorAll('input[name="tel-299"]');
+  //   let tel3 = document.querySelectorAll('input[name="tel-numberaudit"]');
+  //   let maskOptions = {
+  //     mask: "+7 000 000-00-00",
+  //   };
+  //   for (let i = 0; i < tel1.length; i++) {
+  //     let mask = IMask(tel1[i], maskOptions);
+  //   }
+  //   for (let i = 0; i < tel2.length; i++) {
+  //     let mask = IMask(tel2[i], maskOptions);
+  //   }
+  //   for (let i = 0; i < tel3.length; i++) {
+  //     let mask = IMask(tel3[i], maskOptions);
+  //   }
   /*const mask1 = IMask(tel1, maskOptions);
 	const mask2 = IMask(tel2, maskOptions);*/
   ///$('input[name="tel-number"]').mask('+7 000 000-00-00');
   //$('input[name="tel-299"]').mask('+7 000 000-00-00');
+  //   Проверка маски поля, валидация номеров телефонов
+
+  /**
+   * Универсальная маска и валидация телефона для Contact Form 7
+   * @param {string} inputSelector - CSS-селектор(ы) телефонных инпутов, напр. 'input[name="tel-number"]'
+   * @param {object} options
+   *   options.mask - строка IMask (по умолчанию "+7 000 000-00-00")
+   *   options.digitsRequired - сколько цифр должно быть (по умолчанию 11 для +7XXXXXXXXXX)
+   *   options.errorText - текст ошибки
+   */
+  function initCF7PhoneOnSubmit(
+    inputSelector,
+    {
+      mask = "+7 000 000-00-00",
+      digitsRequired = 11,
+      errorText = "Введите номер полностью",
+    } = {}
+  ) {
+    const maskMap = new Map();
+
+    // навешиваем маски (без листенеров ввода)
+    function setupMasks(scope = document) {
+      scope.querySelectorAll(inputSelector).forEach((input) => {
+        if (!maskMap.has(input)) maskMap.set(input, IMask(input, { mask }));
+      });
+    }
+
+    // проверка заполненности (по IMask или по количеству цифр)
+    function isComplete(input) {
+      const inst = maskMap.get(input);
+      if (inst?.masked?.isComplete) return !!inst.masked.isComplete();
+      const digits = (inst?.value ?? input.value ?? "").replace(/\D/g, "");
+      return digits.length === digitsRequired;
+    }
+
+    // вывод/снятие tip в стиле CF7 (только при submit)
+    function setFieldError(input, show, msg) {
+      const wrap =
+        input.closest(".wpcf7-form-control-wrap") || input.parentElement;
+      if (!wrap) return;
+      input.setAttribute("aria-invalid", show ? "true" : "false");
+      input.classList.toggle("wpcf7-not-valid", !!show);
+
+      let tip = wrap.querySelector(".wpcf7-not-valid-tip");
+      if (show) {
+        if (!tip) {
+          tip = document.createElement("span");
+          tip.className = "wpcf7-not-valid-tip";
+          wrap.appendChild(tip);
+        }
+        tip.textContent = msg;
+        tip.style.display = "";
+      } else if (tip) {
+        tip.remove();
+      }
+    }
+
+    function setFormMsg(form, text) {
+      const box = form.querySelector(".wpcf7-response-output");
+      if (!box) return;
+      box.textContent = text || "";
+      box.classList.remove("wpcf7-mail-sent-ok");
+      box.classList.toggle("wpcf7-validation-errors", !!text);
+    }
+
+    // стопим отправку раньше CF7 и показываем ошибки
+    document.addEventListener(
+      "submit",
+      function (e) {
+        const form = e.target;
+        if (!form.matches("form.wpcf7-form")) return;
+
+        const phones = [...form.querySelectorAll(inputSelector)];
+        if (!phones.length) return;
+
+        let firstBad = null;
+        phones.forEach((input) => {
+          const ok = isComplete(input);
+          setFieldError(input, !ok, errorText);
+          if (!ok && !firstBad) firstBad = input;
+        });
+
+        if (firstBad) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation?.();
+          firstBad.focus();
+          setFormMsg(
+            form,
+            "Форма не отправлена — заполните номер телефона полностью."
+          );
+        } else {
+          setFormMsg(form, "");
+        }
+      },
+      true
+    );
+
+    // после перерисовки CF7 перевешиваем маски
+    document.addEventListener("wpcf7mailsent", (e) =>
+      setupMasks(e.target || document)
+    );
+    document.addEventListener("wpcf7invalid", (e) =>
+      setupMasks(e.target || document)
+    );
+
+    setupMasks(document);
+  }
+
+  // ——— Вызов (пример для вашего поля) ———
+
+  // один селектор…
+  // initCF7PhoneValidation('input[name="tel-numberaudit"]');
+
+  // …или сразу несколько через запятую:
+  initCF7PhoneOnSubmit(
+    'input[name="tel-number"], input[name="tel-299"], input[name="tel-numberaudit"]',
+    {
+      mask: "+7 000 000-00-00",
+      digitsRequired: 11,
+      errorText: "Укажите верный формат",
+    }
+  );
+
+  // Конец валидации
 
   function checkElement(selector) {
     let el = document.querySelector(selector);

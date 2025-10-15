@@ -12,6 +12,37 @@ jQuery(document).ready(function ($) {
   let buttonsFilter = document.querySelectorAll(".filters_tab a");
   let articleWrap = document.getElementById("article_wrap");
 
+  //   Строка поиска
+
+  let serchBar = document.getElementById("live-search");
+  if (serchBar) {
+    let t;
+    let timeOutSearch = 600;
+    serchBar.addEventListener("input", () => {
+      clearTimeout(t);
+      t = setTimeout(runSearch, timeOutSearch);
+    });
+
+    function runSearch() {
+      const query = serchBar.value.trim();
+
+      myajax.searchParam = query;
+      console.log(myajax.searchParam);
+      myajax.paged = 1;
+      var data = {
+        action: "load_posts_scroll",
+        categoryId: myajax.categoryId ?? false,
+        solutionId: myajax.solutionId ?? false,
+        cat: myajax.cat,
+        paged: myajax.paged,
+        searchParam: myajax.searchParam ?? "",
+        num_post: myajax.num_post,
+      };
+
+      getPostsAjax(data, articleWrap);
+    }
+  }
+  //   КОНЕЦ Строка поиска
   // Событие при нажатии на кнопки фильтра
   buttonsFilter.forEach((elem) =>
     elem.addEventListener("click", (e) => {
@@ -46,6 +77,7 @@ jQuery(document).ready(function ($) {
         solutionId: myajax.solutionId,
         cat: myajax.cat,
         paged: myajax.paged,
+        searchParam: myajax.searchParam ?? "",
         num_post: myajax.num_post,
       };
       console.log("Клик", data);
@@ -78,15 +110,9 @@ jQuery(document).ready(function ($) {
           solutionId: myajax.solutionId,
           cat: myajax.cat,
           paged: myajax.paged,
+          searchParam: myajax.searchParam ?? "",
           num_post: myajax.num_post,
         };
-
-        // jQuery.post(myajax.url, data, function (response) {
-        //   if (response) {
-        //     articleWrap.insertAdjacentHTML("beforeEnd", response);
-        //     console.log(response);
-        //   }
-        // });
 
         $.ajax({
           type: "POST",
