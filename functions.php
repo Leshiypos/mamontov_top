@@ -207,7 +207,7 @@ function load_posts_scroll_callback(){
 		'terms'		=> $categoryId
 		);
 } else {
-		$filter_cat[] = array(
+		$filter_cat[] = array( 
 		'taxonomy' => 'category',
 		'field'		=> 'term_id',
 		'terms'		=> $cat

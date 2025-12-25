@@ -1,4 +1,3 @@
-
 <div class="topPanelWrap">
     <div class="topPanel shadow_1 radius_1">
         <a href="/" class="logo"><img src="<?php echo get_template_directory_uri() ?>/new-site/assets/img/logo.svg" alt=""></a>
@@ -39,14 +38,14 @@
                 <div class="icon"><img src="<?php echo get_template_directory_uri() ?>/new-site/assets/img/navigation.svg" alt=""></div>
                 <a href="#">г. Москва</a>
             </div>
-            <a href="tel:89112223344" class="phone">+7 (499) 647-60-34</a>
+            <a href="tel:84996476034" class="phone">+7 (499) 647-60-34</a>
             <button class="btn callback btn_1">Заказать звонок <img src="<?php echo get_template_directory_uri() ?>/new-site/assets/img/callback.svg" alt=""></button>
         </nav>
         <div class="city">
             <div class="icon"><img src="<?php echo get_template_directory_uri() ?>/new-site/assets/img/navigation.svg" alt=""></div>
             <a href="#">г. Москва</a>
         </div>
-        <a href="tel:89112223344" class="phone">+7 (499) 647-60-34</a>
+        <a href="tel:84996476034" class="phone">+7 (499) 647-60-34</a>
         <a href="#sectionForm" class="btn callback btn_1">Заказать звонок <img src="<?php echo get_template_directory_uri() ?>/new-site/assets/img/callback.svg" alt=""></a>
     </div>
 </div>

@@ -3635,7 +3635,12 @@ button:active {
   border: 1px solid rgba(45, 44, 44, 0.2) !important;
   border-radius: 10px;
   background-color: var(--color-19);
-  width: 50%;
   max-width: 300px;
   margin-left: auto;
+}
+
+@media screen and (max-width: 720px) {
+  .search_wrap input[type="search"] {
+    font-size: 14px;
+  }
 }

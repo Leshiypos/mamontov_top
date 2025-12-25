@@ -42,13 +42,13 @@
 
 <script>
 
-	if(!document.referrer){												//Если страница получена с другого истоника - обнуляем локальное хранилище	
-		localStorage.removeItem('endTime');
-		localStorage.removeItem('oneShow');
-	}
+	// if(!document.referrer){												//Если страница получена с другого истоника - обнуляем локальное хранилище	
+	// 	localStorage.removeItem('endTime');
+	// 	localStorage.removeItem('oneShow');
+	// }
 
 
-	console.log(document.referrer);
+	// console.log(document.referrer);
 
 	function dispalyPresent(){
 		$('#vision').addClass('used');
@@ -59,8 +59,8 @@
 	let btn_close = $('.close_btn'); 						//Кнопка закрытия формы
 	
 	let launchDelay = 5000; 								 //величина задержки запуска появления формы
-	let timeOut_submit = 24*60*60*1000; 					//отсрочка пояаления формы после отправки
-	let periodOpen = 5*1000*60; 							//Прирощение при закрытии формы
+	let timeOut_submit = 7*24*60*1000*60; 					//отсрочка пояаления формы после отправки
+	let periodOpen = 7*24*60*1000*60; 							//Прирощение при закрытии формы
 	let firstTimeout = 1*60*1000;							//начальное время установк
 
 	let currentTime = Date.now(); 							//Получаем текущее время

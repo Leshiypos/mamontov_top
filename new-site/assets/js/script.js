@@ -104,7 +104,8 @@ function ready() {
     // проверка заполненности (по IMask или по количеству цифр)
     function isComplete(input) {
       const inst = maskMap.get(input);
-      if (inst?.masked?.isComplete) return !!inst.masked.isComplete();
+      if (typeof inst?.masked?.isComplete === "boolean")
+        return inst.masked.isComplete;
       const digits = (inst?.value ?? input.value ?? "").replace(/\D/g, "");
       return digits.length === digitsRequired;
     }

@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (inputUtmArr) {
     for (var i = 0; i < inputUtmArr.length; i++) {
       inputUtmArr[i].value = result[1];
-      //console.log(inputUtmArr[i].value);
     }
   }
   if (inputClientId) {
@@ -130,5 +129,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("ClientId из cookie:", getGaFromCookie());
   }
-  setTimeout(checkClientId, 6000);
+  //   setTimeout(checkClientId, 6000);
 });

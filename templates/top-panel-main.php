@@ -1,6 +1,6 @@
 <div class="topPanelWrap">
 	<!-- shadow_1 убрал класс -->
-			<div class="topPanel shadow_1 radius_1" id="topPanel">
+			<div class="topPanel radius_1" id="topPanel">
 				<a href="/" class="logo"><img
 						src="https://mamontov.top/wp-content/themes/hello-elementor/new-site/assets/img/logo.svg"
 						alt=""></a>
@@ -116,7 +116,7 @@
 								alt=""></div>
 						<a href="#">г. Москва</a>
 					</div>-->
-					<a href="tel:89112223344" class="phone">+7 (499) 647-60-34</a>
+					<a href="tel:84996476034" class="phone">+7 (499) 647-60-34</a>
 					<a href="#sectionForm" class="btn callback btn_1">Заказать звонок <img
 							src="https://mamontov.top/wp-content/themes/hello-elementor/new-site/assets/img/callback.svg"
 							alt=""></a>
@@ -127,7 +127,7 @@
 							alt=""></div>
 					<a href="#">г. Москва</a>
 				</div>-->
-				<a href="tel:89112223344" class="phone">+7 (499) 647-60-34</a>
+				<a href="tel:84996476034" class="phone">+7 (499) 647-60-34</a>
 				<a href="#sectionForm" class="btn callback btn_1">Заказать звонок <img
 						src="https://mamontov.top/wp-content/themes/hello-elementor/new-site/assets/img/callback.svg"
 						alt=""></a>

@@ -59,7 +59,7 @@
 						</ul>
 						<div class="dFlex footer__contacts-box__policika">
 							<p class="m-0">ООО "М.ТОП" <br /> ОГРН 1243400001844 / ИНН 3444280612</p>
-							<a href="/politics/" class="m-0 policy">Политика конфиденциальности © 2024</a>
+							<a href="/politics/" class="m-0 policy">Политика конфиденциальности © <?php echo date("Y") ?></a>
 						</div>
 					</div>
 					 <?  //wp_nav_menu();

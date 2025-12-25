@@ -27,7 +27,6 @@ jQuery(document).ready(function ($) {
       const query = serchBar.value.trim();
 
       myajax.searchParam = query;
-      console.log(myajax.searchParam);
       myajax.paged = 1;
       var data = {
         action: "load_posts_scroll",
@@ -67,8 +66,6 @@ jQuery(document).ready(function ($) {
           ? (myajax.categoryId = button_filter.dataset.idTerm)
           : (myajax.solutionId = button_filter.dataset.idTerm);
       }
-      console.log("Инструменты ", myajax.categoryId);
-      console.log("Решение ", myajax.solutionId);
       //   Ajax
 
       var data = {
@@ -80,7 +77,6 @@ jQuery(document).ready(function ($) {
         searchParam: myajax.searchParam ?? "",
         num_post: myajax.num_post,
       };
-      console.log("Клик", data);
       // 'ajaxurl' не определена во фронте, поэтому мы добавили её аналог с помощью wp_localize_script()
       getPostsAjax(data, articleWrap);
     })
@@ -93,10 +89,6 @@ jQuery(document).ready(function ($) {
       // button = $( '#loadmore a' ),
       paged = myajax.paged,
       maxPages = myajax.maxPages;
-    console.log(
-      $(document).scrollTop() > $(document).height() - bottomOffset &&
-        !$("body").hasClass("loading")
-    );
 
     if (
       $(document).scrollTop() > $(document).height() - bottomOffset &&
@@ -127,7 +119,6 @@ jQuery(document).ready(function ($) {
             $("body").removeClass("loading");
             if (response) {
               articleWrap.insertAdjacentHTML("beforeEnd", response);
-              console.log("Скролл", data);
             }
           },
         });
