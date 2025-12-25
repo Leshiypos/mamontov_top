@@ -5149,3 +5149,26 @@ textarea {
     font-size: 26px;
   }
 }
+
+/* Стрелка Вверх */
+.wrap_btn_up {
+  position: fixed;
+  bottom: 16px;
+  right: 90px;
+  z-index: 999;
+  cursor: pointer;
+  display: none;
+}
+.wrap_btn_up.visible {
+  display: block;
+}
+.wrap_btn_up > div {
+  border: none;
+  color: none;
+}
+.wrap_btn_up > div:hover,
+.wrap_btn_up > div:active {
+  background: transparent;
+  border: none;
+  color: none;
+}

@@ -1,3 +1,30 @@
+function initButtonArrowTop() {
+  const buttonArrowTop = document.querySelector(".wrap_btn_up");
+  console.log(buttonArrowTop);
+  if (!buttonArrowTop) return;
+  const showOffset = 1600;
+
+  window.addEventListener("scroll", () => {
+    const currenWindowOffset = window.pageYOffset;
+    if (currenWindowOffset > showOffset) {
+      buttonArrowTop.classList.add("visible");
+    } else {
+      buttonArrowTop.classList.remove("visible");
+    }
+    console.log(currenWindowOffset);
+  });
+
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!target.closest(".wrap_btn_up")) return;
+    buttonArrowTop.classList.remove("visible");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
 $(document).ready(function () {
   // Подстановка данных сайта УРЛ и название в скрытые поля формы
   $("[name=url_page]").val(document.location.href);
@@ -246,4 +273,7 @@ $(document).ready(function () {
       presets: {},
     });
   });
+
+  //Инициализация показа кнопки при скролле
+  initButtonArrowTop();
 });
