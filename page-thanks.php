@@ -7,39 +7,63 @@ Template Post Type: post, page, product
 
 
 ?>
+<?php
+global $wp_query;
+$current_page_id = $wp_query->get_queried_object_id(); //id текущуй страницы
+$parent_page_id = !empty(get_ancestors($current_page_id, 'page')[0]) ? get_ancestors($current_page_id, 'page')[0] :  $current_page_id; // Если имеет родителбску. страницу - получает ID родительской страницы, если нет родителя - получает ID текущей страницы
+
+// определяем текущую страницу из значения параметра "page_nav"
+$current_page = !empty($_GET['page_nav']) ? $_GET['page_nav'] : 1;
+
+//Получение полей ACF
+$cat = 49; // получаем ID текущей рубрики
+$sub_cat = get_field('pop_cat'); //id рубрики популярные
+$num_post = 10;
+
+?>
+
 <?php get_template_part('templates/head'); ?>
 <script>
-    
-    window.onload = function(){
-        //function getCookie(name) {
-        //    let matches = document.cookie.match(new RegExp(
-        //        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        //    ));
-        //    return matches ? decodeURIComponent(matches[1]) : undefined;
-        //}
-        //function addUrl () {
-        //    let url = window.location.href;    
-        //    if (url.indexOf('?') > -1){
-        //    url += '?'+getCookie('userUtm')
-        //    } else {
-        //    url += '?'+getCookie('userUtm')
-        //    }
-        //    window.location.href = url;
-        //}
-        //addUrl();
-        //console.log(getCookie('userUtm'));
+	window.onload = function() {
+		//function getCookie(name) {
+		//    let matches = document.cookie.match(new RegExp(
+		//        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+		//    ));
+		//    return matches ? decodeURIComponent(matches[1]) : undefined;
+		//}
+		//function addUrl () {
+		//    let url = window.location.href;    
+		//    if (url.indexOf('?') > -1){
+		//    url += '?'+getCookie('userUtm')
+		//    } else {
+		//    url += '?'+getCookie('userUtm')
+		//    }
+		//    window.location.href = url;
+		//}
+		//addUrl();
+		//console.log(getCookie('userUtm'));
 
-    }
-    
-    var clientid = yaCounter99999.getClientID();
-    console.log(clientid);
-    
+	}
+
+	var clientid = yaCounter99999.getClientID();
+	console.log(clientid);
 </script>
+<?php
+$category_children_term = get_terms(array(   	//Получаем термы таксономии Рубрики -> Кейсы
+	'taxonomy' => 'category',
+	'parent'  => 49,
+	'hide_empty' => true
+));
+
+$solution_children_term = get_terms('solutions'); //Получаем термы таксономии Решение
+?>
+
 <body>
-    <div class="pageWrapper">
-        
-        <?php get_template_part('templates/top-panel'); ?>
-        <header class="header portfolio__header subscribe__header">
+	<div class="pageWrapper">
+
+		<?php get_template_part('templates/top-panel-main'); ?>
+
+		<header class="header portfolio__header subscribe__header">
 			<div class="container">
 				<div class="subscribe__header-block dFlex">
 					<img class="subscribe__header-block__avatar" src="<?php echo get_template_directory_uri() ?>/new-site/assets/images/avatar.png" alt="Аватар">
@@ -51,7 +75,7 @@ Template Post Type: post, page, product
 				</div>
 			</div>
 		</header>
-        <main class="main pageThanks">
+		<main class="main pageThanks">
 			<section class="subscribe">
 				<div class="subscribe__container radius_1">
 					<div class="subscribe__container-block">
@@ -77,27 +101,27 @@ Template Post Type: post, page, product
 					<img class="portfolio__main-section__image" src="<?php echo get_template_directory_uri() ?>/new-site/assets/images/subscribe.png" alt="Подпишитесь на наши каналы">
 				</div>
 			</section>
-			<div class="container">
-				<!--<section class="portfolio__main-section case subscribe-section">
+			<!-- <div class="container"> -->
+			<!--<section class="portfolio__main-section case subscribe-section">
 					<h1 class="m-0">Портфолио кейсов</h1>
 					<div class="case__tabs">
                         
 						<div class="case__tabs-btns dFlex">
                             
 							<button type="button" class="case__btn-tab radius_1 active" data-tab="tab0">Все</button>
-                                <?php 
-                               // $categories = get_categories(array(
-                               //     'orderby' => 'name',
-                               //     'order' => 'ASC'
-                               // ));
-                               // foreach( $categories as $key => $category ){
-                               //     if($key == 0) {
-                               //         $key++;
-                               //     }
-                               //     echo '<button type="button" class="case__btn-tab radius_1" data-tab="tab' .$key. '">' . $category->name . '</button>';
-                               // }
-                                
-                                ?>
+                                <?php
+								// $categories = get_categories(array(
+								//     'orderby' => 'name',
+								//     'order' => 'ASC'
+								// ));
+								// foreach( $categories as $key => $category ){
+								//     if($key == 0) {
+								//         $key++;
+								//     }
+								//     echo '<button type="button" class="case__btn-tab radius_1" data-tab="tab' .$key. '">' . $category->name . '</button>';
+								// }
+
+								?>
 
 						</div>
 						<div class="case__tabs-contents">
@@ -105,45 +129,45 @@ Template Post Type: post, page, product
 
                             
                             <?
-                             //   // параметры по умолчанию
-                             //   $my_posts = get_posts( array(
-                             //       'numberposts' => 50,
-                             //       'category'    => 0,
-                             //       'orderby'     => 'date',
-                             //       'order'       => 'DESC',
-                             //       'include'     => array(),
-                             //       'exclude'     => array(),
-                             //       'meta_key'    => '',
-                             //       'meta_value'  =>'',
-                             //       'post_type'   => 'post',
-                             //       'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-                             //   ) );
-//
-                             //   global $post;
-//
-                             //   foreach( $my_posts as $post ){
-                             //       echo '
-                             //       <article class="case__tabs-content__article radius_1 dFlex">
-                             //           '.get_the_post_thumbnail( $post->id).'
-                             //           <p class="case__tabs-content__text">Кейс</p>
-                             //           <h4 class="case__tabs-content__subtitle">'.$post->post_title.'</h4>
-                             //           <p class="case__tabs-content__paragraph">'.$post->post_content.'</p>
-                             //           <div class="case__tabs-content__article-btn__block">
-                             //               <a href="'.$post->guid.'" class="btn btn__order radius_1">Подробнее
-                             //                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                             //                       <path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round">
-                             //                       </path>
-                             //                   </svg>
-                             //               </a>
-                             //           </div>
-                             //       </article>
-                             //       ';
-                             //       
-                             //       // формат вывода the_title() ...
-                             //   }
-//
-                             //   wp_reset_postdata(); // сброс
-                                ?>
+							//   // параметры по умолчанию
+							//   $my_posts = get_posts( array(
+							//       'numberposts' => 50,
+							//       'category'    => 0,
+							//       'orderby'     => 'date',
+							//       'order'       => 'DESC',
+							//       'include'     => array(),
+							//       'exclude'     => array(),
+							//       'meta_key'    => '',
+							//       'meta_value'  =>'',
+							//       'post_type'   => 'post',
+							//       'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+							//   ) );
+							//
+							//   global $post;
+							//
+							//   foreach( $my_posts as $post ){
+							//       echo '
+							//       <article class="case__tabs-content__article radius_1 dFlex">
+							//           '.get_the_post_thumbnail( $post->id).'
+							//           <p class="case__tabs-content__text">Кейс</p>
+							//           <h4 class="case__tabs-content__subtitle">'.$post->post_title.'</h4>
+							//           <p class="case__tabs-content__paragraph">'.$post->post_content.'</p>
+							//           <div class="case__tabs-content__article-btn__block">
+							//               <a href="'.$post->guid.'" class="btn btn__order radius_1">Подробнее
+							//                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							//                       <path d="M1 11L11.5 0.5M11.5 0.5H4M11.5 0.5V8" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+							//                       </path>
+							//                   </svg>
+							//               </a>
+							//           </div>
+							//       </article>
+							//       ';
+							//       
+							//       // формат вывода the_title() ...
+							//   }
+							//
+							//   wp_reset_postdata(); // сброс
+							?>
 
 								<article class="case__tabs-content__article radius_1 dFlex">
 									<img class="case__tabs-content__image radius_1" src="<?php echo get_template_directory_uri() ?>/new-site/assets/images/portfolio__case-1.png" alt="Контекстная реклама для производителя металлоконструкций">
@@ -265,12 +289,131 @@ Template Post Type: post, page, product
 						</div>
 						<a href="#" class="btn btn_1">Показать еще кейсы</a>
 					</div>
-				</section>-->
-			</div>
+				</section> -->
+			<!-- </div> -->
+			<main class="pageCase portfolio__main marketing__main lots_of_cases">
+				<div class="portfolio__main-container">
+					<div class="container">
+						<section class="portfolio__main-section case marketing">
+							<?php
+							if ($title_2) {
+								echo '<h1>' . $title_2 . '</h1>';
+							}
+							?>
+							<h1>Портфолио кейсов</h1>
+							<!-- <h1></h1> -->
+							<div class="case__tabs marketing__tabs">
+								<div class="filters_tab">
+									<div class="category_tab">
+										<h4 class="fs_24_12">Инструменты</h4>
+										<div data-filter-type="category_tab">
+											<?php
+											foreach ($category_children_term as $term) {
+											?>
+												<a href="#" class="button_filt fs_20_10" data-id-term="<?php echo $term->term_id; ?> "> <?php echo  $term->name; ?></a>
+											<?php
+											}
+											?>
+										</div>
+
+									</div>
+									<div class="solution_tab">
+										<h4 class="fs_24_12">Решения</h4>
+										<div data-filter-type="solution_tab">
+											<?php
+											foreach ($solution_children_term as $term) {
+											?>
+												<a href="#" class="button_filt fs_20_10" data-id-term="<?php echo $term->term_id; ?> "> <?php echo  $term->name; ?></a>
+											<?php
+											}
+											?>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="case__tabs-contents">
+									<div id="article_wrap" class="case__tabs-content blog marketing__content active">
+
+										<?php
+										$posts_main = new WP_Query(array(
+											'tax_query' => [
+												'relation' => 'AND',
+												[
+													'taxonomy' => 'category',
+													'field'		=> 'term_id',
+													'terms'		=> $cat
+												],
+											],
+											'posts_per_page' => $num_post,
+											'paged' => $current_page,
+										));
+										// текущая страница
+										$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+										// максимум страниц
+										$max_pages = $posts_main->max_num_pages;
+										// print_r($posts_main -> max_num_pages); //Количесвто постов
+										// print_r($posts_main->query['paged']); //Количесвто постов
+
+										while ($posts_main->have_posts()) : $posts_main->the_post();
+
+											$card = get_field('card');
+										?>
+											<!-- MARK: //Скрипт для бесонечной подгрузки постов -->
+											<script id="ajax-variable">
+												// window.myajax.cat = <?php //echo $cat; 
+																		?>;
+												// window.myajax.maxPages = <?php //echo $max_pages; 
+																			?>;
+												// window.myajax.paged = <?php //echo $paged; 
+																			?>;
+												// window.myajax.num_post = <?php //echo $num_post; 
+																			?>;
+												// myajax.categoryId = false;
+												// myajax.solutionId = false;
+											</script>
+
+											<article class="case__tabs-content__article radius_1 dFlex" style="background-color: <?php echo $card['color_card']; ?>">
+												<a href="<?php the_permalink(); ?>">
+													<?php if ($card['img_card']) { ?><img src="<?php echo $card['img_card']; ?>" class="background_card"><?php } ?>
+													<div calss="dFlex">
+														<?php
+														$category_obj = get_the_category();
+														foreach ($category_obj as $obj) {
+															if (($obj->category_parent != 0) and ($obj->term_id != $sub_cat[0])) {
+																echo '<div class="category_title">' . $obj->cat_name . '</div>';
+															}
+														}
+														?>
+													</div>
+													<h4 class="case__tabs-content__subtitle"><?php the_title(); ?></h4>
+												</a>
+											</article>
+										<?php
+										endwhile;
+										?>
+									</div>
+								</div>
+							</div>
+							<div id='preloader'>
+								<div></div>
+								<?php
+								wp_reset_postdata();
+								?>
+							</div>
+							<a href="/case-new/" class="btn btn_1 more_case">Показать еще кейсы</a>
+						</section>
+
+					</div>
+				</div>
+			</main>
+
+
 			<section class="pageCase__our-services pageCase__smi subscribe__smi">
 				<div class="dFlex case__contecst-text">
 					<h1 class="m-0">Мы в <span>СМИ</span></h1>
 					<!--<a class="m-0 case__contecst-link" href="#">Все статьи</a>-->
+					<a class="m-0 case__contecst-link" href="/blog/">Все статьи</a>
 				</div>
 				<div class="pageCase__smi-block">
 					<a href="https://kdelu.vtb.ru/courses/announcement/samozanyatost-kak-nayti-klientov-na-svoi-uslugi/" class="case__contecst-box pageCase__smi-box">
@@ -343,10 +486,10 @@ Template Post Type: post, page, product
 						<h1 class="m-0">
 							Обучаем <br> интернет-маркетингу
 						</h1>
-						<a class="m-0 case__contecst-link" href="https://www.youtube.com/@Mamontovtop">Перейти на ютуб-канал</a>
+						<a class="m-0 case__contecst-link" href="https://dzen.ru/mamontovtop">Перейти в Дзен</a>
 					</div>
 					<div class="pageCase__stydies-internet__block-videos">
-						<a href="https://www.youtube.com/watch?v=4td5kJ3ZyH4" class="pageCase__stydies-internet__block-video">
+						<a href="https://dzen.ru/video/watch/662d50732d418844dca09b53" class="pageCase__stydies-internet__block-video">
 							<video class="radius_1" src="#" poster="<?php echo get_template_directory_uri() ?>/new-site/assets/images/poster_1.png">
 								<source src="#" type="video/mp4">
 								<source src="#" type="video/ogg">
@@ -354,7 +497,7 @@ Template Post Type: post, page, product
 							</video>
 							<div class="play-button"></div>
 						</a>
-						<a href="https://www.youtube.com/watch?v=QnXzJ3Wdl_w" class="pageCase__stydies-internet__block-video">
+						<a href="https://dzen.ru/video/watch/662d49a87044c74beed125b0" class="pageCase__stydies-internet__block-video">
 							<video class="radius_1" src="#" poster="<?php echo get_template_directory_uri() ?>/new-site/assets/images/poster_2.png">
 								<source src="#" type="video/mp4">
 								<source src="#" type="video/ogg">
@@ -366,7 +509,7 @@ Template Post Type: post, page, product
 					</div>
 					<div class="swiper-container pageCase__stydies-internet__block-videos__container-mobile swiper-initialized swiper-horizontal">
 						<div class="swiper-wrapper pageCase__stydies-internet__block-videos" id="swiper-wrapper-9ad4bc7510808e17e" aria-live="polite" style="transition-duration: 0ms; transition-delay: 0ms;">
-							<a href="https://www.youtube.com/watch?v=4td5kJ3ZyH4"  class="swiper-slide pageCase__stydies-internet__block-video" data-swiper-slide-index="0" role="group" aria-label="1 / 2">
+							<a href="https://www.youtube.com/watch?v=4td5kJ3ZyH4" class="swiper-slide pageCase__stydies-internet__block-video" data-swiper-slide-index="0" role="group" aria-label="1 / 2">
 								<video class="radius_1 video" src="#" poster="<?php echo get_template_directory_uri() ?>/new-site/assets/images/poster_1.png">
 									<source src="#" type="video/mp4">
 									<source src="#" type="video/ogg">
@@ -388,22 +531,25 @@ Template Post Type: post, page, product
 							<button type="button" class="btn-slider btn-slider__clients btn-prev__stydies" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-9ad4bc7510808e17e"></button>
 							<button type="button" class="btn-slider btn-slider__clients btn-next__stydies" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-9ad4bc7510808e17e"></button>
 						</div>
-					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+						<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+					</div>
 				</div>
 			</section>
 		</main>
 
-        <?php get_template_part('templates/footer-main'); ?>
-    </div>
-    <script
-        src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <!--Slick Slider-->
-    <script src="<?php echo get_template_directory_uri() ?>/new-site/assets/lib/slick/slick.min.js"></script>
-    <script src="<?php echo get_template_directory_uri() ?>/new-site/assets/lib/slick/slick.js"></script>
 
-    <script src="<?php echo get_template_directory_uri() ?>/new-site/assets/js/script.js"></script>
+	</div>
+	<?php get_footer(); ?>
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+	<!--Slick Slider-->
+	<script src="<?php echo get_template_directory_uri() ?>/new-site/assets/lib/slick/slick.min.js"></script>
+	<script src="<?php echo get_template_directory_uri() ?>/new-site/assets/lib/slick/slick.js"></script>
+
+	<script src="<?php echo get_template_directory_uri() ?>/new-site/assets/js/script.js"></script>
 </body>
+
 </html>

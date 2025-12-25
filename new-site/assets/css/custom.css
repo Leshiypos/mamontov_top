@@ -5106,3 +5106,14 @@ textarea {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Страница спасибо */
+.more_case {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.more_case:hover {
+  color: white;
+  opacity: 0.8;
+}

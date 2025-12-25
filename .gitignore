@@ -1,1 +1,5 @@
 wp-config.php
+vendor
+composer.json
+composer.lock
+.vscode/
