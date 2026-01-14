@@ -284,19 +284,19 @@ function ready() {
         spaceBetween: 30,
         breakpoints: {
           300: {
-            slidesPerView: 1.2,
+            slidesPerView: 1,
           },
           400: {
-            slidesPerView: 1.2,
+            slidesPerView: 1,
           },
           768: {
-            slidesPerView: 2.2,
+            slidesPerView: 2,
           },
           993: {
-            slidesPerView: 3.2,
+            slidesPerView: 3,
           },
           1200: {
-            slidesPerView: 4.2,
+            slidesPerView: 4,
           },
         },
 
