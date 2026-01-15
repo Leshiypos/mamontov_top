@@ -738,6 +738,13 @@ h2 span,
   margin: 140px auto 0;
 }
 
+.pageCase__our-services .swiperWrapOurServices__btns {
+  gap: 24px;
+  margin-left: auto;
+  margin-top: 30px;
+  width: fit-content;
+}
+
 .pageCase__price-services__container-block {
   margin: 0 0 60px;
 }
@@ -4828,7 +4835,7 @@ textarea {
   }
 
   .pageCase__our-services__card-image {
-    height: 157px;
+    /* height: 157px; */
   }
 
   .pageCase__our-service__title {

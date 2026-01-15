@@ -287,16 +287,16 @@ function ready() {
             slidesPerView: 1,
           },
           400: {
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
           768: {
             slidesPerView: 2,
           },
           993: {
-            slidesPerView: 3,
+            slidesPerView: 2,
           },
           1200: {
-            slidesPerView: 4,
+            slidesPerView: 3,
           },
         },
 
