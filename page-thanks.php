@@ -912,6 +912,10 @@ $solution_children_term = get_terms('solutions'); //Получаем термы 
 						echo '
 							</div>
 						</div>
+							<div class="swiperWrapOurServices__btns dFlex">
+								<button type="button" class="btn-slider btn-prev__our-services"></button>
+								<button type="button" class="btn-slider btn-next__our-services"></button>
+							</div>
 					</section>
 					';
 					endif;
