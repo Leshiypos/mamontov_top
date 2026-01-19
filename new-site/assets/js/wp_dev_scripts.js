@@ -11,7 +11,6 @@ function initButtonArrowTop() {
     } else {
       buttonArrowTop.classList.remove("visible");
     }
-    console.log(currenWindowOffset);
   });
 
   document.addEventListener("click", (e) => {

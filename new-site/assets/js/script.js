@@ -290,13 +290,13 @@ function ready() {
             slidesPerView: 2,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
           },
           993: {
-            slidesPerView: 2,
+            slidesPerView: 3,
           },
           1200: {
-            slidesPerView: 3,
+            slidesPerView: 4,
           },
         },
 

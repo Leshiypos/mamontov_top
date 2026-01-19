@@ -459,6 +459,31 @@ function my_custom_block_register_block()
 			'hierarchical' => true,
 		)
 	);
+
+	// регистрация CPT Тарифы
+	//Команда
+	register_post_type('tariffs', array(
+		'labels'             => array(
+			'name'                  => 'Тарифы',
+			'singular_name'         => 'Тариф',
+			'add_new'               => 'Добавить тариф',
+			'edit_item'               => 'Редактировать тариф',
+
+		),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array('slug' => 'tariffs'),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 8,
+		'menu_icon'          => 'dashicons-money-alt',
+		'supports'           => array('title'),
+		// 'taxonomies'          => ['position'],
+	));
 }
 
 add_action('init', 'my_custom_block_register_block');
