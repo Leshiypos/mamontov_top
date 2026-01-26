@@ -1,11 +1,8 @@
 <?php
 if (get_row_layout() == 'tariffs_CPT') {
 	$tariffs_id = get_sub_field("tariff_obj");
-
 	$tariff_cpt = get_field("tariffs_cpt", $tariffs_id);
-	var_dump($tariff_cpt);
-	$title = $tariff_cpt["title"] ? $tariff_cpt["title"] : "Заголовок не установлен";
-
+	$title = !empty($tariff_cpt["title"]) ? $tariff_cpt["title"] : "Заголовок не установлен";
 ?>
 
 	<?php
@@ -24,7 +21,7 @@ if (get_row_layout() == 'tariffs_CPT') {
 				<div class="tariffs_content">
 
 					<?php
-					if ($tariff_cpt["comp_of_services"]) {
+					if (!empty($tariff_cpt["comp_of_services"])) {
 						$count = 1;
 					?>
 						<div class="service_compos">
@@ -43,7 +40,7 @@ if (get_row_layout() == 'tariffs_CPT') {
 					?>
 
 					<?php
-					if ($tariff_cpt["tariff"]) {
+					if (!empty($tariff_cpt["tariff"])) {
 					?>
 						<div class="tariffs_block">
 							<div class="swiper_tariffs">
@@ -68,7 +65,6 @@ if (get_row_layout() == 'tariffs_CPT') {
 												?>
 													<ul>
 														<?php foreach ($tariff['tariff_point'] as $tariff_point) {
-															the_row();
 															$check_serv = $tariff_point['check_serv'];
 															$desc = $tariff_point['desc'];
 														?>

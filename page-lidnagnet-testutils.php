@@ -769,6 +769,9 @@ Template Post Type: page
 
 					// stages of work секция
 					get_template_part('templates/layout/stages_of_work_section');
+
+					// Секция Услуги тарифы общие для всего сайта
+					get_template_part('templates/layout/tariffs_CPT');
 					?>
 
 			<?php

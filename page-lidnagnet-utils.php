@@ -774,6 +774,9 @@ Template Post Type: page
 					// teach_marketing секция Обучаем интернет маркетингу
 					get_template_part('templates/layout/teach_marketing_section');
 
+					// Секция Услуги тарифы общие для всего сайта
+					get_template_part('templates/layout/tariffs_CPT');
+
 					?>
 
 			<?php

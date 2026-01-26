@@ -648,6 +648,9 @@ Template Post Type: page
 
 					// Секция Слайдер с клиентами  section_our_clients.php
 					get_template_part('templates/layout/section_our_clients');
+
+					// Секция Услуги тарифы общие для всего сайта
+					get_template_part('templates/layout/tariffs_CPT');
 					?>
 
 			<?php
